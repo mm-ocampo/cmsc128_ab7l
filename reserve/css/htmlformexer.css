@@ -1,0 +1,24 @@
+#formproper{
+background-color: #ffffff;
+margin-top: 40px;
+margin-left: 30%;
+margin-right: 30%;
+border-radius:25px;
+border-style:outset;
+
+}
+
+#check,#mult,#sec,#basic,#pass{
+
+margin-left: 30%;
+margin-right: 31%;
+}
+
+
+
+body{
+background-image:url('../img/black.jpg');
+background-color: #000000;
+}
+
+
