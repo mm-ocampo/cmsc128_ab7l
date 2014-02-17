@@ -4,16 +4,463 @@
     <bookmark url="file://$PROJECT_DIR$/application/config/routes.php" line="40" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" name="Default" comment="" />
+    <list default="true" id="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/home_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/manage_account.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/manage_account_model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/manage_account_view.php" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\reserve.iml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\RECYCLE BIN. DITO KO NILAGAY LAHAT NG HINDI KAILANGAN SA PROJECT\welcome.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\RECYCLE BIN. DITO KO NILAGAY LAHAT NG HINDI KAILANGAN SA PROJECT\welcome_message.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\cache\.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\cache\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\config.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\constants.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\database.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\doctypes.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\foreign_chars.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\hooks.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\migration.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\mimes.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\profiler.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\routes.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\smileys.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\config\user_agents.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\controllers\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\controllers\main.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\controllers\sample.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\controllers\signup.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\controllers\site.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\core\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\htmlformexer.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\main.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\css\pattern.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\errors\error_404.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\errors\error_db.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\errors\error_general.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\errors\error_php.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\errors\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\helpers\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\hooks\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\language\english\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\libraries\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\logs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\delete_model.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\get_database.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\sample_model.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\signup_model.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\models\table_model.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\third_party\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\accounts_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\admin_reserve_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\book_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\confirm_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\edit_book_details.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\footer.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\form.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\header.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\home_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\icslib.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\index_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\navigator.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\print_results.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\sample_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\search_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\searchbar.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\signup_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\success_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\table_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\application\views\user_update.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\CmscOble.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\ICS Logo.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\ICSLib.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\bookdefault.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\check.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\cross.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\icsjs.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\assets\icslib.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\htmlformexer.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\main.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\css\pattern.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\index.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\js\jquery-2.0.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\license.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Benchmark.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\CodeIgniter.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Common.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Config.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Controller.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Exceptions.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Hooks.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Input.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Loader.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Model.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Output.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Router.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Security.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\URI.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\Utf8.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\core\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_active_rec.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_cache.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\DB_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\cubrid\cubrid_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\cubrid\cubrid_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\cubrid\cubrid_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\cubrid\cubrid_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\cubrid\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mssql\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mssql\mssql_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mssql\mssql_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mssql\mssql_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mssql\mssql_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysql\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysql\mysql_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysql\mysql_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysql\mysql_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysql\mysql_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysqli\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysqli\mysqli_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysqli\mysqli_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysqli\mysqli_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\mysqli\mysqli_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\oci8\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\oci8\oci8_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\oci8\oci8_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\oci8\oci8_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\oci8\oci8_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\odbc\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\odbc\odbc_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\odbc\odbc_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\odbc\odbc_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\odbc\odbc_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\pdo\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\pdo\pdo_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\pdo\pdo_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\pdo\pdo_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\pdo\pdo_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\postgre\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\postgre\postgre_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\postgre\postgre_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\postgre\postgre_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\postgre\postgre_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlite\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlite\sqlite_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlite\sqlite_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlite\sqlite_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlite\sqlite_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlsrv\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlsrv\sqlsrv_driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlsrv\sqlsrv_forge.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlsrv\sqlsrv_result.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\drivers\sqlsrv\sqlsrv_utility.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\database\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\fonts\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\fonts\texb.ttf" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\array_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\captcha_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\cookie_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\date_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\directory_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\download_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\email_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\file_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\form_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\html_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\inflector_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\language_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\number_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\path_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\security_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\smiley_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\string_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\text_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\typography_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\url_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\helpers\xml_helper.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\calendar_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\date_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\db_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\email_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\form_validation_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\ftp_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\imglib_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\migration_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\number_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\profiler_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\unit_test_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\english\upload_lang.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\language\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cache\Cache.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cache\drivers\Cache_apc.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cache\drivers\Cache_dummy.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cache\drivers\Cache_file.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cache\drivers\Cache_memcached.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Calendar.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Cart.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Driver.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Email.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Encrypt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Form_validation.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Ftp.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Image_lib.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Javascript.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Log.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Migration.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Pagination.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Parser.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Profiler.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Session.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Sha1.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Table.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Trackback.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Typography.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Unit_test.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Upload.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\User_agent.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Xmlrpc.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Xmlrpcs.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\Zip.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\system\libraries\javascript\Jquery.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\changelog.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\active_record.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\caching.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\call_function.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\configuration.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\connecting.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\examples.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\fields.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\forge.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\helpers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\queries.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\results.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\table_data.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\transactions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\database\utilities.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\doc_style\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\doc_style\template.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\alternative_php.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\ancillary_classes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\autoloader.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\caching.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\cli.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\common_functions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\controllers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\core_classes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\creating_drivers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\creating_libraries.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\credits.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\drivers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\environments.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\errors.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\helpers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\hooks.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\libraries.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\managing_apps.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\models.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\profiling.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\quick_reference.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\requirements.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\reserved_names.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\routing.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\security.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\styleguide.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\urls.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\general\views.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\array_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\captcha_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\cookie_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\date_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\directory_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\download_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\email_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\file_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\form_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\html_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\inflector_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\language_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\number_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\path_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\security_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\smiley_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\string_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\text_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\typography_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\url_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\helpers\xml_helper.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\appflowchart.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\arrow.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\ci_logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\ci_logo_flame.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\ci_quick_ref.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\codeigniter_1.7.1_helper_reference.pdf" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\codeigniter_1.7.1_helper_reference.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\codeigniter_1.7.1_library_reference.pdf" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\codeigniter_1.7.1_library_reference.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\file.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\folder.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\nav_bg_darker.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\nav_separator_darker.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\nav_toggle_darker.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\reactor-bullet.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\smile.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\images\transparent.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\downloads.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\troubleshooting.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_120.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_130.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_131.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_132.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_133.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_140.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_141.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_150.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_152.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_153.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_154.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_160.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_161.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_162.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_163.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_170.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_171.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_172.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_200.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_201.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_202.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_203.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_210.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_211.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_212.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_213.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_214.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrade_b11.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\installation\upgrading.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\benchmark.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\caching.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\calendar.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\cart.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\email.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\encryption.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\file_uploading.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\form_validation.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\ftp.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\image_lib.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\input.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\javascript.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\language.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\loader.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\migration.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\output.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\pagination.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\parser.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\security.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\sessions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\table.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\trackback.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\typography.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\unit_testing.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\uri.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\user_agent.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\xmlrpc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\libraries\zip.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\license.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\nav\hacks.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\nav\moo.fx.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\nav\nav.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\nav\prototype.lite.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\nav\user_guide_menu.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\appflow.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\at_a_glance.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\cheatsheets.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\features.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\getting_started.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\goals.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\overview\mvc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\toc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\conclusion.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\create_news_items.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\hard_coded_pages.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\news_section.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\tutorial\static_pages.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\reserve\user_guide\userguide.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_accounts_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_add_book_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_approve_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_default_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_delete_book_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_profile_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\admin_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\default_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\header.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\home_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\search_book_view.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\wamp\www\reserve\views\user_default_view.php" afterPath="" />
+    </list>
     <ignored path="reserve.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/print_results.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391146773550" ignored="false" />
-    <file path="/book_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391146529374" ignored="false" />
-    <file path="/main.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391150491296" ignored="false" />
+    <file path="/print_results.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392548771946" ignored="false" />
+    <file path="/book_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392548945432" ignored="false" />
+    <file path="/main.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392549058756" ignored="false" />
     <file path="/confirm_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391150449913" ignored="false" />
-    <file path="/Dummy.txt" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391313902899" ignored="false" />
-    <file path="/search_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391313753508" ignored="false" />
-    <file path="/signup_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1391628739867" ignored="false" />
+    <file path="/Dummy.txt" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392555852896" ignored="false" />
+    <file path="/search_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392542382240" ignored="false" />
+    <file path="/signup_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392149904259" ignored="false" />
+    <file path="/manage_account.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392210124340" ignored="false" />
+    <file path="/manage_account_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392537523888" ignored="false" />
+    <file path="/manage_account_model.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392538015001" ignored="false" />
+    <file path="/signup_model.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392151894199" ignored="false" />
+    <file path="/signup.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392540203368" ignored="false" />
+    <file path="/edit_book_details_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392543670818" ignored="false" />
+    <file path="/site.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392544341996" ignored="false" />
+    <file path="/get_database.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392551223569" ignored="false" />
+    <file path="/home_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392546009288" ignored="false" />
+    <file path="/my_library_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392544558363" ignored="false" />
+    <file path="/admin_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392549438999" ignored="false" />
+    <file path="/header.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392552976248" ignored="false" />
+    <file path="/footer.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392553008445" ignored="false" />
+    <file path="/material_view.php" changelist="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" time="1392553209946" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,53 +480,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="site.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="28" selection-start="1642" selection-end="1642" vertical-scroll-proportion="-18.307692">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/search_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="34" selection-start="789" selection-end="789" vertical-scroll-proportion="-11.461538">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/home_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="146" selection-end="146" vertical-scroll-proportion="-7.1923075">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="0" selection-start="4819" selection-end="4819" vertical-scroll-proportion="-13.076923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="31" selection-start="518" selection-end="518" vertical-scroll-proportion="20.26923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample_model.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/sample_model.php">
+      <file leaf-file-name="material_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/material_model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -87,10 +489,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="print_results.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/print_results.php">
+      <file leaf-file-name="material_view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/material_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="22" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-14.384615">
+            <state line="50" column="28" selection-start="2405" selection-end="2405" vertical-scroll-proportion="-3.6538463">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigator.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/navigator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_database.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/get_database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="24" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-5.0583806">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material_controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/material_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,23 +532,33 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/book_view.php" />
-        <option value="$PROJECT_DIR$/application/views/confirm_view.php" />
-        <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="$PROJECT_DIR$/application/views/home_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/main.php" />
-        <option value="$PROJECT_DIR$/application/models/get_database.php" />
-        <option value="$PROJECT_DIR$/application/views/accounts_view.php" />
+        <option value="$PROJECT_DIR$/application/views/edit_book_details_view.php" />
         <option value="$PROJECT_DIR$/application/views/signup_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/site.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/views/my_library_view.php" />
+        <option value="$PROJECT_DIR$/application/views/book_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/main.php" />
+        <option value="$PROJECT_DIR$/application/views/admin_view.php" />
         <option value="$PROJECT_DIR$/application/views/print_results.php" />
-        <option value="$PROJECT_DIR$/application/views/search_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/site.php" />
         <option value="$PROJECT_DIR$/application/views/form.php" />
+        <option value="$PROJECT_DIR$/application/views/search_view.php" />
+        <option value="$PROJECT_DIR$/application/views/home_view.php" />
+        <option value="$PROJECT_DIR$/application/models/get_database.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/application/views/includes/footer.php" />
+        <option value="$PROJECT_DIR$/application/views/material_view.php" />
       </list>
     </option>
   </component>
@@ -130,7 +569,7 @@
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -225,66 +664,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reserve" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
   </component>
@@ -293,15 +679,48 @@
       <recent name="D:\wamp\www\reserve\application\views" />
       <recent name="D:\wamp\www\reserve\application" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp\www\reserve\application\views" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.sample_model.php">
+    <configuration default="false" name="sample_model.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/application/models/sample_model.php">
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.sample_model.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.sample_model.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1d0fbaa8-368e-4364-b5fd-b6794d57f96d" name="Default" comment="" />
@@ -317,18 +736,19 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2977273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2659091" sideWeight="0.6700337" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24545455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -394,106 +814,94 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/css/main.css">
+    <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/book_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="311" selection-end="311" vertical-scroll-proportion="0.032015067" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/get_database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.032015067" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/delete_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/accounts_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="41" selection-start="1400" selection-end="1400" vertical-scroll-proportion="151.6923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="12" selection-start="134" selection-end="134" vertical-scroll-proportion="0.26877472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="42" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.40625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="36" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.65625">
-          <folding />
-        </state>
+        <state line="126" column="79" selection-start="4627" selection-end="4627" vertical-scroll-proportion="-15.692307" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/print_results.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-14.384615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/search_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="34" selection-start="789" selection-end="789" vertical-scroll-proportion="-11.461538">
-          <folding />
-        </state>
+        <state line="21" column="84" selection-start="595" selection-end="595" vertical-scroll-proportion="-13.730769" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="28" selection-start="1642" selection-end="1642" vertical-scroll-proportion="-18.307692">
-          <folding />
-        </state>
+        <state line="63" column="5" selection-start="1315" selection-end="1315" vertical-scroll-proportion="-28.923077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/search_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="17" selection-start="2585" selection-end="2585" vertical-scroll-proportion="-18.73077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/home_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="146" selection-end="146" vertical-scroll-proportion="-7.1923075">
+        <state line="21" column="9" selection-start="421" selection-end="421" vertical-scroll-proportion="-0.42307693" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="24" selection-start="999" selection-end="999" vertical-scroll-proportion="6.5384617" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="51" selection-start="1445" selection-end="1445" vertical-scroll-proportion="-13.846154">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="78" selection-start="145" selection-end="145" vertical-scroll-proportion="-2.6153846" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="14" selection-start="0" selection-end="14" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="0" selection-start="4819" selection-end="4819" vertical-scroll-proportion="-13.076923">
-          <folding />
-        </state>
+        <state line="0" column="38" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/main.php">
+    <entry file="file://$PROJECT_DIR$/application/models/material_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="31" selection-start="518" selection-end="518" vertical-scroll-proportion="20.26923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/sample_model.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/material_controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/material_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="28" selection-start="2405" selection-end="2405" vertical-scroll-proportion="-3.6538463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/navigator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/get_database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="24" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-5.0583806">
           <folding />
         </state>
       </provider>

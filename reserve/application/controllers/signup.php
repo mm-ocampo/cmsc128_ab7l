@@ -16,11 +16,10 @@ class Signup extends CI_Controller {
         $this->load->model('signup_model');
     }
 
-    function index()
-    {
+    function index(){
         $this->load->helper('form');
-
         $this->load->library('form_validation');
+
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|xss_clean');
         $this->form_validation->set_rules('student_number', 'Student_number', 'trim|required|xss_clean');
         $this->form_validation->set_rules('degree_program', 'Degree_program', 'trim|required|min_length[4]|xss_clean');
@@ -34,50 +33,49 @@ class Signup extends CI_Controller {
         $this->form_validation->set_rules('birth_date', 'Birth_date', 'required|xss_clean');
         $this->form_validation->set_rules('employee_number', 'Employee_number', 'required|xss_clean');
 
-        if ($this->form_validation->run() == FALSE)
-        {
+        if ($this->form_validation->run() == FALSE){
             $this->load->view('signup_view');
         }
-        else
-        {
+        else{
             $this->load->view('success_view');
         }
     }
 
-    /*function check_database($password)
-    {
-        //Field validation succeeded.&nbsp; Validate against database
-        $student_number = $this->input->post('student_number');
-
-        //query the database
-        $result = $this->user->login($student_number, $password);
-
-        if($result)
-        {
-            $sess_array = array();
-            foreach($result as $row)
-            {
-                $sess_array = array(
-                    'id' => $row->id,
-                    'student_number' => $row->username
-                );
-                $this->session->set_userdata('logged_in', $sess_array);
-            }
-            return TRUE;
-        }
-        else
-        {
-            $this->form_validation->set_message('check_database', 'Invalid username or password');
-            return false;
-        }
-    }*/
-
     function insert_info(){
-        $this->signup_model->insert_data();
+        $email_config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'ics.elib.admistrator@gmail.com',
+            'smtp_pass' => 'icselibadmin'
+        );
 
-        $result = $this->signup_model->fetch_data();
-        $this->load->view('success_view', $result);
+        $this->load->library('email', $email_config);
+        $this->email->set_newline("\r\n");
 
+        $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
+        $this->email->to($this->input->post('email'));
+        $this->email->subject('Thank you for signing up for an ICS e-Lib account!');
+        $this->email->message("Greetings from ICS e-Lib!
+
+         Your request has been received, verified and awaiting for approval. We will get you notified as soon as your application is approved.
+
+         Please wait for the confimation of our administrator. We will send you an email as soon as your application is approved. Thank you.
+
+         Yours Truly,
+         ICS e-Lib DevTeam
+         ");
+
+        if( $this->email->send()){
+
+            $this->signup_model->insert_data();
+
+            $result = $this->signup_model->fetch_data();
+            $this->load->view('success_view', $result);
+        }
+        else{
+            show_error($this->email->print_debugger());
+        }
     }
 }
 

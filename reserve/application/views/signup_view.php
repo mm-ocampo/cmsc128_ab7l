@@ -94,7 +94,7 @@
                                     <div id="type" class="btn-group" data-toggle="buttons-radio">
                                         <label for="student"><div id="student_button" class="btn btn-large btn-default custom" onclick="show_student()">Student</div></label>
                                         <input id="student" name="type" data-toggle="tab" type="radio" value="Student"/>
-                                        <label for="faulty"><div id="faculty_button" class="btn btn-large btn-default custom" onclick="show_faculty()">Faculty</div></label>
+                                        <label for="faculty"><div id="faculty_button" class="btn btn-large btn-default custom" onclick="show_faculty()">Faculty</div></label>
                                         <input id="faculty" name="type" data-toggle="tab" type="radio" value="Faculty"/>
                                     </div><br><br>
 
@@ -355,10 +355,9 @@
         }
 
         function checkAll(){
-            if(checkfName()&& checklName() && checkBday() && checkemail() && checkemail() && checkmName() && checkPassword() && matchPassword() && checksNumber() && checkuName()){
+            if(checkfName()&& checklName() && checkBday() && checkemail() && checkemail() && checkmName() && checkPassword() && matchPassword() && checkuName()){
                 return true;
             }
-            alert("omg");
             return false;
         }
     </script>
