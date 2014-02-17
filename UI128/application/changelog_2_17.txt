@@ -1,0 +1,7 @@
+UI CHANGES:
+
+ - sign up in carousel LINKED to signup_view
+ - Home in navbar linked to default_view
+ - created about_view and contact_us_view layouts interlinked with default_home
+ - sign in available in default_view, about_view and contact_us_view
+ - UI for contact_us_view complete
