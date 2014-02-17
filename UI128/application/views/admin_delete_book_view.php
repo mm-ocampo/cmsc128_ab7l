@@ -55,9 +55,7 @@
         <div id="cut">
             <h3 class="page-header">Delete Book</h3>
         </div>
-        <label>Input the book you want to delete</label>
-        <input type="text" class="input-xlarge search-query">
-        <button type="submit" class="btn">Search</button>
+        <?php include"search_view.php";?>
         </form>
 
     </div>
@@ -68,7 +66,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 </body>

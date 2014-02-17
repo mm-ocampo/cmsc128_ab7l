@@ -13,10 +13,10 @@
                 *TEMPORARY ONLY. Pangcheck kung user ba o admin
                 *
                 */
-                $_SESSION['usertype'] = "user";
+                $_SESSION['usertype'] = "admin";
                 $accession_number = "";
                 $i = 0;
-
+                echo "<table class='table table-striped'>";
                 foreach ($search as $row) {
 
                     if($accession_number != $row->accession_number && $i==0){       
@@ -28,10 +28,11 @@
                                 $title = $row->title;
                                 $publisher = $row->publisher;
                                 $author = $row->author;
-                                echo "<ul>";
-                                echo "<li>".$title."</li>";
-                                echo "<li>".$publisher."</li>";
-                                if($author!=NULL) echo "<li>".$author."</li>";
+                                
+                                echo "<tr>";
+                                echo "<td>".$title."</td>";
+                                echo "<td>".$publisher."</td>";
+                                if($author!=NULL) echo "<td>".$author."</td>";
                             
 
                         $i = 1;
@@ -42,27 +43,29 @@
 
                         if($_SESSION['usertype']=="admin"){
 ?>
-                            echo "<a href = 'delete?id={$accession_number}'><input class='btn btn-primary' type='button' name='".$row->accession_number."' value='Delete'/></a>";
-                            <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
-                            <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
-                            <input type="submit" value="Edit" />
-                </form>
-    
-                    <?php
+                            <?php echo "<td><a name='link' id='link' href = '".base_url()."index.php/site/delete?id={$accession_number}' onclick='return confirm_delete()'><input type='button' name='".$row->accession_number."' value='Delete' /></a></td>"; ?>
+                            <td><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
+        <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
+        <input type="submit" value="Edit" />
+    </form></td>
+    <?php
                         }
                         else if($_SESSION['usertype']=="user"){
 ?>
-                            <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
-                            <button class="btn btn-primary" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
-                            </form>
-                            <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
+                           <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
+                                <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
+                            </form></td>
+                           <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
                                 <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
                                 <input type="hidden" value="gjpgagno@gmail.com" id="email" name="email"><!-- Hard coded email; MUST change to session-->
-                                <input class="btn btn-primary" type="submit" value="Bookmark"/>
-                            </form>
+                                <input type="submit" value="Bookmark"/>
+                            </form></td>
 <?php
                         }
-                        echo "</ul>";
+                        echo "</tr>";
+                        
+                        
+                        
                         echo "</div></div>";
 
                         $accession_number = $row->accession_number;
@@ -72,50 +75,61 @@
                                 $title = $row->title;
                                 $publisher = $row->publisher;
                                 $author = $row->author;
-                                echo "<ul>";
-                                echo "<li>".$title."</li>";
-                                echo "<li>".$publisher."</li>";
-                                if($author!=NULL) echo "<li>".$author."</li>";
+                                echo "<td>".$title."</td>";
+                                echo "<td>".$publisher."</td>";
+                                if($author!=NULL) echo "</td>".$author."</td>";
 
                     }
 
                     else{
 
                         $author = $row->author;
-                        echo "<li>".$author."</li>";
+                        echo "<td>".$author."</td>";
 
                     }
-
+                    
                 }
+                
 
                 if($accession_number!="" && $_SESSION['usertype'] == "admin"){
 
-                    echo "<a href = 'delete?id={$accession_number}'><input class='btn btn-primary' type='button' name='".$row->accession_number."' value='Delete'/></a>";
+                    echo "<td><a name='link' id='link' href = '".base_url()."index.php/site/delete?id={$accession_number}' onclick='return confirm_delete()'><input type='button' name='".$row->accession_number."' value='Delete'/></a></td>";
                     ?>
-                    <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
+                    <td><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
                         <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
                         <input type="submit" value="Edit" />
-                    </form>
+                    </form></td>
                     <?php
-                    echo "</ul>";
                     echo "</div></div>";
 
                 }
 
                 else if($accession_number!="" && $_SESSION['usertype'] == "user"){
 ?>
-                    <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
-                        <button class="btn btn-primary" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
-                    </form>
-                    <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
+                   <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
+                        <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
+                    </form></td>
+                   <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
                         <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
                         <input type="hidden" value="gjpgagno@gmail.com" id="email" name="email"><!-- Hard coded email; MUST change to session-->
                         <input type="submit" value="Bookmark"/>
-                    </form><?php
-                    echo "</ul>";
+                    </form></td><?php
                     echo "</div></div>";
 
                 }
 
+                echo "</table>";
 
 ?>
+
+ 
+<script type='text/javascript' language='javascript'>
+
+    function confirm_delete(){
+    var temp = confirm("Do you really want to delete this material?");
+    
+    /* changes value of href in link to pass variable to isset function in delete function in site.php */
+    document.getElementById("link").href = document.getElementById("link").href + "&confirm=" + temp;
+}
+
+</script>

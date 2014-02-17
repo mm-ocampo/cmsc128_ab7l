@@ -32,7 +32,7 @@
 
 						if($page_number!=1){
 
-						echo "<a href=\"search?page_number=".($page_number-1).$link."Previous</a>";
+						echo "<a href=\"search?page_number=".($page_number-1),$link."Previous</a>";
 
 						}
 
@@ -41,14 +41,14 @@
 
 						if($page_number!=$max){
 
-						echo "<a href=\"search?page_number=".($page_number + 1).$link."Next</a>";
+						echo "<a href=\"search?page_number=",($page_number + 1),$link."Next</a>";
 
 						}
 
 						$i=1;
 						while($i<=$max){
 
-							echo "<a href=\"search?page_number=".$i.$link.$i."</a>";
+							echo "<a href=\"search?page_number=".$i,$link,$i."</a>";
 							$i++;
 
 						}

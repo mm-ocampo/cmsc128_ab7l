@@ -7,6 +7,7 @@ class Site extends CI_Controller {
         parent::__construct();
 
         $this->load->model('get_database');
+        $this->load->model('delete_model');
         $this->load->helper('url');
         $this->load->helper('form');
 
@@ -64,7 +65,7 @@ class Site extends CI_Controller {
         {											// get this
             $id = $_GET['id'];						// get this
             $this->delete_model->delete_material($id);	// get this
-            $this->load->view('home_view');
+            $this->load->view('user_search_book_view');
         }
 
 

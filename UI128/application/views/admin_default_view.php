@@ -67,9 +67,7 @@
     <!--FOR THE MEAN TIME, JUST USE THIS BUTTONS-->
     <div class="floatright">
       <a class="btn btn-primary" href="/UI128/index.php/elib/admin_add_book">Add Book</a>
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_delete_book">Delete Book</a>
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_update_book">Update Book Info</a>
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_search_book">Search Book</a>
+      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_delete_book">Search / Delete / Update Book</a>
       <a class="btn btn-primary" href="/UI128/index.php/elib/admin_approve">Approve Book Request</a><br>
     </div>
 
@@ -79,7 +77,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 </body>

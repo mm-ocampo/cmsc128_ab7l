@@ -48,76 +48,7 @@
       </div>
 </div>
 
-    <div class="floatright">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><< Back</a>
-
-        <form class="form-horizontal">
-        <div id="cut">
-            <h3 class="page-header">Update Book</h3>
-        </div>
-
-          <div class="control-group">
-          <label class="control-label">Title</label>
-              <div class="controls">
-              <input type="text" disable>
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Author</label>
-              <div class="controls">
-              <input type="text" disable>
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Year of Publication</label>
-              <div class="controls">
-              <input type="text" disable>
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Publisher</label>
-              <div class="controls">
-              <input type="text" disable>
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Accession Number</label>
-              <div class="controls">
-              <input type="text">
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Book Type</label>
-              <div class="controls">
-                  <label class="checkbox inline">
-                  <input type="checkbox" id="inlineCheckbox1" value="Book"> Book
-                  </label>
-                  <label class="checkbox inline">
-                  <input type="checkbox" id="inlineCheckbox2" value="Magazine/Newsletter"> Magazine Newsletter
-                  </label>
-                  <label class="checkbox inline">
-                  <input type="checkbox" id="inlineCheckbox3" value="Thesis/SP"> Thesis/SP
-                  </label>
-              </div>
-          </div>
-          <div class="control-group">
-          <label class="control-label">Book Status</label>
-              <div class="controls">
-              <select>
-                  <option>Available</option>
-                  <option>Borrowed</option>
-                  <option>Reserved</option>
-                  </select>
-              </div>
-          </div>
-        <div class="form-actions" id="cut">
-            <button type="submit" class="btn btn-primary">Save changes</button>
-            <button type="button" class="btn">Cancel</button>
-        </div>
-        </form>
-
-
-    </div>
+    
 
 
 
@@ -125,7 +56,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 </body>

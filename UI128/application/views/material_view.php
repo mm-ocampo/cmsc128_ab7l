@@ -53,7 +53,7 @@
 					    <option value="sp">Special Problem</option>
 					    <option value="thesis">Thesis</option>
 					    <option value="journal">Journal</option>
-                    </select>
+                    </select>	
 					<span name="type_prompt"></span>
 			</div>
 

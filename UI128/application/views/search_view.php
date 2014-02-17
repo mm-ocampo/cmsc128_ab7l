@@ -53,13 +53,15 @@
 			}
 		
 		</style>
-		
+
 	</head>
 
 	<body>
 
 		<section id="search_module">
+
 			<?php include "form.php";?>
+
 		</section>
 
 		<nav class="navigate_module">
@@ -97,7 +99,9 @@
 
                     if(input.length < 3){}
                     else{
+
                         $.ajax({
+
                             type: "GET",
                             url: "<?php echo base_url(); ?>index.php/site/suggest/",
                             data: query,
@@ -106,12 +110,19 @@
 
                                 $("#display_suggestion").css("display","block");
                                 $("#display_suggestion").html(html);
+
                             }
+
                         });
+
                     }
+
                     return false;
+
                 });
+
             });
+
         </script>
 
 	</body>
