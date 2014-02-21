@@ -90,7 +90,7 @@
 
     </select>
 
-    <input class="btn btn-primary" type="submit"/><br/>
+    <input class="btn btn-primary" href="/UI128/index.php/site/callResults" type="submit"/><br/>
 
     <div id="display_suggestion">
 

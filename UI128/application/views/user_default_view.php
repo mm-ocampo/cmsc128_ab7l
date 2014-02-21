@@ -28,7 +28,7 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
       <!-- Begin page content -->
@@ -36,8 +36,8 @@
       <div class="row">
       <div class="span4 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix">
-          <h2>Hi USER!</h2>
-          <li class="active"><a href="/UI128/index.php/site/get_my_library_data"><i class="icon-chevron-right"></i>Books</a></li>
+          <h2>Hi <?php echo $this->session->userdata('name');?>!</h2>
+          <li class="active"><a href="/UI128/index.php/site/get_my_library_data?page_number=1"><i class="icon-chevron-right"></i>Books</a></li>
           <li class=""><a href="/UI128/index.php/elib/user_search_book"><i class="icon-chevron-right"></i>Search</a></li>
           <li class=""><a href="/UI128/index.php/site/user_update_view"><i class="icon-chevron-right"></i>Edit Profile</a></li>
           <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
@@ -52,7 +52,7 @@
         <div id="cut">
             <h3 class="page-header">My Library</h3>
         </div>
-
+        <?php include "navigator_bookmark.php";?>
         <?php include "my_library_view.php" ?>
     </div>
 

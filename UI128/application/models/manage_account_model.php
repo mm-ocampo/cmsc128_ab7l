@@ -11,11 +11,12 @@ class Manage_account_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_accounts(){
+    public function get_accounts($operation){
         $query = "SELECT last_name, first_name, middle_name, email, student_number, employee_number, is_student, degree_program, status FROM user";
 
         $result = $this->db->query($query)->result();
-
+        $result["operation"] = $operation;
+        //var_dump($result);
         return $result;
     }
 
@@ -24,11 +25,6 @@ class Manage_account_model extends CI_Model {
 
         $this->db->query($query);
 
-        //lagyan ng checker kung na-update yung database
-        //if true
-            //then email user.
-
-        //email mechanism
         header("Location:../");
     }
 

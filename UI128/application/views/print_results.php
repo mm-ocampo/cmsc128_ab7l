@@ -5,43 +5,40 @@
                 *   trabaho nito ang pagfetch ng data galing sa database tapos ipprint niya yung mga data na iyon
                 *
                 */
-
-
-
+                $this->load->model('get_database');
                 /*
                 *
-                *TEMPORARY ONLY. Pangcheck kung user ba o admin
+                *   TEMPORARY ONLY. Pangcheck kung user ba o admin
                 *
                 */
-                $_SESSION['usertype'] = "admin";
-                $accession_number = "";
                 $i = 0;
+
+
                 echo "<table class='table table-striped'>";
                 foreach ($search as $row) {
-
-                    if($accession_number != $row->accession_number && $i==0){       
-
-                        $accession_number = $row->accession_number;
 
                         echo "<div class='results'>";
                             echo "<div class='result_information'>";
                                 $title = $row->title;
                                 $publisher = $row->publisher;
-                                $author = $row->author;
+                                $accession_number = $row->accession_number;
                                 
                                 echo "<tr>";
                                 echo "<td>".$title."</td>";
                                 echo "<td>".$publisher."</td>";
-                                if($author!=NULL) echo "<td>".$author."</td>";
-                            
+                                echo "<td>".$accession_number."</td>";
+
+                                $author = $this->get_database->get_book_author($accession_number);
+                                foreach($author as $row2){
+
+                                    $authors = $row2->author;
+                                    echo "<td>".$authors."</td>";
+
+                                }
 
                         $i = 1;
 
-                    }
-
-                    else if($accession_number != $row->accession_number && $i!=0){
-
-                        if($_SESSION['usertype']=="admin"){
+                        if($this->session->userdata['type']=="admin"){
 ?>
                             <?php echo "<td><a name='link' id='link' href = '".base_url()."index.php/site/delete?id={$accession_number}' onclick='return confirm_delete()'><input type='button' name='".$row->accession_number."' value='Delete' /></a></td>"; ?>
                             <td><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
@@ -50,16 +47,83 @@
     </form></td>
     <?php
                         }
-                        else if($_SESSION['usertype']=="user"){
+
+                        else if($this->session->userdata['type']=="user"){
 ?>
-                           <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
-                                <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
-                            </form></td>
-                           <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
-                                <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
-                                <input type="hidden" value="gjpgagno@gmail.com" id="email" name="email"><!-- Hard coded email; MUST change to session-->
-                                <input type="submit" value="Bookmark"/>
-                            </form></td>
+                           
+                            <?php 
+
+                                $count = 0;
+                                foreach ($reserved as $row2) {
+                                    
+                                    if($row2->accession_number == $accession_number){
+
+                                        if($row2->email!=""){
+
+                                            $count = 1;
+                                            break;
+
+                                        }
+                                        break;
+
+                                    }
+
+                                }
+
+                                if($count==0){
+
+                                    ?>
+
+                                        <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
+                                            <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
+                                        </form></td>
+
+                                    <?php
+
+                                }
+
+                                else echo "<td>Reserved</td>";
+
+
+
+                                 $count = 0;
+                                foreach ($bookmarked as $row2) {
+                                    
+                                    if($row2->accession_number == $accession_number){
+
+                                        if($row2->email!=""){
+
+                                        $count = 1;
+                                        break;
+
+                                        }
+                                        break;
+
+                                    }
+
+                                }
+
+                                if($count==0){
+
+                                    ?>
+
+                                         <td> 
+                                            <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
+                                                <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
+                                                <input type="hidden" value="<?php echo $this->session->userdata('email');?>" id="email" name="email"><!-- Hard coded email; MUST change to session-->
+                                                <input type="submit" value="Bookmark"/>
+                                            </form>
+                                        </td>
+
+                                    <?php
+
+                                }
+
+                                else echo "<td>Bookmarked</td>";
+
+                            ?>
+
+                           
 <?php
                         }
                         echo "</tr>";
@@ -68,57 +132,17 @@
                         
                         echo "</div></div>";
 
-                        $accession_number = $row->accession_number;
-
-                        echo "<div class='results'>";
-                            echo "<div class='result_information'>";
-                                $title = $row->title;
-                                $publisher = $row->publisher;
-                                $author = $row->author;
-                                echo "<td>".$title."</td>";
-                                echo "<td>".$publisher."</td>";
-                                if($author!=NULL) echo "</td>".$author."</td>";
-
-                    }
-
-                    else{
-
-                        $author = $row->author;
-                        echo "<td>".$author."</td>";
-
-                    }
+                 
                     
-                }
-                
-
-                if($accession_number!="" && $_SESSION['usertype'] == "admin"){
-
-                    echo "<td><a name='link' id='link' href = '".base_url()."index.php/site/delete?id={$accession_number}' onclick='return confirm_delete()'><input type='button' name='".$row->accession_number."' value='Delete'/></a></td>";
-                    ?>
-                    <td><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
-                        <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
-                        <input type="submit" value="Edit" />
-                    </form></td>
-                    <?php
-                    echo "</div></div>";
-
-                }
-
-                else if($accession_number!="" && $_SESSION['usertype'] == "user"){
-?>
-                   <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
-                        <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
-                    </form></td>
-                   <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/bookmark">
-                        <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
-                        <input type="hidden" value="gjpgagno@gmail.com" id="email" name="email"><!-- Hard coded email; MUST change to session-->
-                        <input type="submit" value="Bookmark"/>
-                    </form></td><?php
-                    echo "</div></div>";
-
                 }
 
                 echo "</table>";
+
+                if($i==0){
+
+                    echo "No results found. :(";
+
+                }
 
 ?>
 

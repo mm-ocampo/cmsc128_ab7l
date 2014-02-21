@@ -77,6 +77,11 @@ class Signup extends CI_Controller {
             show_error($this->email->print_debugger());
         }
     }
+
+    function checkAvailEmail(){
+
+        $this->signup_model->checkAvailEmail();
+    }
 }
 
 ?>

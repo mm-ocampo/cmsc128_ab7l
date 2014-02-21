@@ -28,7 +28,7 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
 
@@ -37,7 +37,7 @@
       <div class="row">
       <div class="span4 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix">
-          <h2>Hi USER!</h2>
+          <h2>Hi <?php echo $this->session->userdata('name');?>!</h2>
           <li class=""><a href="/UI128/index.php/site/get_my_library_data"><i class="icon-chevron-right"></i>Books</a></li>
           <li class=""><a href="/UI128/index.php/elib/user_search_book"><i class="icon-chevron-right"></i>Search</a></li>
           <li class="active"><a href="#/UI128/index.php/elib/user_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>

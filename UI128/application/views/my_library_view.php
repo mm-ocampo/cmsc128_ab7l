@@ -2,6 +2,9 @@
 <html>
 <body>
 <?php
+
+$count = 0;
+
 foreach ($results as $row) {
 
     echo "<div class='results'>";
@@ -23,14 +26,48 @@ foreach ($results as $row) {
     echo "</ul>";
     echo "</div>";
     ?>
+
+
+    <?php
+
+        if($row->email!=""){
+
+            echo "reserved";
+
+        }
+        else{
+
+            ?>
+
+            <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
+            <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
+            </form>
+
+            <?php
+
+        }
+
+    ?>
+
+
     <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/remove_bookmark">
         <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
-        <input type="hidden" value="gjpgagno@gmail.com" id="email" name="email"><!-- Hard coded email; MUST change to session-->
+        <input type="hidden" value="<?php echo $this->session->userdata('email');?>" id="email" name="email"><!-- Hard coded email; MUST change to session-->
         <input type="submit" class="btn btn-primary" value="Remove bookmark"/>
     </form>
     <?php
     echo "</div>";
 
+    $count++;
+
 }
+
+if($count==0){
+
+    //Temporary lang
+    echo "Your library is empty. :(";
+
+}
+
 ?>
 </body>

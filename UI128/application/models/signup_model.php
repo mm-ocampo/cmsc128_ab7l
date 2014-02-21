@@ -94,5 +94,22 @@ class Signup_model extends CI_Model {
         }
 
     }
+
+    function checkAvailEmail(){
+        $email = $this->input->get('email');
+
+        $query = "SELECT * FROM user WHERE email='$email'";
+
+        $result = $this->db->query($query);
+
+        $count = 0;
+        foreach($result->result() as $i){
+            $count++;
+        }
+        if($count < 1)
+            echo 'Email is available.';
+        else if($count >= 0)
+            echo 'Email has already been used.';
+    }
 }
 ?>

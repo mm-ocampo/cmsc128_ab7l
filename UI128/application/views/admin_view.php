@@ -33,7 +33,7 @@
 	</script>
 	<body id="nativebody">
 
-		<?php include"header.html";?>
+		<?php include"header.php";?>
 		</br></br>
 
 			</br>

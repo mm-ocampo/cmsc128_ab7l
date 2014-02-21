@@ -11,69 +11,76 @@
     <link rel="shortcut icon" href=<?php echo "\"".base_url()."assets/thumbnail.png"."\""?> >
 
     
-
-    <!--FLATSTRAP-->
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap-responsive.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/docs.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/prettify.css"."\""?> rel="stylesheet">
-    <!--GLYPHICONS-->
-    <link href=<?php echo "\"".base_url()."assets/dist/glyphicons/png"."\""?> rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
   </head>
 
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
-
+  <div id="wrap">
       <!-- Begin page content -->
-      <div class="container">
-      <div class="row">
-      <div class="span4 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav affix">
-          <h2>Hi ADMIN!</h2>
-          <li class="active"><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Books</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>
-          <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
+      <div class="col-sm-4 sidebar">
+        <ul class="nav nav-sidebar ">
+          <h2 class="panel-heading">Hi ADMIN!</h2>
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default">Books<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account">Accounts<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile">Edit Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout">Log Out<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+            <div id="footer">
+              <div class="container">
+                <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+              </div>
+            </div>
         </ul>
       </div>
-  		</div>
-      </div>
+
+      
+  <div class="col-sm-9 col-sm-offset-3 main">
+      <h1 class="page-header">Manage Library</h1>
+    <div class="row placeholders">
+
+      <div class="col-xs-6 col-sm-3 placeholder">
+          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_add_book"><br/><span class="glyphicon glyphicon-plus glyphicon-large"></span></a>
+          <h4>Add Book</h4>
+          <p>Expand your collection of books, thesis, special problems, journals and other materials.</p>
+       </div>
+      <div class="col-xs-6 col-sm-3 placeholder">
+          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_delete_book"><br/><span class="glyphicon glyphicon-remove glyphicon-large"></span></a>
+          <h4>Delete Book</h4>
+          <p>Remove deprecated, lost, and unavailable books from the library collection.</p>
+        </div><!-- /.col-lg-4 -->
+      <div class="col-xs-6 col-sm-3 placeholder">
+          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_update_book"><br/><span class="glyphicon glyphicon-edit glyphicon-large"></span></a> 
+          <h4>Update Book Info</h4>
+          <p>Edit information of books, thesis, special problems, journals and other materials for an up-to-date library collection.</p>
+        </div><!-- /.col-lg-4 -->
+
+      <div class="col-xs-6 col-sm-3 placeholder">
+          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_search_book"><br/><span class="glyphicon glyphicon-search glyphicon-large"></span></a>
+          <h4>Search Book</h4>
+          <p>Discover more by searching for books in the library collection. Offers advanced search for more extensive and easy lookup.</p>
+        </div><!-- /.col-lg-4 -->
+      <div class="col-xs-6 col-sm-3 placeholder">
+          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_approve"><br/><span class="glyphicon glyphicon-check glyphicon-large"></span></a><br>
+          <h4>Approve Book Requests</h4>
+          <p>Manage your system by determining viewing, accepting or declining book requests from library users.</p>
+        </div><!-- /.col-lg-4 -->
+
+    </div>
+  </div>
 </div>
-
-      <!--
-      <div class="container">
-      <div class="floatright">
-        <img href="/UI128/index.php/elib/temp" width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      	<img width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      	<img width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      </br>
-      	<img width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      	<img width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      	<img width="180px" src=<?php echo "\"".base_url()."assets/plain.png"."\""?> class="img-circle">
-      </div>
-    </div>
-    -->
-
-    <!--FOR THE MEAN TIME, JUST USE THIS BUTTONS-->
-    <div class="floatright">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_add_book">Add Book</a>
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_delete_book">Search / Delete / Update Book</a>
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_approve">Approve Book Request</a><br>
-    </div>
-
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

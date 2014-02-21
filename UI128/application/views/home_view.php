@@ -9,7 +9,6 @@
 	</head>
 
 	<body>
-		<a href="<?php echo base_url(); ?>index.php/site/user_update_view">Edit Account Settings</a>
 		<section id="search_module">
 			<?php include "form.php";?>
 		</section>

@@ -6,7 +6,7 @@
 				*
 				*/
 
-				$count;
+				$count = 0;
 
 				foreach ($result_count as $row){
 
@@ -39,17 +39,17 @@
 						if($count%10!=0)	$max = floor($count/10 + 1);
 						else $max = $count/10;
 
-						if($page_number!=$max){
-
-						echo "<a href=\"search?page_number=",($page_number + 1),$link."Next</a>";
-
-						}
-
 						$i=1;
 						while($i<=$max){
 
 							echo "<a href=\"search?page_number=".$i,$link,$i."</a>";
 							$i++;
+
+						}
+
+						if($page_number!=$max){
+
+						echo "<a href=\"search?page_number=",($page_number + 1),$link."Next</a>";
 
 						}
 

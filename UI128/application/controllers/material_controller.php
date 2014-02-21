@@ -24,7 +24,7 @@ class Material_controller extends CI_Controller {
 		$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
 		if($this->form_validation->run() == FALSE){
-			$this->index();
+			redirect(base_url());
 		}
 		else{
 			$data = array(
@@ -41,8 +41,7 @@ class Material_controller extends CI_Controller {
 		    		'author'=>$this->input->post('author')
 		    	);
 			$result['res'] = $this->material_model->add_reading_materials($data, $data2);
-			$this->index();
+			redirect(base_url());
 		}
 	}
-
 }

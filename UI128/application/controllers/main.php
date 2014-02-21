@@ -15,12 +15,6 @@ class Main extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
-
-        $newdata = array(
-            'email' => 'gjpgagno@gmail.com'
-        );
-
-        $this->session->set_userdata($newdata);
         //constructor code
     }
 
@@ -116,7 +110,7 @@ class Main extends CI_Controller{
 
         $message = "book with accession number ".$this->input->post('reserve')." has been approved";
         $subject = "reservation";
-        $email = "gjpgagno@gmail.com";
+        $email = $this->session->userdata('email');
         $receiver = $email;
         $this->do_send_email($message,$subject,$receiver);
 
@@ -207,9 +201,6 @@ class Main extends CI_Controller{
     }
 
     public function load_book(){
-        $newdata = array(
-            'email' => 'gjpgagno@gmail.com'
-        );
         $this->load->model('sample_model');
         $accession_number = $this->input->post('viewbook');
 

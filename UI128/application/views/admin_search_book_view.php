@@ -28,36 +28,76 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
 
       <!-- Begin page content -->
-      <div class="container">
-      <div class="row">
-      <div class="span4 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav affix">
-          <h2>Hi ADMIN!</h2>
-          <li class="active"><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Books</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>
-          <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
+      <div class="col-sm-4 sidebar">
+        <ul class="nav nav-sidebar ">
+          <h2 class="panel-heading">Hi ADMIN!</h2>
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default">Books<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account">Accounts<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile">Edit Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout">Log Out<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+            <div id="footer">
+              <div class="container">
+                <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+              </div>
+            </div>
         </ul>
-      </div>
-  		</div>
       </div>
 </div>
 
     <div class="floatright">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><< Back</a>
-
-        <form class="form-horizontal">
+        <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal">
         <div id="cut">
             <h3 class="page-header">Search</h3>
         </div>
+          <!--AYAW GUMANA PAG INCLUDE KAYA GANITO GINAWA KO :<-->
+          <section id="search_module">
+            <?php include "form.php";?>
+          </section>
 
-        <input type="text" class="input-xlarge search-query">
-        <button type="submit" class="btn" placeholder="Book Title/Author/Subject">Search</button>
+          <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
+          <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
+          <script src="<?php echo base_url();?>/js/main.js"></script>
+              <script>
+                  $(document).ready(function(){
+                      $("#search_bar").keyup(function(){
+                          var input = $(this).val();
+                          var filter = $(".filter_select").val();
+                          var sort = $(".sort").val();
+
+                          format = new Array();
+                          $('#checklist input[type=checkbox]:checked').each(function(){
+                              format.push($(this).val());     //pushes the food into the array
+                          });
+
+                          var query = {"search_query":input,
+                              "filter":filter,
+                              "sort":sort,
+                              "format":format,
+                              '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                          };
+                          if(input.length < 3){}
+                          else{
+                              $.ajax({
+                                  type: "GET",
+                                  url: "<?php echo base_url(); ?>index.php/site/suggest/",
+                                  data: query,
+                                  cache: false,
+                                  success: function(html){
+                                      $("#display_suggestion").css("display","block");
+                                      $("#display_suggestion").html(html);
+                                  }
+                              });
+                          }
+                          return false;
+                      });
+                  });
+              </script>
+          <!--END-->
         </form>
 
     </div>

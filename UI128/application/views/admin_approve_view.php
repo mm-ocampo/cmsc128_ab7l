@@ -29,19 +29,17 @@
   <script language="javascript" type="text/javascript" src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
   <script>
     $(document).ready(function(){
-      $('#reserve').hide();
-      $('#borrowed').hide();
-      $('#requestbtn').click(function(){
+      $('.requestbtn').click(function(){
         $('#request').toggle();
         $('#reserve').hide();
         $('#borrowed').hide();
       });
-      $('#reservebtn').click(function(){
+      $('.reservebtn').click(function(){
         $('#reserve').toggle();
         $('#request').hide();
         $('#borrowed').hide();
       });
-      $('#borrowedbtn').click(function(){
+      $('.borrowedbtn').click(function(){
         $('#borrowed').toggle();
         $('#request').hide();
         $('#reserve').hide();
@@ -52,7 +50,7 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
 
@@ -86,9 +84,9 @@
         <!--TABLE SAMPLE - BUT THIS MUST HIDE AFTER OPENING OTHER TABLES-->
           <div id="cut">
 
-          <button class="btn" name="requestbtn">Book Request/s</button>
-          <button class="btn" name="reservebtn">List of Reserved Book/s</button>
-          <button class="btn" name="borrowedbtn">List of Borrowed Book/s</button>
+          <input type="button" class="btn btn-primary requestbtn" value="Book Request/s"/>
+          <input type="button" class="btn btn-primary reservebtn" value="List of Reserved Book/s"/>
+          <input type="button" class="btn btn-primary borrowedbtn" value="List of Borrowed Book/s"/>
 
           <table class="table table-hover" id="request">
               <thead>

@@ -28,7 +28,7 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-<?php include"header.html";?>
+<?php include"header.php";?>
 
 <body>
 
@@ -55,7 +55,9 @@
         <div id="cut">
             <h3 class="page-header">Delete Book</h3>
         </div>
-        <?php include"search_view.php";?>
+        <label>Input the book you want to delete</label>
+        <input type="text" class="input-xlarge search-query">
+        <button type="submit" class="btn">Search</button>
         </form>
 
     </div>

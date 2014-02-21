@@ -19,6 +19,8 @@ class Elib extends CI_Controller {
      */
     public function index()
     {
+        $this->load->library('session');
+        $this->load->model('log_in_model');
         $this->load->view('default_view');
     }
 
@@ -27,10 +29,15 @@ class Elib extends CI_Controller {
     }
 
     public function login(){
-        if(isset($_POST['AdminLogIn']))
+        if(isset($_POST['AdminLogIn'])){
+            $this->log_in_model->login_admin();
             $this->load->view('admin_default_view');
-        else 
-            $this->load->view('user_default_view');
+        }
+        else{ 
+            $this->log_in_model->login_user();
+            if($this->session->userdata('email')) $this->load->view('user_default_view');
+            else $this->load->view('default_view');
+        }
     }
 
     //ADMIN PAGES//
@@ -73,7 +80,11 @@ class Elib extends CI_Controller {
             through this page.
     */
     public function admin_account(){
-        $this->load->view('admin_accounts_view');
+        $count = $this->db->query("SELECT count(email) pendingCount FROM user where status = \"Pending Approval\"");
+        foreach($count->result() as $row){
+            $data["pendingCount"] = $row->pendingCount;
+        }
+        $this->load->view('admin_accounts_view', $data);
     } 
 
             //ADMIN-ACCOUNTS SUBPAGES
@@ -131,6 +142,7 @@ class Elib extends CI_Controller {
     }
 
     public function logout(){
+        $this->session->sess_destroy();
         $this->load->view('default_view');
     }
 
@@ -140,6 +152,13 @@ class Elib extends CI_Controller {
 
     public function contact_us_view() {
         $this->load->view('contact_us_view');   
+    }
+
+    public function submit_operation(){
+        $operation = $_GET['operation'];
+        $this->load->model('manage_account_model');
+        $result = $this->manage_account_model->get_accounts($operation);
+        $this->load->view('manage_account_view', array("result" => $result));
     }
 
 }

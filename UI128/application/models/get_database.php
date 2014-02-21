@@ -28,7 +28,67 @@
 
 			$search_query = ucfirst($search_query);
 
-			$pstmt = "SELECT title,publisher,material.accession_number,author FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
+			$pstmt = "SELECT title,publisher,accession_number FROM material";
+
+			$pstmt = $pstmt." WHERE (type='$format[0]'";
+
+			for($i=1; $i < $count; $i++)
+			{
+			  $pstmt = $pstmt."OR type='$format[$i]' ";			  
+			}
+					
+			switch($filter){
+					
+				case "title":			$pstmt = $pstmt.") AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR title REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR title='$search_query')";
+										
+										break;
+				case "publisher":		$pstmt = $pstmt.") AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR publisher REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR publisher='$search_query')";
+										
+										break;
+				case "author":			$pstmt = $pstmt.") AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR author REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR author='$search_query')";
+										
+										break;
+				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
+										break;
+				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+										break;
+
+				default:				return "error";
+					
+			}
+					
+			switch($sort){
+					
+				case "alphabetical":		$pstmt = $pstmt." ORDER BY title, accession_number LIMIT $start,10";
+											break;
+				case "newest":				$pstmt = $pstmt." ORDER BY copyright_year DESC LIMIT $start,10";
+											break;
+
+				default:					return "error";
+					
+			}
+
+			$query = $this->db->query($pstmt);
+
+			return $query->result();
+
+		}
+	
+
+		public function count_results(){
+
+			$search_query = $this->input->get('search_query');
+			$filter = $this->input->get('filter');
+			$sort = $this->input->get('sort');
+			$format = $this->input->get('format');
+
+			$count = count($format);
+
+			$search_query = mysql_real_escape_string ($search_query);
+
+			$search_query = ucfirst($search_query);
+
+			$pstmt = "SELECT COUNT(title) result_count FROM material ";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -50,70 +110,11 @@
 										break;
 				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
 										break;
-				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+				case "accession_number":$pstmt = $pstmt.") AND accession_number = '$search_query'";
 										break;
 
 				default:				return "error";
 					
-			}
-					
-			switch($sort){
-					
-				case "alphabetical":		$pstmt = $pstmt." ORDER BY title LIMIT $start,10";
-											break;
-				case "newest":				$pstmt = $pstmt." ORDER BY copyright_year DESC LIMIT $start,10";
-											break;
-
-				default:					return "error";
-					
-			}
-
-			$query = $this->db->query($pstmt);
-            echo $pstmt;
-
-			return $query->result();
-
-		}
-
-	
-
-		public function count_results(){
-
-			if($this->input->post('search_query')){
-
-				$search_query = $this->input->post('search_query');
-				$filter = $this->input->post('filter');
-				$sort = $this->input->post('sort');
-				$format = $this->input->post('format');
-
-			}
-
-			else{
-
-				$search_query = $this->input->get('q');
-				$filter = $this->input->get('f');
-				$sort = $this->input->get('s');
-				$format = $this->input->get('format');
-
-			}
-
-
-
-			$pstmt = "SELECT COUNT(title) result_count FROM material";
-
-			$pstmt = $pstmt." WHERE type='$format[0]'";
-
-			switch($filter){
-
-				case "title":			$pstmt = $pstmt." AND title LIKE '% $search_query %' OR title LIKE '% $search_query' OR title LIKE '$search_query %'";
-										break;
-				case "publisher":		$pstmt = $pstmt." AND publisher LIKE '% $search_query %' OR publisher LIKE '% $search_query' OR publisher LIKE '$search_query %'";
-										break;
-				case "author":			$pstmt = $pstmt." AND author LIKE '% $search_query %' OR author LIKE '% $search_query' OR author LIKE '$search_query %'";
-										break;
-				case "subject":			$pstmt = $pstmt." AND subject='$search_query'";
-										break;
-
 			}
 
 			$query = $this->db->query($pstmt);
@@ -164,7 +165,13 @@
 	    }
 //Thea's codes as of 2/9/14; edited by Tim
 	    public function get_bookmarks($email){
-	    	$statement ="SELECT accession_number,publisher, title from material where accession_number in (SELECT accession_number FROM bookmark where email=\"$email\")";
+
+	    	if($this->input->get('page_number'))	$page_number = $this->input->get('page_number');
+	    	else 									$page_number = 1;
+
+	    	$start = ($page_number - 1) * 5 ;
+
+	    	$statement ="SELECT material.accession_number,publisher, title,reserves.email from material LEFT JOIN reserves ON material.accession_number = reserves.accession_number where material.accession_number in (SELECT accession_number FROM bookmark where email=\"$email\") LIMIT $start,5";
 	    	$query = $this->db->query($statement);
 
 	    	return $query->result();
@@ -174,6 +181,15 @@
 	    	$query = $this->db->query($statement);
 
 	    	return $query->result();
+	    }
+
+	    public function get_count_bookmark($email,$page_number = 1){
+
+	    	$statement ="SELECT count(accession_number) bookmark_count from material where accession_number in (SELECT accession_number FROM bookmark where email=\"$email\")";
+	    	$query = $this->db->query($statement);
+
+	    	return $query->result();
+
 	    }
 
 	    public function add_bookmark($accession_number, $email){
@@ -238,7 +254,7 @@ public function suggest(){
 										echo "<ul>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->title);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=0&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->title</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->title</li></a>";
 								        endforeach;
 								        echo "</ul>";
 
@@ -249,7 +265,7 @@ public function suggest(){
 										echo "<ul>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->publisher);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=0&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->publisher</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->publisher</li></a>";
 								        endforeach;
 								        echo "</ul>";
 										
@@ -260,18 +276,18 @@ public function suggest(){
 										echo "<ul>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->author);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=0&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->author</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->author</li></a>";
 								        endforeach;
 								        echo "</ul>";
 										
 										break;
-				case "accession_number":"SELECT distinct accession_number FROM material WHERE accession_number LIKE '%$search_query%' LIMIT 5";
+				case "accession_number":$pstmt = "SELECT distinct accession_number FROM material WHERE accession_number LIKE '%$search_query%' LIMIT 5";
 										$query = $this->db->query($pstmt);
 
 										echo "<ul>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->accession_number);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=0&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->accession_number</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->accession_number</li></a>";
 								        endforeach;
 								        echo "</ul>";
 
@@ -280,6 +296,100 @@ public function suggest(){
 				default:				return "error";
 					
 			}
+
+		}
+
+		public function get_reserve(){
+
+			$search_query = $this->input->get('search_query');
+			$filter = $this->input->get('filter');
+			$sort = $this->input->get('sort');
+			$format = $this->input->get('format');
+
+			$count = count($format);
+
+			$search_query = mysql_real_escape_string ($search_query);
+
+			$search_query = ucfirst($search_query);
+
+			$pstmt = "SELECT reserves.email, material.accession_number FROM material LEFT JOIN reserves ON material.accession_number = reserves.accession_number";
+
+			$pstmt = $pstmt." WHERE (type='$format[0]'";
+
+			for($i=1; $i < $count; $i++)
+			{
+			  $pstmt = $pstmt."OR type='$format[$i]' ";			  
+			}
+					
+			switch($filter){
+					
+				case "title":			$pstmt = $pstmt.") AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR title REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR title='$search_query')";
+										
+										break;
+				case "publisher":		$pstmt = $pstmt.") AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR publisher REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR publisher='$search_query')";
+										
+										break;
+				case "author":			$pstmt = $pstmt.") AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR author REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR author='$search_query')";
+										
+										break;
+				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
+										break;
+				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+										break;
+
+				default:				return "error";
+					
+			}
+			$query = $this->db->query($pstmt);
+
+			return $query->result();
+
+		}
+
+		public function get_bookmarked(){
+
+			$search_query = $this->input->get('search_query');
+			$filter = $this->input->get('filter');
+			$sort = $this->input->get('sort');
+			$format = $this->input->get('format');
+
+			$count = count($format);
+
+			$search_query = mysql_real_escape_string ($search_query);
+
+			$search_query = ucfirst($search_query);
+
+			$pstmt = "SELECT bookmark.email, bookmark.accession_number FROM material LEFT JOIN bookmark ON material.accession_number = bookmark.accession_number";
+
+			$pstmt = $pstmt." WHERE (type='$format[0]'";
+
+			for($i=1; $i < $count; $i++)
+			{
+			  $pstmt = $pstmt."OR type='$format[$i]' ";			  
+			}
+					
+			switch($filter){
+					
+				case "title":			$pstmt = $pstmt.") AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR title REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR title='$search_query')";
+										
+										break;
+				case "publisher":		$pstmt = $pstmt.") AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR publisher REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR publisher='$search_query')";
+										
+										break;
+				case "author":			$pstmt = $pstmt.") AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR author REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR author='$search_query')";
+										
+										break;
+				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
+										break;
+				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+										break;
+
+				default:				return "error";
+					
+			}
+			$query = $this->db->query($pstmt);
+
+			return $query->result();
 
 		}
 

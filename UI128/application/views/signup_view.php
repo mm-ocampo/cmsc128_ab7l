@@ -19,7 +19,7 @@
 
     <body>
 
- 
+
     <header>
       <!-- Fixed navbar -->
       <div class="navbar navbar-default navbar-fixed-top" margin-up="2%" role="navigation">
@@ -55,7 +55,7 @@
                     <td><img src=<?php echo "\"".base_url()."assets/search-icon.png"."\""?> id="image" value= "submit"/></td>
                   </tr>
                   </table>
-                </div>      
+                </div>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -69,39 +69,35 @@
                     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                         <?php $this->load->helper('url'); ?>
                         <form name="main_form" action="<?php echo base_url();?>index.php/signup/insert_info/" method="post">
-                            <h1 class="col-md-4 col-md-offset-4">Sign Up</h1>
+                            <h2>Sign Up</h2>
                             <hr>
                             <div class="row">
 
                                 <div class="form-group">
                                     <input type="text" name="first_name" id="fname" class="form-control input-lg" placeholder="First Name" tabindex="3">
-									<span name="promptfname"></span> <br/>
+                                    <span name="promptfname"></span> <br/>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="middle_name" id="mname" class="form-control input-lg" placeholder="Middle Name" tabindex="3">
-									<span name="promptmname"></span> <br/>
+                                    <span name="promptmname"></span> <br/>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="last_name" id="lname" class="form-control input-lg" placeholder="Last Name" tabindex="3">
-									<span name="promptlname"></span> <br/>
+                                    <span name="promptlname"></span> <br/>
                                 </div>
 
                                 <div class="form-group">
                                     <input type="date" name="birthday" id="bday" class="form-control input-lg" placeholder="Birthday" tabindex="3">
-									<span name="promptbday"></span> <br/>
+                                    <span name="promptbday"></span> <br/>
                                 </div>
 
                                 <div id="gender" class="btn-group" data-toggle="buttons-radio">
-                                        <label for="male"><div id ="male_button" class="btn btn-large btn-default custom" onclick="male_buttonfunc()">Male</div></label>
-                                        <input name="sex" type="radio" data-toggle="tab" id="male" value="Male"/>
-                                        <label for="female"><div id="female_button" class="btn btn-large btn-default custom" onclick="female_buttonfunc()">Female</div></label>
-                                        <input name="sex" type="radio" data-toggle="tab" id="female" value="Female"/>
+                                    <label for="male"><div id ="male_button" class="btn btn-large btn-default custom" onclick="male_buttonfunc()">Male</div></label>
+                                    <input name="sex" type="radio" data-toggle="tab" id="male" value="Male"/>
+                                    <label for="female"><div id="female_button" class="btn btn-large btn-default custom" onclick="female_buttonfunc()">Female</div></label>
+                                    <input name="sex" type="radio" data-toggle="tab" id="female" value="Female"/>
                                 </div><br><br>
 
-                                <div class="form-group">
-                                    <input type="text" maxlength="16" name="user_name" id="uname" class="form-control input-lg" placeholder="Desired Username" tabindex="3">
-                                    <span name="promptusername"></span> <br/>
-                                </div>
                                 <div class="form-group">
                                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
                                     <span name="promptemail"></span> <br/>
@@ -189,14 +185,14 @@
 
                                     <div id="faculty_form" class="invisible">
                                         <hr>
-                                            <div class="form-group">
-                                                <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" tabindex="3">
-                                                <br/>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" tabindex="3">
+                                            <br/>
+                                        </div>
                                         <hr/>
                                     </div>
 
-                                    <input type="submit" name="submit" value="submit" class="btn btn-block btn-primary"/>
+                                    <input type="submit" name="submit" value="Submit" class="btn btn-block btn-primary"/>
                                 </div>
                             </div>
                         </form>
@@ -208,22 +204,22 @@
 
 
     <!--footer---------------------------------------------------------------------------------------------------------->
-    <?php include("footer.html"); ?>
+    <?php include("includes/footer.php"); ?>
 
     <script type="text/javascript">
         var type;
 
         function male_buttonfunc(){
-            document.getElementById("male_button").setAttribute("class","btn btn-large  btn-default custom active");
-            document.getElementById("female_button").setAttribute("class","btn btn-large  btn-default custom");
+            document.getElementById("male_button").setAttribute("class","btn btn-primary");
+            document.getElementById("female_button").setAttribute("class","btn btn-default custom");
             document.getElementById("gender").value = 'Male';
             console.log(document.getElementById("gender").value);
         }
 
         function female_buttonfunc(){
 
-            document.getElementById("female_button").setAttribute("class","btn btn-large  btn-default custom active");
-            document.getElementById("male_button").setAttribute("class","btn btn-large  btn-default custom");
+            document.getElementById("female_button").setAttribute("class","btn btn-primary");
+            document.getElementById("male_button").setAttribute("class","btn btn-default custom");
             document.getElementById("gender").value = 'Female';
             console.log(document.getElementById("gender").value);
         }
@@ -231,15 +227,17 @@
         function show_student(){
             reset();
             document.getElementById("student_form").setAttribute("class", " ");
-            document.getElementById("student_button").setAttribute("class","btn btn-large  btn-default custom active");
-            document.getElementById("type").value = 0;
+            document.getElementById("student_button").setAttribute("class","btn btn-primary");
+            document.getElementById("type").value = "Student";
+            console.log(document.getElementById("type").value);
         }
 
         function show_faculty(){
             reset();
             document.getElementById("faculty_form").setAttribute("class", " ");
-            document.getElementById("faculty_button").setAttribute("class","btn btn-large  btn-default custom active");
-            document.getElementById("type").value = 1;
+            document.getElementById("faculty_button").setAttribute("class","btn btn-primary");
+            document.getElementById("type").value = "Faculty";
+            console.log(document.getElementById("type").value);
         }
 
         function reset(){
@@ -255,11 +253,8 @@
             main_form.last_name.onblur=checklName;
             main_form.password.onblur=checkPassword;
             main_form.birthday.onblur=checkBday;
-            main_form.password_confirmation.onblur=matchPassword;
-            main_form.user_name.onblur=checkuName;
-            main_form.email.onblur=checkemail;
             main_form.student_number.onblur=checksNumber;
-            main_form.onsubmit=checkemailll;
+            main_form.onsubmit=checkAll;
         }
 
         function checksNumber() {
@@ -270,7 +265,6 @@
                 msg += "Invalid student number.";
             document.getElementsByName('promptstudentnumber')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("snumber");
         }
 
         function checkfName(){
@@ -280,20 +274,18 @@
             else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
                 msg += " Only letters hyphens and spaces are allowed.";
             console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
-			document.getElementsByName('promptfname')[0].innerHTML=msg;
+            document.getElementsByName('promptfname')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("fname");
         }
-		
-		function checkmName(){
+
+        function checkmName(){
             str=main_form.middle_name.value;
             msg="";
             if(str=="") msg += " Please fill this out this field.";
             else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
                 msg += " Only letters hyphens and spaces are allowed.";
-			document.getElementsByName('promptmname')[0].innerHTML=msg;
+            document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("mname");
         }
 
         function checklName(){
@@ -304,7 +296,6 @@
                 msg += " Only letters, hyphens and spaces are allowed.";
             document.getElementsByName('promptlname')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("lname");
         }
 
         function checkBday(){
@@ -315,18 +306,6 @@
                 msg += " Invalid date format (YYYY-MM-DD).";
             document.getElementsByName('promptbday')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("bday");
-        }
-
-        function checkuName(){
-            str=main_form.user_name.value;
-            msg="";
-            if(str=="") msg += " Please fill this out this field.";
-            else if(!str.match(/^[a-zA-Z0-9._]{4,16}$/))
-                msg += " Must be 4-16 characters. Only letters, numbers, hyphens and dots are allowed.";
-            document.getElementsByName('promptusername')[0].innerHTML=msg;
-            if(msg=="") return true;
-            console.log("uname");
         }
 
         function checkemail(){
@@ -337,7 +316,6 @@
                 msg += "Invalid E-mail.";
             document.getElementsByName('promptemail')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("mail");
         }
 
         function checkPassword(){
@@ -374,7 +352,6 @@
             }
             document.getElementsByName('promptpassword')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("pword1");
         }
 
         function matchPassword(){
@@ -386,27 +363,75 @@
                 msg+=" Passwords do not match";
             document.getElementsByName('promptpassword2')[0].innerHTML=msg;
             if(msg=="") return true;
-            console.log("pword2");
+        }
+
+        function checkAvailEmail(){
+            var input = $('#email').val();
+            var query = {"email":input};
+            var result;
+
+            function setResult(i){
+                result = i;
+            }
+
+            if(checkemail()){
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url(); ?>index.php/signup/checkAvailEmail",
+                    data: query,
+                    cache: false,
+                    success: function(html){
+                        $('span[name="promptemail"]').html(html);
+                        $('span[name="promptemail"]').val(html);
+                    }
+                });
+            }
+
+            var result = ($('span[name="promptemail"]').val());
+            var regex = new RegExp("available");
+            if(result.match(regex)){
+                return true;
+            }
+            return false;
         }
 
         function checkAll(){
-            if(checkfName()&& checklName() && checkBday() && checkemail() && checkemail() && checkmName() && checkPassword() && matchPassword() && checkuName()){
+            if(checkfName() && checklName() && checkBday() && checkemail() && checkmName() && checkPassword() && matchPassword() && checkAvailEmail()){
                 return true;
             }
             return false;
         }
     </script>
 
+    <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
+    <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
+    <script src="<?php echo base_url();?>/js/main.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $("#email").keyup(function(){
+               checkAvailEmail();
+            });
+
+            $("#password_confirmation").keyup(function(){
+               matchPassword();
+            });
+
+        });
+
+    </script>
+
     <style>
         [type="radio"]{
-           display:none;
+            display:none;
         }
     </style>
-     <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
         <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
         <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
         <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 	</body>
-</html>
+</html>                                                                        

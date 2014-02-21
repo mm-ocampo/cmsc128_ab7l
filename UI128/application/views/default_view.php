@@ -49,16 +49,6 @@
                 </ul>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <div id="search">
-                  <table>
-                  <tr>
-                    <td><input type="text" name="search_query" id="searchbar" placeholder="Guest Search Here"/></td>
-                    <td><img src=<?php echo "\"".base_url()."assets/search-icon.png"."\""?> id="image" value= "submit"/></td>
-                  </tr>
-                  </table>
-                </div>      
-            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -114,24 +104,41 @@
 
 
   <body>
+     <div id="float_right">
+  <!--SEARCH-->
+  <form>
+    <h2 class="form-signin-heading">Discover more</h2>
+    <table>
+      <tr>
+        <td><input type="text" name="search_query" class="search-query form-custom-search" placeholder="Search library"/></td>
+        <td><!--<img src=<?php echo "\"".base_url()."assets/search-icon.png"."\""?> id="image" value= "submit"/>--><i class="glyphicon glyphicon-search search-icon"></i></td>
+      </tr>
+    </table>
+  </form>    
+    <!--END SEARCH-->
+
       <!--LOG-IN-->
         <div id="sign-in">
          <form class="form-signin" role="form" method="POST" action="/UI128/index.php/site/login">
           <h2 class="form-signin-heading">Please sign in</h2>
-          <input type="text" class="form-custom" placeholder="Username" required autofocus>
-          <input type="password" class="form-custom" placeholder="Password" required>
+          <input type="text" class="form-custom" placeholder="Username" name="email" required autofocus>
+          <input type="password" class="form-custom" placeholder="Password" name="password" required>
           <label class="checkbox">
             <input type="checkbox" name="AdminLogIn" value="remember-me">Log-in as Administrator
           </label>
           <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
          </form>
+
+        <img src=<?php echo "\"".base_url()."assets/ICS Logo.png"."\""?> class="footer_logo" alt="ICS Logo"/>
+        <img src=<?php echo "\"".base_url()."assets/UPLB Logo.png"."\""?> class="footer_logo" alt="UPLB Logo"/>
+
         </div>
       </div>
     </div>
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">ICS iLib &copy;2014. All rights reserved.</p>
+        <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
       </div>
     </div>
 
