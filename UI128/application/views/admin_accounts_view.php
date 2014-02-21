@@ -50,7 +50,7 @@
         <div class="col-xs-6 col-sm-3 placeholder">
       <a id="approve_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=approve"><br/><span class="glyphicon glyphicon-user glyphicon-large"></span></a>
           <h4>Approve Account</h4>
-          <?php echo "Pending Accounts: " . $pendingCount; ?>
+          <?php echo "<span style=\"color:red;\">(<b>" . $pendingCount . "</b>)</span>";?>
         </div><!-- /.col-lg-4 -->
         <div class="col-xs-6 col-sm-3 placeholder">
           <div id="space"></div>

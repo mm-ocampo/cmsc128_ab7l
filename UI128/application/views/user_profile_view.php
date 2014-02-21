@@ -49,7 +49,6 @@
 </div>
 
     <div class="floatright">
-        <form class="form-horizontal">
         <div id="cut">
             <h3 class="page-header">Profile</h3>
         </div>

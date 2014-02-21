@@ -23,6 +23,7 @@ class Signup_model extends CI_Model {
         $date = str_replace('/', '-', $this->input->post('birthday'));
         $birthday = date('Y-m-d', strtotime($date));
 
+        echo "type: " . $this->input->post('type');
         if($this->input->post('type') == 'Student'){
 
             switch($this->input->post('classification')){
@@ -43,7 +44,7 @@ class Signup_model extends CI_Model {
                     break;
             }
 
-            $this->db->query("INSERT INTO user(email,
+            echo "INSERT INTO user(email,
                                            student_number,
                                            degree_program,
                                            classification,
@@ -67,10 +68,10 @@ class Signup_model extends CI_Model {
                                             $birthday . "'," .
                                             1 . "," .
                                             0 . ");"
-            );
+            ;
         }
         else{
-            $this->db->query("INSERT INTO user(email,
+            echo "INSERT INTO user(email,
                                            password,
                                            first_name,
                                            middle_name,
@@ -90,7 +91,7 @@ class Signup_model extends CI_Model {
                                             $this->input->post('employee_number') . "'," .
                                             0 . "," .
                                             1 . ");"
-            );
+            ;
         }
 
     }

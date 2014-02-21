@@ -74,7 +74,7 @@
 
                                     ?>
 
-                                        <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/main/load_book">
+                                        <td> <form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/reserve/load_book">
                                             <button name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
                                         </form></td>
 

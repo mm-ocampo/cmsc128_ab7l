@@ -37,11 +37,9 @@
 		</br></br>
 
 			</br>
-			<button class="css3button" id="requestbtn" name="request">Book Requests</button>
-			</br>
 				<div id="request">
 					<?php
-						echo "<table border=\"2\" class=\"nativetable\">";
+						echo "<table class=\"table table-hover\" id=\"request\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th></th>";
 						echo "</tr>";
@@ -55,7 +53,9 @@
 							echo "\t<td>$row->employee_number</td>\n";
 						echo "\t<td>$row->title</td>\n";
 						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td><form method=\"POST\" action=\"" . base_url() . "/index.php/main/add_readyforpickup\"><button value=\"$row->accession_number\" name=\"request\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" src=\"".base_url()."assets/check.png"."\" height=\"125px\"></button></form></td>";
+						echo "<td>";
+						echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/add_readyforpickup\">";
+						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\">[CHECK]</button></form></td>";
 
 							echo "</tr>";
 
@@ -65,11 +65,9 @@
 					
 				</div>
 			</br>
-			<button class="css3button" id="reservebtn" name="reserve">List of Reserved Books</button>
-			</br>
 				<div id="reserve">
 					<?php
-						echo "<table border=\"2\" class=\"nativetable\">";
+						echo "<table class=\"table table-hover\" id=\"reserve\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th></th>";
 						echo "</tr>";
@@ -83,7 +81,7 @@
 							echo "\t<td>$row->employee_number</td>\n";
 						echo "\t<td>$row->title</td>\n";
 						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/main/do_approve\"><button value=\"$row->accession_number\" name=\"reserve\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" src=\"".base_url()."assets/check.png"."\" height=\"125px\"></button></form></td>";
+						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\">[CHECK]</button></form></td>";
 
 							echo "</tr>";
 
@@ -92,11 +90,9 @@
 					?>
 				</div>
 			</br>
-			<button class="css3button" id="borrowedbtn" name="borrowed">List of Borrowed Books</button>
-			</br>
 				<div id="borrowed">
 					<?php
-						echo "<table border=\"2\" class=\"nativetable\">";
+						echo "<table class=\"table table-hover\" id=\"borrowed\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th>Status</th><th></th>";
 						echo "</tr>";
@@ -124,7 +120,7 @@
 							}
 						}
 						else echo "\t<td>Ok</td>\n";
-						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/main/do_return\"><button value=\"$row->accession_number\" name=\"borrowed\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" src=\"".base_url()."assets/cross.png"."\" height=\"125px\"></button></form></td>";
+						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-error\" value=\"$row->accession_number\" name=\"borrowed\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\">[CROSS]</button></form></td>";
 
 							echo "</tr>";
 
@@ -134,8 +130,5 @@
 				</div>
 
 		</br></br></br>
-
-		<?php include"footer.html"?>
-
 	</body>
 </html>

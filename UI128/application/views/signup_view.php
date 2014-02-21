@@ -87,6 +87,7 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="birthday">Birthday</label>
                                     <input type="date" name="birthday" id="bday" class="form-control input-lg" placeholder="Birthday" tabindex="3">
                                     <span name="promptbday"></span> <br/>
                                 </div>
@@ -193,18 +194,12 @@
                                     </div>
 
                                     <input type="submit" name="submit" value="Submit" class="btn btn-block btn-primary"/>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <!--footer---------------------------------------------------------------------------------------------------------->
-    <?php include("includes/footer.php"); ?>
 
     <script type="text/javascript">
         var type;
@@ -281,7 +276,7 @@
         function checkmName(){
             str=main_form.middle_name.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
+            if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
                 msg += " Only letters hyphens and spaces are allowed.";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
@@ -291,7 +286,7 @@
         function checklName(){
             str=main_form.last_name.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
+            if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
                 msg += " Only letters, hyphens and spaces are allowed.";
             document.getElementsByName('promptlname')[0].innerHTML=msg;
@@ -301,7 +296,7 @@
         function checkBday(){
             str=main_form.birthday.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
+            if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/))
                 msg += " Invalid date format (YYYY-MM-DD).";
             document.getElementsByName('promptbday')[0].innerHTML=msg;
@@ -311,7 +306,7 @@
         function checkemail(){
             str=main_form.email.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
+            if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/))
                 msg += "Invalid E-mail.";
             document.getElementsByName('promptemail')[0].innerHTML=msg;
@@ -321,7 +316,7 @@
         function checkPassword(){
             str=main_form.password.value;
             msg=" ";
-            if(str=="") msg = "Please fill this out this field.";
+            if(str=="") msg = "Please fill out this field.";
             else if(str.match(/^[a-zA-Z0-9]{1,3}$/)){
                 msg+=" Password must be 4-16 long.";
                 document.getElementsByName('promptpassword')[0].innerHTML=msg;
@@ -358,7 +353,7 @@
             str1=main_form.password.value;
             str2=main_form.password_confirmation.value;
             msg="";
-            if(str2=="") msg += " Please fill this out this field.";
+            if(str2=="") msg += " Please fill out this field.";
             if(!(str1==str2))
                 msg+=" Passwords do not match";
             document.getElementsByName('promptpassword2')[0].innerHTML=msg;
@@ -433,5 +428,10 @@
         <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
         <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
         <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
+
+
+    <!--footer---------------------------------------------------------------------------------------------------------->
+    <?php include("includes/footer.php"); ?>
+
 	</body>
 </html>                                                                        

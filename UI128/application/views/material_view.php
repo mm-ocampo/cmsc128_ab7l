@@ -1,11 +1,11 @@
 	<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
 
-	<?php
-		$this->load->view('includes/header');
-	?>
-
-	
-
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>ICS e-Lib</title>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/boostrap.min.css">
+    </head>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -75,7 +75,7 @@
 
 					<div>
 						<!-- <input type="submit" class="btn btn-primary" name="Add Reading Material" data-toggle="modal" data-target="#myModal"> -->
-				      	<input type="submit" class="btn btn-primary" value="Click Me" data-toggle="modal" data-target="#myModal"/>
+				      	<input type="submit" class="btn btn-primary" value="Add" />
 				    </div>
 				</form>
 			</div>
@@ -133,12 +133,6 @@
 	
 	<?php echo form_close(); ?>	
 	</body>
-
-	<script>
-		function sample(){
-			alert("set");
-		}			
-	</script>
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
 	<script src="assets/js/input_checker.js"></script>	
 	<script src="assets/js/bootstrap.min.js"></script>

@@ -41,7 +41,7 @@ class Material_controller extends CI_Controller {
 		    		'author'=>$this->input->post('author')
 		    	);
 			$result['res'] = $this->material_model->add_reading_materials($data, $data2);
-			redirect(base_url());
+			$this->load->view('admin_add_book_view');
 		}
 	}
 }

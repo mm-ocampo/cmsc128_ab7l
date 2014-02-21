@@ -10,17 +10,16 @@
     <title>ICSeLib</title>
     <link rel="shortcut icon" href=<?php echo "\"".base_url()."assets/thumbnail.png"."\""?> >
 
-    
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">
+
   </head>
 
 <!-- Wrap all page content here -->
@@ -73,7 +72,7 @@
           <p>Discover more by searching for books in the library collection. Offers advanced search for more extensive and easy lookup.</p>
         </div><!-- /.col-lg-4 -->
       <div class="col-xs-6 col-sm-3 placeholder">
-          <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_approve"><br/><span class="glyphicon glyphicon-check glyphicon-large"></span></a><br>
+          <a class="btn btn-primary circle" href="/UI128/index.php/admin_reserve/indexes"><br/><span class="glyphicon glyphicon-check glyphicon-large"></span></a><br>
           <h4>Approve Book Requests</h4>
           <p>Manage your system by determining viewing, accepting or declining book requests from library users.</p>
         </div><!-- /.col-lg-4 -->
