@@ -17,12 +17,6 @@ class Site extends CI_Controller {
 
     public function index(){
 
-        $this->home();
-
-    }
-
-    public function home(){
-
         $this->load->view('default_view');
 
     }
@@ -232,23 +226,15 @@ class Site extends CI_Controller {
     }
 
     public function update_account(){
-        $email=$this->input->post('email');
-        $input = array(
-             'student_number' => $this->input->post('student_number'),        
-             'employee_number' => $this->input->post('employee_number'),  
-             'degree_program' => $this->input->post('degree_program'),
-             'classification' => $this->input->post('classification'),
-             'first_name' => $this->input->post('first_name'),        
-             'middle_name' => $this->input->post('middle_name'),  
-             'last_name' => $this->input->post('last_name'),
-             'birth_date' => $this->input->post('birth_date')
-            );
-        //print_r($input); die();
-        $update = $this->get_database->update_user_details($email,$input);
+        $input = $this->input->post();
+        $update = $this->get_database->update_user_details($input['email'],$input);
         if($update == 1){
-            $this->user_update_view();
+            echo 'update successful!';
+            $this->load->view('home_view');
+
         }else{
-            $this->user_update_view();
+            echo 'error occured';
+            $this->load->view('home_view');
         }
     }
 //end of user update functions

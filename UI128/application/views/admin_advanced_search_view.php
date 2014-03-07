@@ -35,20 +35,27 @@
     <!-- Begin page content -->
     <div class="container">
         <div class="row">
-            <div class="span4 bs-docs-sidebar">
-                <ul class="nav nav-list bs-docs-sidenav affix">
+            <div id="width_limit">
+                <div class="sidebar">
+                    <div class= "panel-group profile_bar">
+                        <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+                        <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
+                        <p class="text-muted"><?php echo $this->session->userdata('email');?></p>
+                    </div>
+                    <ul class="nav nav-sidebar ">
                     <h2>Hi <?php echo $this->session->userdata('name');?>!</h2>
-                    <li class=""><a href="/UI128/index.php/site/get_my_library_data"><i class="icon-chevron-right"></i>Books</a></li>
-                    <li class="active"><a href="/UI128/index.php/elib/user_search_book"><i class="icon-chevron-right"></i>Search</a></li>
-                    <li class=""><a href="/UI128/index.php/site/user_update_view"><i class="/UI128/index.php/elib/user_profile"></i>Edit Profile</a></li>
-                    <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
+                    <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Materials<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+                    <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="fa fa-chevron-right fa-lg space pull-right"></span></a></li>
+                    <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+                    <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+                    <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-<div class="floatright">
+<div class="content_right main">
 
     <div id="cut">
         <h3 class="page-header">Search</h3>

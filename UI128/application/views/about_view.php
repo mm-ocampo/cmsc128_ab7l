@@ -55,7 +55,7 @@
         <p align="justify">To carry out high-level research and development in computer science and computer hardware so as to enhance locally produced computer products.</p>
         <p align="justify">To continuously upgrade the computing personnel of industry and government through training.</p>
        </fieldset>
-       <a href="#toptop" id="1">Back to Top</a>
+       <a href="#wrap" id="1">Back to Top</a>
       </div>
       <br><br>
       <div id="vision">
@@ -63,7 +63,7 @@
         <h2 style="color: #428bce;">Vision</h2>
         <p>To become the National Center of Excellence in Computer Science.</p>
         </fieldset>
-        <a href="#toptop" id="2">Back to Top</a>
+        <a href="#wrap" id="2">Back to Top</a>
       </div>
       <br><br>
       <div id="history">
@@ -78,7 +78,7 @@ Division of Computer Science was separated from IMSP in January 26, 1995. The UP
 A year later, the Institute was designated by the Board of Regents as a pilot institute to implement the concept of a System Academic Program. Dr. Eliezer A. Albacea was designated System Director for the UP System Computer Science Program. ICS is instrumental in the institution of BSCS programs in UP Manila, UP in the Visayas (Cebu, Tacloban, and Iloilo), UP College Baguio, and UP Mindanao.<br><br>
 In 1996, ICS instituted the Diploma in Computer Science both in residential and distance education modes while in 1998, the Ph.D. in Computer Science was instituted. In 2002, the Master of Information Technology was instituted.</p>
         </fieldset>
-        <a href="#toptop" id="3">Back to Top</a>
+        <a href="#wrap" id="3">Back to Top</a>
       </div>
       <br><br>
       <div id="aboutICS">
@@ -87,7 +87,7 @@ In 1996, ICS instituted the Diploma in Computer Science both in residential and 
         <p align="justify">Welcome to the Institute of Computer Science library. Where we believe that enthrallment with the Library's collection and engagement with its staff is the best way for academic excellence for not just UPLB Computer Science majors, but also constituents whose curiosity is built up regarding the field. We recognize the service given by our library as our best interest, as we have been doing for the past few years. And we're still going to continue pursuing our service with all excellence and strive to be better at it for all ways.</p>
         <p align="justify">Since its establishment, the ICS Library has catered the need of Computer Science students with its vast collection of books, SPs, Theses, and other reading materials associated with the field. For years, it has been a site for research, studies, and the like and it continues to strengthen its reputation as a place of learning up until today. The history engraved in all materials held by the library each has story to tell. The library had witnessed the making of great Computer Scientists, thus, making it a haven for crucial developments. Us and the library's goal of helping the students as much as it can still in effect.</p>
        </fieldset>
-       <a href="#toptop" id="4">Back to Top</a>
+       <a href="#wrap" id="4">Back to Top</a>
       </div>
       <br><br>
     </div>

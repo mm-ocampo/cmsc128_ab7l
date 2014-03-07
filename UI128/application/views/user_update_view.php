@@ -1,63 +1,57 @@
-<!DOCTYPE html> 
-<html> 
-    <head>    
-        <title>Edit Account Details</title> 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.css"> 
-        <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet" type="text/css">
-        
-    </head> 
-  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap core CSS -->
+    <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
+
+  </head>
     <body>
-        <div id="user_update_profile"> 
-            <form name="user_update" method="POST" action="<?php echo base_url();?>index.php/site/update_account" onsubmit="return checkAll();"> 
-                <input type="hidden" id="email" name="email" value="<?php echo($results['email'] != ''?$results['email']:'');?>"/> 
-                <!--Name-->
+    <div id="row"> 
+            <form name="user_update" class="form-horizontal" method="POST" action="<?php echo base_url();?>index.php/site/update_account" onsubmit="return validate_update();"> 
+                <input type="hidden" id="user" name="email" value="<?php  echo($results['email'] != ''?$results['email']:'');?>"/> 
                 <div class="form-group">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="first_name" id="fname" class="form-control input-lg" placeholder="First Name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"tabindex="3">
-                    <span name="promptfname"></span> <br/>
+                    <label class="control-label col-sm-2 col-sm-offset-2">First Name</label>
+                    <div class="col-sm-4">
+                      <input class="form-control col-sm-4 textfield" type="text" placeholder="First name" id="first_name" name="first_name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"/>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-sm-offset-2">Middle Name</label>
+                    <div class="col-sm-4">
+                      <input class="form-control col-sm-4 textfield" type="text" placeholder="Middle name" id="middle_name" name="middle_name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>"/>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="mname">Middle Name</label>
-                    <input type="text" name="middle_name" id="mname" class="form-control input-lg" placeholder="Middle Name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>" tabindex="3">
-                    <span name="promptmname"></span> <br/>
+                    <label class="control-label col-sm-2 col-sm-offset-2">Last Name</label>
+                      <div class="col-sm-4">
+                      <input class="form-control col-sm-4 textfield" type="text" placeholder="Last name" id="last_name" name="last_name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>"/> 
+                      </div>
                 </div>
                 <div class="form-group">
-                    <label for="lname">Last Name</label>
-                    <input type="text" name="last_name" id="lname" class="form-control input-lg" placeholder="Last Name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>" tabindex="3">
-                    <span name="promptlname"></span> <br/>
+                    <label class="control-label col-sm-2 col-sm-offset-2">Password</label>
+                      <div class="col-sm-4">
+                      <input class="form-control col-sm-4 textfield" type="password" name="password" id="password" value="<?php echo($results['password'] != ''?$results['password']:'');?>"/> 
+                      </div>
                 </div>
-                <!--End of Name-->
-
                 <div class="form-group">
-                    <label for="birth_date">Date of Birth</label>
-                    <input type="date" name="birth_date" id="birth_date" class="form-control input-lg" placeholder="Birthday" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>" tabindex="3">
-                    <span name="promptbday"></span> <br/>
+                    <label class="control-label col-sm-2 col-sm-offset-2">Student Number</label>
+                      <div class="col-sm-4">
+                      <input class="form-control col-sm-4 textfield" type="text" placeholder="####-#####" id="student_number" name="student_number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>"/> 
+                      </div>
                 </div>
-
-                <div class="row">
-                        <div id="student_form" class="<?php echo($results['is_student'] == 0)?'invisible':'';?>">
-                            <hr>
-
-                        <div class="form-group">
-                            <label for="student_number">Student No.</label>
-                            <input type="text" name="student_number" id="student_number" class="form-control input-lg" placeholder="Student Number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>" tabindex="3">
-                            <span name="promptstudentnumber"></span> <br/>
-                        </div>
-                        <br/>
-                        <label for="classification">Classification</label>
-                        <select name="classification" class="form-control input-lg">
-                            <option value="FM" <?php echo($results['classification'] == 'FM')?'selected':'';?>>Freshman</option>
-                            <option value="SO" <?php echo($results['classification'] == 'SO')?'selected':'';?>>Sophomore</option>
-                            <option value="JR" <?php echo($results['classification'] == 'JR')?'selected':'';?>>Junior</option>
-                            <option value="SR" <?php echo($results['classification'] == 'SR')?'selected':'';?>>Senior</option>
-                            <option value="G" <?php echo($results['classification'] == 'G')?'selected':'';?>>Graduate</option>
-                        </select>
-                        <br/>
-
-                        <label for="degree_program">Degree Program</label>
-                        <select name="degree_program" class="form-control input-lg">
-                            <option value="BSABM" <?php echo($results['degree_program'] == 'BSABM')?'selected':'';?> >BS Agribusiness Management</option>
+                <div class="form-group">
+                   <label for="degree_program"class="control-label col-sm-2 col-sm-offset-2" >Degree Program</label>
+                    <div class="col-sm-5">
+                                        <select name="degree_program" class="form-control col-sm-4 ">
+                                            <option value="BSABM" <?php echo($results['degree_program'] == 'BSABM')?'selected':'';?> >BS Agribusiness Management</option>
                                             <option value="BSABT" <?php echo($results['degree_program'] == 'BSABT')?'selected':'';?> >BS Agricultural Biotechnology</option>
                                             <option value="BSAgChem" <?php echo($results['degree_program'] == 'BSAgChem')?'selected':'';?> >BS Agricultural Chemistry</option>
                                             <option value="BSAgEcon" <?php echo($results['degree_program'] == 'BSAgEcon')?'selected':'';?> >BS Agricultural Economics</option>
@@ -85,115 +79,119 @@
                                             <option value="BASocio" <?php echo($results['degree_program'] == 'BASocio')?'selected':'';?> >BA Sociology</option>
                                             <option value="BSSTAT" <?php echo($results['degree_program'] == 'BSSTAT')?'selected':'';?> >BS Statistics</option>
                                             <option value="DVetMed" <?php echo($results['degree_program'] == 'DVetMed')?'selected':'';?> >D Veterinary Medicine</option>
-
-                        </select>
-
-                        <br/>
+                                        </select>
+                    </div>                    
                     </div>
-
-                    <div id="faculty_form" class="<?php echo($results['is_faculty'] == 0)?'invisible':'';?>">
-                        <hr>
                         <div class="form-group">
-                            <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" tabindex="3"> <span name="promptemployeenumber"></span>
-                            <br/>
-                        </div>
-                        <hr/>
-                    </div>
-                <div class="form-actions" id="cut">
+                                    <label for="classification" class="control-label col-sm-2 col-sm-offset-2">Classification</label>
+                                    <div class ="col-sm-5">
+                                        <select name="classification" class="form-control">
+                                            <option value="FM" <?php echo($results['classification'] == 'FM')?'selected':'';?> >Freshman</option>
+                                            <option value="SO" <?php echo($results['classification'] == 'SO')?'selected':'';?>>Sophomore</option>
+                                            <option value="JR" <?php echo($results['classification'] == 'JR')?'selected':'';?>>Junior</option>
+                                            <option value="SR" <?php echo($results['classification'] == 'SR')?'selected':'';?>>Senior</option>
+                                            <option value="G" <?php echo($results['classification'] == 'G')?'selected':'';?>>Graduate</option>
+                                        </select>
+                                    </div> 
+                        </div>               
+            <div class="form-group">                    
+                <label class="control-label col-sm-2 col-sm-offset-2">Birthday: </label> 
+                <div class ="col-sm-5">  
+                    <input class="textfield" class="form-control" type="text" placeholder="yyyy-mm-dd" name="birth_date" id="birth_date" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>"/>  
+                </div>
+            </div>      
+
+            <div class="form-group">      
+                <label class="control-label col-sm-2 col-sm-offset-2">Employee number: </label> 
+                <div class ="col-sm-5">  
+                <input class="textfield" type="employee_number" placeholder="##########" id="employee_number" name="employee_number" value="<?php echo($results['employee_number'] != ''?$results['employee_number']:'');?>"/> 
+                </div>
+            </div>
+            <div class="form-group">      
+                <label class="control-label col-sm-2 col-sm-offset-2">Sex:</label> 
+                <label class="checkbox-inline"><input type="radio" name="sex" <?php echo($results['sex'] == 'M')?'checked':'';?> value="M" checked>Male</label>
+                <label class="checkbox-inline"><input type="radio" name="sex" <?php echo($results['sex'] == 'F')?'checked':'';?> value="F">Female</label>
+            </div>
+
+
+                <div class="form-actions col-sm-offset-4" id="cut">
                 <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
                 <a href="/UI128/index.php/site/get_my_library_data"><button type="button" class="btn">Cancel</button></a>
-
                 </div>
             </form>
-            <a href="<?php echo base_url()?>index.php/site/change_password_view">Change password</a>
-              
-        </div> 
+            </div> 
+
     </body> 
-    
-    <script type="text/javascript" language="javascript">
-        window.onload=function(){
-            user_update.first_name.onblur=checkfName;
-            user_update.middle_name.onblur=checkmName;
-            user_update.last_name.onblur=checklName;
-            user_update.student_number.onblur=checksNumber;
-            user_update.employee_number.onblur=checkeNumber;
-            user_update.birthday.onblur=checkBday;
-            user_update.onsubmit=checkAll;
-        }
-
-        function checksNumber() {
-            str=user_update.student_number.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill this out this field.";
-            else if(!str.match(/^[0-9]{4}\-[0-9]{5}$/))
-                msg += "Invalid student number.";
-            document.getElementsByName('promptstudentnumber')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-        function checkeNumber() {
-            str=user_update.employee_number.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill this out this field.";
-            else if(!str.match(/^[0-9]{9}$/))
-                msg += "Invalid employee number. Must consist of only 9 digits.";
-            document.getElementsByName('promptemployeenumber')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-
-        function checkfName(){
-            str=user_update.first_name.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill this out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters hyphens and spaces are allowed.";
-//            console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
-            document.getElementsByName('promptfname')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-        function checkmName(){
-            str=user_update.middle_name.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters hyphens and spaces are allowed.";
-            document.getElementsByName('promptmname')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-        function checklName(){
-            str=user_update.last_name.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters, hyphens and spaces are allowed.";
-            document.getElementsByName('promptlname')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-        function checkBday(){
-            str=user_update.birth_date.value;
-            msg="";
-            if(str.trim().length==0) msg += " Please fill out this field.";
-            else if(!str.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/))
-                msg += " Invalid date format (YYYY-MM-DD).";
-            document.getElementsByName('promptbday')[0].innerHTML=msg;
-            if(msg=="") return true;
-        }
-
-        function checkAll(){
-                if(checkfName() && checkmName() && checklName() && checkBday() && (checksNumber() || checkeNumber())){
-                    alert('You have updated your profile.');
-                    return true;
-                }
-                return false;
-        }
-
+    <script type="text/javascript" language="javascript" src="<?php echo base_url();?>assets/js/jquery-2.0.3.min.js"></script>  
+    <script type="text/javascript" language="javascript"> 
+        function validate_update(){ 
+            var ret = true; 
+            var first_name = $('#first_name').val(); 
+            var middle_name = $('#middle_name').val(); 
+            var last_name = $('#last_name').val(); 
+            var password = $('#password').val(); 
+            var student_number = $('#student_number').val(); 
+            var degree_program = $('#degree_program').val(); 
+            var classification = $('#classification').val(); 
+            var sex = $('#sex').val(); 
+            var birth_date = $('#birth_date').val(); 
+            var number_pattern = /[0-9]|[,.'-=<>?:"{}+_!@#$%^&*()]/; 
+              
+            if(first_name == ''){ 
+                alert('First name cannot be empty.'); $('#first_name').focus(); ret=false; 
+            }else if(number_pattern.test(first_name)){ 
+                alert('First name cannot have digits or special characters.'); $('#first_name').focus(); ret=false; 
+            }else{ 
+                if(middle_name == ''){ 
+                    alert('Middle name cannot be empty.'); $('#middle_name').focus(); ret=false; 
+                }else if(number_pattern.test(middle_name)){ 
+                    alert('Middle name cannot have digits or special characters.'); $('#middle_name').focus(); ret=false; 
+                }else{ 
+                    if(last_name == ''){ 
+                        alert('Last name cannot be empty.'); $('#last_name').focus(); ret=false; 
+                    }else if(number_pattern.test(last_name)){ 
+                        alert('Last name cannot have digits or special characters.'); $('#last_name').focus(); ret=false; 
+                    }else{ 
+                        if(password == ''){ 
+                            alert('Password cannot be empty.'); $('#password').focus(); ret=false; 
+                        }else{ 
+                            var stdno_pattern=/(^[0-9]{4}-[0-9]{5}$)/;   
+                            if(student_number == ''){ 
+                                alert('Student number cannot be empty.'); $('#student_number').focus(); ret=false; 
+                            }else if(student_number.match(stdno_pattern)==null){ 
+                                alert('Student number must have 4 digits followed by a dash and 5 digits.'); $('#student_number').focus(); ret=false; 
+                            }else{ 
+                                var dp_pattern = /^B[SA][A-Z]{2}$/g; 
+                                if(degree_program == ''){ 
+                                    alert('Degree program cannot be empty.'); $('#degree_program').focus(); ret=false; 
+                                }else if(degree_program.match(dp_pattern)==null){ 
+                                    alert('Degree program must exist.'); $('#degree_program').focus(); ret=false; 
+                                }else{ 
+                                    var class_pattern = /(FR|SO|JR|SR)/g; 
+                                    if(classification == ''){ 
+                                        alert('Classification cannot be empty.'); $('#classification').focus(); ret=false; 
+                                    }else if(classification.match(class_pattern)==null){ 
+                                        alert('Classification can only either be FR, SO, JR, or SR.'); $('#classification').focus(); ret=false; 
+                                    }else{ 
+                                        var birthday_pattern = /^((19|20)[0-9]{2})$-^(0?[1-9]{1}|1[012])$-^(0?[1-9]{1}|[12][0-9]|3[01])$/; 
+                                        if(birth_date == ''){ 
+                                            alert('Birthday cannot be empty.'); $('#birth_date').focus(); ret=false; 
+                                        }else{ 
+                                            if(birth_date.match(birthday_pattern)==null){ 
+                                                alert('Birthday must have the ff format: yyyy-mm-dd, and valid year(19XX and 20XX only), month(12), and day(31).'); $('#birth_date').focus(); ret=false; 
+                                            }
+                                        } 
+                                    } 
+                                } 
+                            } 
+                        } 
+                    } 
+                } 
+            } 
+            if(ret!=false)
+                alert('Profile Update Successful');
+            return ret; 
+        } 
     </script>
-    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
-    <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
-    <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 
 </html>

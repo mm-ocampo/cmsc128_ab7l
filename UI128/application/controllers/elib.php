@@ -37,7 +37,7 @@ class Elib extends CI_Controller {
             $this->load->view('admin_default_view');       
         }
         else if($this->session->userdata('type')=="user"){
-            $email= $this->session->userdata('email');//$this->session->userdata('email');
+            $email= $this->session->userdata('email');
             $data['results']=$this->get_database->get_bookmarks($email);
             $data['results2']=$this->get_database->get_author_for_bookmarks($email);
             $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -157,75 +157,13 @@ class Elib extends CI_Controller {
         -   Users cannot see the profile of other users.
         -   This is where users can change their passwords.
     */
-    public function admin_profile(){                //BINAGO!
-//        $this->load->model('get_database');
-        $email=$this->session->userdata('email');
-        $this->db->where(array('email'=>$email));   //user must be in session, change email, get email of user in session
-        $data['results'] = $this->db->get('admin')->result();
-//        print_r($data['results']);
-        //$this->load->view('user_profile_view', $data);
-        $this->load->view('admin_profile_view', $data);
+    public function admin_profile(){
+        $this->load->view('admin_profile_view');
     }
 
-    public function update_account_admin(){
-        $email=$this->input->post('email');
-        $input = array(
-             'employee_number' => $this->input->post('employee_number'),  
-             'first_name' => $this->input->post('first_name'),        
-             'middle_name' => $this->input->post('middle_name'),  
-             'last_name' => $this->input->post('last_name'),
-            );
-        $update = $this->update_admin_details($email,$input);
-        if($update == 1){
-            $this->admin_profile();
-        }else{
-            $this->admin_profile();
-        }
+    public function user_default(){
+        $this->load->view('user_default_view');
     }
-
-    public function update_admin_details($email,$data){
-        $this->db->where('email',$email);
-        if(!$this->db->update('admin',$data)){
-            return -1;
-        }
-        else{
-            return 1;
-        }
-
-    }
-
-//end of admin update functions
-
-//start of change admin password functions
-
-        public function get_admin_password($email){
-            $statement= "SELECT password, email from admin where email= \"$email\"";
-            $query = $this->db->query($statement);
-
-            return $query->result();
-        }
-
-        public function update_admin_password($email, $password){
-            $statement= "UPDATE admin SET password=\"$password\" where email=\"$email\"";
-            $query = $this->db->query($statement);
-            return 1;
-        }
-
-
-    public function change_password_view_admin(){
-        $email=$this->session->userdata('email');//$this->session->userdata('email');
-        $data['results'] = $this->get_admin_password($email);   //user must be in session, change email, get email of user in session
-        $this->load->view('admin_change_password_view', $data);
-    }
-
-    public function change_password_admin(){
-        $email=$this->session->userdata('email');//$this->session->userdata('email');
-        $password=$this->input->post('password');
-        $update = $this->update_admin_password($email,$password);
-
-        $this->admin_profile();   
-    }
-//end of change admin password functions
 
 
 

@@ -1,4 +1,3 @@
-
 <form action="<?php echo base_url();?>index.php/site/search?page_number=1" method="get" accept-charset="utf-8">
 
 
@@ -53,7 +52,7 @@
     value="<?php
         if(isset($_GET['search_query']))    echo str_replace('+',' ',$_GET['search_query']);
     ?>"/>
-        <div class="input-group-btn"><button class="btn btn-primary search-icon"><i class="fa fa-search fa-lg "></i></button></div>
+        <div class="input-group-btn"><a href="/UI128/index.php/site/callResults" class="btn btn-primary search-icon"><i class="fa fa-search fa-lg "></i></a></div>
 </div>
 
     <select id="search_subject" 
@@ -109,9 +108,9 @@
 -->
     <div id="display_suggestion">No Suggestion</div>
         <div class="advanced_search">   
-            <a class="advanced_search_link" data-toggle="collapse" href="#collapse_advanced_search">
-                <i class="fa fa-search-plus">Advanced Search</i>
-            </a>
+            <p><a class="advanced_search_link" data-toggle="collapse" href="#collapse_advanced_search">
+                <i class="fa fa-search-plus"></i> Advanced Search
+            </a></p>
         </div>
 
 

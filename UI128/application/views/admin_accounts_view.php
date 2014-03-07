@@ -36,8 +36,8 @@
             <p class="text-muted"><?php echo $this->session->userdata('email');?></p>          
           </div>
         <ul class="nav nav-sidebar ">          
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Books<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Materials<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="fa fa-chevron-right fa-lg space pull-right"></span></a></li>
           <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
@@ -59,11 +59,6 @@
           <h4>Approve Account</h4>
           <?php echo "<span class=\"btn-danger badge badge-error\"><b>" . $pendingCount . "</b></span>";?>
         </div>
-        
-        <div class="col-xs-6 col-sm-4 placeholder">
-          <a id="add_account" class="btn btn-primary circle" href="/UI128/index.php/elib/admin_add_account"><br/><span class="glyphicon glyphicon-plus glyphicon-large"></span></a>
-          <h4>Add New Account</h4>
-        </div>
 
         <div class="col-xs-6 col-sm-4 placeholder">
           <a id="reactivate_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=reactivate"><br/><span class="glyphicon glyphicon-check glyphicon-large"></span></a>
@@ -73,7 +68,7 @@
 
       <div class="row placeholders">
         <div class="col-xs-6 col-sm-4 placeholder">
-          <a id="message" class="btn btn-primary circle" href="/UI128/index.php/query/get_rows"><br/><span class="glyphicon glyphicon-envelope glyphicon-large"></span></a>
+          <a id="message" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=message"><br/><span class="glyphicon glyphicon-envelope glyphicon-large"></span></a>
           <h4>Message</h4>      
         </div>      
         <div class="col-xs-6 col-sm-4 placeholder">

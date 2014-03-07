@@ -25,18 +25,6 @@
     <link href=<?php echo "\"".base_url()."assets/dist/glyphicons/png"."\""?> rel="stylesheet">
   </head>
 
-    <!--Inline javascript powered by JQuery2.0.3-->
-  <script language="javascript" type="text/javascript" src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
-  <script>
-    $(document).ready(function(){
-      $('.requestbtn').click(function(){
-        $('#request').toggle();
-        $('#reserve').hide();
-        $('#borrowed').hide();
-      });
-    });
-  </script>
-
 <!-- Wrap all page content here -->
 <div id="wrap">
 
@@ -50,24 +38,53 @@
       <div class="span4 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix">
           <h2>Hi ADMIN!</h2>
-          <li class="active"><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Books</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
+          <li class=""><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Materials</a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li class="active"><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
           <li class=""><a href="/UI128/index.php/elib/admin_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>
           <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
         </ul>
       </div>
-      </div>
+  		</div>
       </div>
 </div>
 
     <div class="floatright">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_account"><< Back</a><br>
-      <div id="query_messages" class="col-md-8">
-        <fieldset>
-         <legend>Message</legend>
-         <?php include('messages.php');?>
-        </fieldset>
-      </div>
+      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_account"><< Back</a>
+
+        <form class="form-horizontal">
+        <div id="cut">
+            <h3 class="page-header">Message</h3>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Email</label>
+              <div class="controls">
+              <input class="span5" type="text">
+              </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Subject</label>
+              <div class="controls">
+                <select class="span4">
+                <option>Book Overdue</option>
+                <option>Ready for pickup book/s</option>
+                <option>We will be pleased to see you</option>
+                </select>
+              </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Message</label>
+              <div class="controls">
+                <textarea class="span5" rows="5"></textarea>
+              </div>
+        </div>
+        <div class="form-actions" id="cut">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="btn">Cancel</button>
+        </div>
+        </form>
+
+
     </div>
 
 
@@ -76,11 +93,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
-    
-}
-
 </body>
 </html>

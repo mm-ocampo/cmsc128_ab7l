@@ -128,51 +128,6 @@ body {
   height: 150px;
   width: 100px;
 }
-
-#content {
-  margin-top: 50px;
-  float: left;
-}
-
-#contact_content {
-  margin-top: 20px;
-}
-
-#contact_form {
-  padding-top: 50px;
-}
-
-#query_box {
-  min-height: 200px;
-  max-height: 200px;
-  max-width: 100%;
-  min-width: 100%;
-}
-
-#pics {
-  float: left;
-}
-
-#text {
-  float: left;
-  padding: 20px;
-}
-
-li {
-  text-align: justify;
-}
-
-#internal_links {
-  width: 100%;
-}
-
-#input3 {
-  margin-top: 30px;
-}
-
-#query_messages {
-  width: 50%;
-}
 /* Jecho Changes End*/
 
 /* Frei Changes Start*/

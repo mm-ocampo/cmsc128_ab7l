@@ -32,7 +32,7 @@
           <div class= "panel-group profile_bar">
             <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
           <h2 class="panel-heading profile_greet">Hi <?php echo $this->session->userdata('name');?>!</h2>
-            <p class="text-muted">username@domain.com</p>          
+            <p class="text-muted"><?php echo $this->session->userdata('email');?></p>
           </div>
         <ul class="nav nav-sidebar ">          
           <li><a class="list-group-item active" href="/UI128/index.php/site/get_my_library_data?page_number=1"><i class="fa fa-book fa-lg space"></i>My Library<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>

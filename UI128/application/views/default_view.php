@@ -24,7 +24,7 @@
     <!-- Wrap all page content here -->
 <div id="wrap">
       
-  <?php include "header_default.html" ?>
+  <?php include "header_default.php" ?>
 
   <!--<div class="width_limit">-->
 <div class="width_limit">
@@ -58,7 +58,7 @@
           <img src=<?php echo "\"".base_url()."assets/lib3.jpg"."\""?>  alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h3 class="form-heading">One more for good measure.</h3>
+              <h2 class="form-heading">Learn more from a number of special problems, theses, and books.</h2>
             </div>
           </div>
         </div>
@@ -95,9 +95,9 @@
               <label class="checkbox">
                 <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
               </label>
+              <p>No yet registered? <a href="/UI128/index.php/elib/signup_view">Sign up today</a></p>              
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
              </form>
-             <label>Not registered?</label><a><strong> Sign up today, KEP!</strong></a>
         <img src=<?php echo "\"".base_url()."assets/ICS Logo.png"."\""?> class="footer_logo" alt="ICS Logo"/>
         <img src=<?php echo "\"".base_url()."assets/UPLB Logo.png"."\""?> class="footer_logo" alt="UPLB Logo"/>
       </div>

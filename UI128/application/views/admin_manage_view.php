@@ -32,11 +32,11 @@
           <div class= "panel-group profile_bar">
             <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
             <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
-            <p class="text-muted">username@domain.com</p>          
+            <p class="text-muted"><?php echo $this->session->userdata('email');?></p>
           </div>
         <ul class="nav nav-sidebar ">          
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Materials<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
-          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="fa fa-chevron-right fa-lg space pull-right"></span></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
@@ -57,12 +57,12 @@
       <div class="col-xs-6 col-sm-4 placeholder">
           <a class="btn btn-primary circle" href="/UI128/index.php/elib/activity"><br/><span class="glyphicon glyphicon-calendar glyphicon-large"></span></a>
           <h4>Activity Log</h4>
-          <p>Expand your collection of books, thesis, special problems, journals and other materials.</p>
+          <p>Check recent activity on ICS e-Lib.</p>
        </div>
       <div class="col-xs-6 col-sm-4 placeholder">
           <a class="btn btn-primary circle" href="/UI128/index.php/elib/admin_search_book"><br/><span class="glyphicon glyphicon-print glyphicon-large"></span></a>
           <h4>Print Inventory</h4>
-          <p>Discover more by searching for books in the library collection. Offers advanced search for more extensive and easy lookup.</p>
+          <p>Save a digital copy of your current collection.</p>
         </div>
     </div>
   

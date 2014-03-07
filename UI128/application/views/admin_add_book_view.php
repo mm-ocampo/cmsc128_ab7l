@@ -31,11 +31,11 @@
           <div class= "panel-group profile_bar">
             <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
             <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
-            <p class="text-muted">username@domain.com</p>          
+            <p class="text-muted"><?php echo $this->session->userdata('email');?></p>
           </div>
         <ul class="nav nav-sidebar ">          
           <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Materials<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-cogs fa-lg space"></i>Library Management<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
           <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
@@ -54,7 +54,7 @@
       <?php echo form_open("material_controller/add"); ?>
 
   <div class="content_right main">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><span class="fa fa-arrow-left"></span> Back</a>
+      <a class="btn btn-primary pull-right" href="/UI128/index.php/elib/admin_default"><span class="fa fa-arrow-left"></span> Back</a>
       <h1 class="page-header">Add Material</h1>
 
     <form name="material_form" role="form" method="post">
