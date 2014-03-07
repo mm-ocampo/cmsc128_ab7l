@@ -12,14 +12,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
+    
   </head>
 
     <!--Inline javascript powered by JQuery2.0.3-->
@@ -45,36 +44,37 @@
   </script>
 
 
+  <?php include"header.php";?>
 
 <body>
-<!-- Wrap all page content here -->
-<div id="wrap">
-  <?php include"header.php";?>
+  <div id="wrap">
       <!-- Begin page content -->
-      <div class="col-sm-4 sidebar">
-        <ul class="nav nav-sidebar ">
-          <h2 class="panel-heading">Hi ADMIN!</h2>
-          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default">Books<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account">Accounts<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile">Edit Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/logout">Log Out<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-            <div id="footer">
-              <div class="container">
-                <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
-              </div>
-            </div>
+    <div id="width_limit">
+      <div class="sidebar">
+          <div class= "panel-group profile_bar">
+            <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+            <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
+            <p class="text-muted">username@domain.com</p>          
+          </div>
+        <ul class="nav nav-sidebar ">          
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Books<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
         </ul>
-      </div>
 
+          <div id="footer">
+            <div id="container">
+              <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+            </div>
+          </div>
+    </div>         
 
-    <div class="col-sm-10 col-sm-offset-2 main">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><< Back</a>
+    <div class="content_right main">
+              <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><span class="fa fa-arrow-left"></span> Back</a>  
 
         
-            <h3 class="page-header">Book Reservations and Availability</h3>
-        <input type="text" class="input-xlarge search-query">
-        <button type="submit" class="btn">Search</button></br></br></br>
-
+            <h1 class="page-header">Book Reservations and Availability</h1>
 
         <!--TABLE SAMPLE - BUT THIS MUST HIDE AFTER OPENING OTHER TABLES-->
 

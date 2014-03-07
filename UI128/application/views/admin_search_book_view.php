@@ -12,47 +12,46 @@
 
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
-    <!--FLATSTRAP-->
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap-responsive.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/docs.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/prettify.css"."\""?> rel="stylesheet">
-    <!--GLYPHICONS-->
-    <link href=<?php echo "\"".base_url()."assets/dist/glyphicons/png"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
   </head>
 
-<!-- Wrap all page content here -->
-<div id="wrap">
 
 <?php include"header.php";?>
 
 <body>
-
+  <div id="wrap">
       <!-- Begin page content -->
-      <div class="col-sm-4 sidebar">
-        <ul class="nav nav-sidebar ">
-          <h2 class="panel-heading">Hi ADMIN!</h2>
-          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default">Books<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account">Accounts<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile">Edit Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/logout">Log Out<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-            <div id="footer">
-              <div class="container">
-                <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
-              </div>
-            </div>
+    <div id="width_limit">
+      <div class="sidebar">
+          <div class= "panel-group profile_bar">
+            <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+            <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
+            <p class="text-muted">username@domain.com</p>          
+          </div>
+        <ul class="nav nav-sidebar ">          
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Books<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
         </ul>
-      </div>
-</div>
 
-    <div class="floatright">
+          <div id="footer">
+            <div id="container">
+              <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+            </div>
+          </div>
+    </div>         
+
+    <div class="content_right main">
         <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal">
         <div id="cut">
-            <h3 class="page-header">Search</h3>
+              <a class="btn btn-primary" href="/UI128/index.php/elib/admin_default"><span class="fa fa-arrow-left"></span> Back</a>  
+            <h1 class="page-header">Search</h1>
         </div>
           <!--AYAW GUMANA PAG INCLUDE KAYA GANITO GINAWA KO :<-->
           <section id="search_module">
@@ -101,9 +100,6 @@
         </form>
 
     </div>
-
-
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

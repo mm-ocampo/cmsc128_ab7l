@@ -11,9 +11,7 @@ class Manage_account extends CI_Controller {
     }
 
     function index(){
-        //$result = $this->manage_account_model->get_accounts($operation);
 
-        //$this->load->view('manage_account_view', array("result" => $result));
     }
 
     public function manipulate_account(){
@@ -36,7 +34,7 @@ class Manage_account extends CI_Controller {
             $message=$this->load->view('approved_email', '', TRUE);
             $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
             $this->email->to($user_email);
-            $this->email->subject('Request for an ICS e-Lib Account Approved!');
+            $this->email->subject('ICS eLib Account Request Approved');
             $this->email->message($message);
 
             if( $this->email->send()){
@@ -55,7 +53,7 @@ class Manage_account extends CI_Controller {
             $message=$this->load->view('deactivate_email', '', TRUE);
             $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
             $this->email->to($user_email);
-            $this->email->subject('Your Account at ICS e-lib has been deactivated');
+            $this->email->subject('ICS eLib Account Deactivation');
             $this->email->message($message);
 
             if( $this->email->send()){
@@ -74,7 +72,7 @@ class Manage_account extends CI_Controller {
             $message=$this->load->view('delete_email', '', TRUE);
             $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
             $this->email->to($user_email);
-            $this->email->subject('Your Account at ICS e-lib has been deleted');
+            $this->email->subject('ICS eLib Account Deleted');
             $this->email->message($message);
 
             if( $this->email->send()){
@@ -92,7 +90,7 @@ class Manage_account extends CI_Controller {
             $message=$this->load->view('activate_email', '', TRUE);
             $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
             $this->email->to($user_email);
-            $this->email->subject('Your Account at ICS e-lib has been activated');
+            $this->email->subject('ICS eLib Account Activation');
             $this->email->message($message);
 
             if( $this->email->send()){

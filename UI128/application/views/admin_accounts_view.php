@@ -19,6 +19,7 @@
     <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
     <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
 
   </head>
 
@@ -27,53 +28,64 @@
 <body>
   <div id="wrap">
       <!-- Begin page content -->
-      <div class="row container">
-      <div class="col-sm-4 sidebar">
-        <ul class="nav nav-sidebar ">
-          <h2 class="panel-heading">Hi ADMIN!</h2>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default">Books<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_account">Accounts<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile">Edit Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-          <li><a class="list-group-item" href="/UI128/index.php/elib/logout">Log Out<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-            <div id="footer">
-              <div class="container">
-                <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
-              </div>
-            </div>
+    <div id="width_limit">
+      <div class="sidebar">
+          <div class= "panel-group profile_bar">
+            <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+            <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
+            <p class="text-muted"><?php echo $this->session->userdata('email');?></p>          
+          </div>
+        <ul class="nav nav-sidebar ">          
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Books<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
         </ul>
-      </div>
-      </div>
 
-  <div class="col-sm-9 col-sm-offset-3 main">
+          <div id="footer">
+            <div id="container">
+              <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+            </div>
+          </div>          
+        
+      </div>
+      
+  <div class="content_right main">
       <h1 class="page-header">Manage Accounts</h1>
       <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
-      <a id="approve_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=approve"><br/><span class="glyphicon glyphicon-user glyphicon-large"></span></a>
+        <div class="col-xs-6 col-sm-4 placeholder">
+          <a id="approve_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=approve"><br/><span class="glyphicon glyphicon-user glyphicon-large"></span></a>
           <h4>Approve Account</h4>
-          <?php echo "<span style=\"color:red;\">(<b>" . $pendingCount . "</b>)</span>";?>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <div id="space"></div>
+          <?php echo "<span class=\"btn-danger badge badge-error\"><b>" . $pendingCount . "</b></span>";?>
+        </div>
+        
+        <div class="col-xs-6 col-sm-4 placeholder">
+          <a id="add_account" class="btn btn-primary circle" href="/UI128/index.php/elib/admin_add_account"><br/><span class="glyphicon glyphicon-plus glyphicon-large"></span></a>
+          <h4>Add New Account</h4>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 placeholder">
           <a id="reactivate_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=reactivate"><br/><span class="glyphicon glyphicon-check glyphicon-large"></span></a>
           <h4>Reactivate Account</h4>
         </div>
-     
-       
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <a id="message" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=message"><br/><span class="glyphicon glyphicon-envelope glyphicon-large"></span></a>
-          <h4>Message</h4>
-          
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <div id="space"></div>
+      </div>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-4 placeholder">
+          <a id="message" class="btn btn-primary circle" href="/UI128/index.php/query/get_rows"><br/><span class="glyphicon glyphicon-envelope glyphicon-large"></span></a>
+          <h4>Message</h4>      
+        </div>      
+        <div class="col-xs-6 col-sm-4 placeholder">
           <a id="deactivate_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=deactivate"><br/><span class="glyphicon glyphicon-remove glyphicon-large"></span></a>
           <h4>Deactivate Account</h4>
-      
-      </div><!-- /.pull-right -->
-      <div class="col-xs-6 col-sm-3 placeholder">
-      <a id="delete_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=delete"><br/><span class="glyphicon glyphicon-trash glyphicon-large"></span></a>
+        </div>
+        <div class="col-xs-6 col-sm-4 placeholder">
+          <a id="delete_account" class="btn btn-primary circle" href="/UI128/index.php/elib/submit_operation?operation=delete"><br/><span class="glyphicon glyphicon-trash glyphicon-large"></span></a>
           <h4>Delete Account</h4>
-        </div><!-- /.col-lg-4 -->
+        </div>
+      </div>
+      </div>
       </div>
     </div>      
 
@@ -88,6 +100,10 @@
       $(document).ready(function(){
         $('#approve_account').balloon({
           contents: "<div id='balloon'><p align='center'>Expand your collection of books, thesis, special problems, journals and other materials and offer a wide range of choices that suits the need of the users.</p></div>",
+          position: 'bottom'
+        });
+        $('#add_account').balloon({
+          contents: "<div id='balloon'><p align='center'>Add new users of the e-Lib. Users include students, faculties and other constituents of the university.</p></div>",
           position: 'bottom'
         });
         $('#reactivate_account').balloon({

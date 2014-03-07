@@ -8,11 +8,6 @@ class Reserve extends CI_Controller{
         $this->load->model('delete_model');
         $this->load->model('reserve_model');
 
-        $newdata = array(
-            'email' => 'gjpgagno@gmail.com'
-        );
-
-        $this->session->set_userdata($newdata);
     }
 
     public function index(){
@@ -56,16 +51,13 @@ class Reserve extends CI_Controller{
     }
 
     public function load_book(){
-        $newdata = array(
-            'email' => 'gjpgagno@gmail.com'
-        );
+
         $accession_number = $this->input->post('viewbook');
 
         $books_reserved = $this->reserve_model->select("SELECT count(*) as number FROM reserves WHERE email=\"".$this->session->userdata('email')."\"");
         foreach ($books_reserved as $row) {
             $books_reserved = $row->number;
         }
-
 
         $newdata = array(
             'accession_number' => $accession_number,

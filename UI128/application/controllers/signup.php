@@ -1,15 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jr Pichon Bautista
- * Date: 1/19/14
- * Time: 3:35 PM
- */
-?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Signup extends CI_Controller {
-
 
     function __construct(){
         parent::__construct();
@@ -29,15 +20,12 @@ class Signup extends CI_Controller {
         $this->form_validation->set_rules('first_name', 'First_name', 'required|min_length[2]|xss_clean');
         $this->form_validation->set_rules('middle_name', 'Middle_name', 'required|min_length[1]|xss_clean');
         $this->form_validation->set_rules('last_name', 'Last_name', 'required|min_length[1]|xss_clean');
-        $this->form_validation->set_rules('sex', 'Sex', 'required|min_length[4]|xss_clean');
+        $this->form_validation->set_rules('gender', 'Gender', 'required|min_length[4]|xss_clean');
         $this->form_validation->set_rules('birth_date', 'Birth_date', 'required|xss_clean');
         $this->form_validation->set_rules('employee_number', 'Employee_number', 'required|xss_clean');
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('signup_view');
-        }
-        else{
-            $this->load->view('success_view');
         }
     }
 
@@ -52,24 +40,16 @@ class Signup extends CI_Controller {
 
         $this->load->library('email', $email_config);
         $this->email->set_newline("\r\n");
+        $this->email->set_mailtype('html');
 
+        $message=$this->load->view('request_email', '', TRUE);
         $this->email->from('ics.elib.administrator@gmail.com', 'ICS e-lib Admistrator');
         $this->email->to($this->input->post('email'));
-        $this->email->subject('Thank you for signing up for an ICS e-Lib account!');
-        $this->email->message("Greetings from ICS e-Lib!
-
-         Your request has been received, verified and awaiting for approval. We will get you notified as soon as your application is approved.
-
-         Please wait for the confimation of our administrator. We will send you an email as soon as your application is approved. Thank you.
-
-         Yours Truly,
-         ICS e-Lib DevTeam
-         ");
+        $this->email->subject('ICS eLib Account Request Waiting for Approval');
+        $this->email->message($message);
 
         if( $this->email->send()){
-
             $this->signup_model->insert_data();
-
             $result = $this->signup_model->fetch_data();
             $this->load->view('success_view', $result);
         }

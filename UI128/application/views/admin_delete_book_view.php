@@ -38,7 +38,8 @@
       <div class="span4 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix">
           <h2>Hi ADMIN!</h2>
-          <li class="active"><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Books</a></li>
+          <li class="active"><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Materials</a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_manage"><i class="fa fa-cogs fa-lg space"></i>Library Management<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
           <li class=""><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
           <li class=""><a href="/UI128/index.php/elib/admin_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>
           <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
@@ -53,7 +54,7 @@
 
         <form class="form-horizontal">
         <div id="cut">
-            <h3 class="page-header">Delete Book</h3>
+            <h3 class="page-header">Delete Material</h3>
         </div>
         <label>Input the book you want to delete</label>
         <input type="text" class="input-xlarge search-query">

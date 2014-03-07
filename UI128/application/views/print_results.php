@@ -37,7 +37,7 @@
                                 }
 
                         $i = 1;
-
+                        if($this->session->userdata('type')){
                         if($this->session->userdata['type']=="admin"){
 ?>
                             <?php echo "<td><a name='link' id='link' href = '".base_url()."index.php/site/delete?id={$accession_number}' onclick='return confirm_delete()'><input type='button' name='".$row->accession_number."' value='Delete' /></a></td>"; ?>
@@ -126,6 +126,11 @@
                            
 <?php
                         }
+                    }
+
+                        else{
+                            echo "";
+                        }
                         echo "</tr>";
                         
                         
@@ -137,6 +142,8 @@
                 }
 
                 echo "</table>";
+
+
 
                 if($i==0){
 

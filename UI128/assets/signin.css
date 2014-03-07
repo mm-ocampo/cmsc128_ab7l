@@ -4,8 +4,8 @@ body {
 
 .form-signin {
   max-width: 250px;
-  padding-top: 30px;
-  float: right;
+  padding-top: 25px;
+  /*float: right;*/
 }
 
 .form-signin .form-signin-heading,
@@ -34,7 +34,7 @@ body {
 /*custom*/
 .form-custom{
   display: block;
-  width: 200px;
+  width: 250px;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -50,10 +50,25 @@ body {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
           transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+.form-control-custom {
+  display: block;
+  width: 20%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
 /*custom*/
 .form-custom-search{
   display: block;
-  width: 170px;
+  width: 210px;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -88,6 +103,8 @@ textarea.form-custom {
 /*footer*/
 /* Wrapper for page content to push down footer */
 #wrap {
+  min-height: 100%;
+  height: auto;
   /* Negative indent footer by its height */
   margin: 0 auto -30px;
   /* Pad bottom by footer height */
@@ -97,6 +114,11 @@ textarea.form-custom {
 /* Set the fixed height of the footer here */
 #footer {
   height: 30px;
+  text-align: center;
+}
+#footer_home {
+  height: 30px;
+  float: left;
 }
 
 

@@ -1,0 +1,8 @@
+* Changed [check] in admin approve to glyphicons
+* Removed search bar in admin approve view
+* Imported notification (controller) and notification_model
+* Imported and overwrite user_default_view
+* Use session in header for home redirection (in elib load_home)
+* Deleted the whole header in about_view and changed it to include header.php
+* Add Library Management to all admin pages
+* Created admin_manage_view

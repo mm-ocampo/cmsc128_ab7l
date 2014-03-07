@@ -749,7 +749,6 @@ form.bs-docs-example {
   width: 300px;
   margin: 30px 0 0;
   padding: 0;
-  background-color: #fff;
 }
 .bs-docs-sidenav > li > a {
   display: block;
@@ -790,10 +789,7 @@ form.bs-docs-example {
   opacity: 1;
 }
 .bs-docs-sidenav.affix {
-  top:0px;
-  padding-top: 50px; /*changed from 70*/
-  height: 100%; /*added*/
-  background-color: #f8f8f8;
+  top: 70px;
 }
 .bs-docs-sidenav.affix-bottom {
   position: absolute;

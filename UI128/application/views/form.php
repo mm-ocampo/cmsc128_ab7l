@@ -21,6 +21,7 @@
     ?>
 
     <select class="filter_select" name="filter">
+    <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>
         <option value="title" <?php if($filter=="title")	echo " selected='selected'";?> >Title</option>
         <option value="author"<?php if($filter=="author")	echo " selected='selected'";?> >Author</option>
         <option value="publisher"<?php if($filter=="publisher")	echo " selected='selected'";?> >Publisher</option>
@@ -37,9 +38,10 @@
         else 
             echo "name='search_query' ";
         ?>
+
     value="<?php
         if(isset($_GET['search_query']))	echo str_replace('+',' ',$_GET['search_query']);
-    ?>"/>
+    ?>"/><a href="<?php echo base_url(); if($this->session->userdata('type') == 'user') echo "index.php/elib/user_advanced_search"; else echo "index.php/elib/admin_advanced_search";?>">Advanced Search</a>
 
     <select id="search_subject"
         <?php

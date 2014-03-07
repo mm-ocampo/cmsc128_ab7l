@@ -55,7 +55,7 @@
 						echo "\t<td>$row->accession_number</td>\n";
 						echo "<td>";
 						echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/add_readyforpickup\">";
-						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\">[CHECK]</button></form></td>";
+						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 
@@ -81,7 +81,7 @@
 							echo "\t<td>$row->employee_number</td>\n";
 						echo "\t<td>$row->title</td>\n";
 						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\">[CHECK]</button></form></td>";
+						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 
@@ -120,7 +120,7 @@
 							}
 						}
 						else echo "\t<td>Ok</td>\n";
-						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-error\" value=\"$row->accession_number\" name=\"borrowed\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\">[CROSS]</button></form></td>";
+						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-danger\" value=\"$row->accession_number\" name=\"borrowed\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\"><span class=\"glyphicon glyphicon-remove glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 

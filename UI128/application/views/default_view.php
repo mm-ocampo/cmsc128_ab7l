@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -19,46 +20,15 @@
   </head>
 
 
+  <body>
     <!-- Wrap all page content here -->
-    <div id="wrap">
+<div id="wrap">
+      
+  <?php include "header_default.html" ?>
 
-    <header>
-      <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top" margin-up="2%" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="/UI128/"><img class="navbar-brand" src=<?php echo "\"".base_url()."assets/header2.png"."\""?>/></a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/UI128/">Home</a></li>
-              <li><a href="/UI128/index.php/elib/about_view">About ICS</a></li>
-              <li><a href="/UI128/index.php/elib/contact_us_view">Contact Us</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Rules and Regulations</a></li>
-                  <li><a href="#">Forums</a></li>
-                  <li><a href="#">Gallery</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-</header>
-
-      <!-- Begin page content -->
-      <div class="container">
-
-    <!-- Carousel
-    ================================================== -->
+  <!--<div class="width_limit">-->
+<div class="width_limit">
+    <!-- Carousel-->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -71,9 +41,8 @@
           <img src=<?php echo "\"".base_url()."assets/lib1.jpg"."\""?> alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <strong><h2>University of the Philippines</br>Los Baños</br>Institute of Computer Science</h2></strong>
-              <p>Leading the Philippines in computer science education, research & extension.</p>
-              <p><a class="btn btn-large btn-block btn-primary" href="/UI128/index.php/elib/signup_view" role="button">Sign up today</a></p>
+              <p><a class="btn btn-primary pull-right" href="/UI128/index.php/elib/signup_view" role="button">Sign up today</a></p>
+              <h3 class="form-heading">University of the Philippines Los Baños</br>Institute of Computer Science</h3>
             </div>
           </div>
         </div>
@@ -81,9 +50,7 @@
           <img src=<?php echo "\"".base_url()."assets/lib2.jpg"."\""?> alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-large btn-block btn-primary" href="#" role="button">Learn more</a></p>
+              <h2 class="form-heading">Leading the Philippines in computer <br/>science education,research & extension.</h2>
             </div>
           </div>
         </div>
@@ -91,62 +58,63 @@
           <img src=<?php echo "\"".base_url()."assets/lib3.jpg"."\""?>  alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-large btn-block btn-primary" href="#" role="button">Browse gallery</a></p>
+              <h3 class="form-heading">One more for good measure.</h3>
             </div>
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left fa-lg"></i></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right fa-lg"></i></a>
     </div><!-- /.carousel -->
 
-
-  <body>
-     <div id="float_right">
-  <!--SEARCH-->
-  <form>
-    <h2 class="form-signin-heading">Discover more</h2>
-    <table>
-      <tr>
-        <td><input type="text" name="search_query" class="search-query form-custom-search" placeholder="Search library"/></td>
-        <td><!--<img src=<?php echo "\"".base_url()."assets/search-icon.png"."\""?> id="image" value= "submit"/>--><i class="glyphicon glyphicon-search search-icon"></i></td>
-      </tr>
-    </table>
-  </form>    
-    <!--END SEARCH-->
+    <div id="float_right">
+      <!--SEARCH-->
+      <form name="guest_search" class="form-signin" action="/UI128/index.php/site/search?page_number=1">
+        <h2 class="form-signin-heading">Discover more</h2>
+        <table>
+          <tr>
+            <td><section id="search_module"><?php include "search_home.php";?></section></td><!--<input type="text" name="search_query" class="search-query form-custom-search" placeholder="Search library"/></td>
+           <td><!--<img src=<?php echo "\"".base_url()."assets/search-icon.png"."\""?> id="image" value= "submit"/><td><a href="/UI128/index.php/site/callResults"><i class="fa fa-search fa-lg search-icon"></i></a></td>-->
+          </tr>
+        </table>
+      </form>    
+      <!--END SEARCH-->
 
       <!--LOG-IN-->
-        <div id="sign-in">
-         <form class="form-signin" role="form" method="POST" action="/UI128/index.php/site/login">
-          <h2 class="form-signin-heading">Please sign in</h2>
-          <input type="text" class="form-custom" placeholder="Username" name="email" required autofocus>
-          <input type="password" class="form-custom" placeholder="Password" name="password" required>
-          <label class="checkbox">
-            <input type="checkbox" name="AdminLogIn" value="remember-me">Log-in as Administrator
-          </label>
-          <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
-         </form>
-
+      <div id="sign-in">
+             <form class="form-signin" role="form" method="POST" action="/UI128/index.php/site/login">
+              <h2 class="form-signin-heading">Please sign in</h2>
+                <div class="left-inner-addon ">
+                  <i class="fa fa-user fa-lg"></i>
+                  <input type="text" class="form-custom" placeholder="Username" name="email" required autofocus>
+                </div>
+                <div class="left-inner-addon ">
+                  <i class="fa fa-key fa-lg"></i>
+                  <input type="password" class="form-custom" placeholder="Password" name="password" required>
+                </div>
+              <label class="checkbox">
+                <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
+              </label>
+              <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
+             </form>
+             <label>Not registered?</label><a><strong> Sign up today, KEP!</strong></a>
         <img src=<?php echo "\"".base_url()."assets/ICS Logo.png"."\""?> class="footer_logo" alt="ICS Logo"/>
         <img src=<?php echo "\"".base_url()."assets/UPLB Logo.png"."\""?> class="footer_logo" alt="UPLB Logo"/>
-
+      </div>
+      <!--END LOG-IN-->
+    </div><!--END FLOAT_RIGHT-->
+</div>
+        <div id="footer_home">
+        <div class="width_limit">
+          <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
         </div>
-      </div>
-    </div>
-
-    <div id="footer">
-      <div class="container">
-        <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
-      </div>
-    </div>
-
+        </div>
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
-  </body>
+</body>
 </html>

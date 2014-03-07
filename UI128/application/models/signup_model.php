@@ -18,33 +18,33 @@ class Signup_model extends CI_Model {
     }
 
     function insert_data(){
+
         $this->load->database();
 
         $date = str_replace('/', '-', $this->input->post('birthday'));
         $birthday = date('Y-m-d', strtotime($date));
 
-        echo "type: " . $this->input->post('type');
         if($this->input->post('type') == 'Student'){
 
             switch($this->input->post('classification')){
-                case 'freshman':
+                case 'Freshman':
                     $classification = 'FM';
                     break;
-                case 'sophomore':
+                case 'Sophomore':
                     $classification = 'SO';
                     break;
-                case 'junior':
+                case 'Junior':
                     $classification = 'JR';
                     break;
-                case 'senior':
+                case 'Senior':
                     $classification = 'SR';
                     break;
-                case 'graduate':
+                case 'Graduate':
                     $classification = 'GR   ';
                     break;
             }
 
-            echo "INSERT INTO user(email,
+            $this->db->query("INSERT INTO user(email,
                                            student_number,
                                            degree_program,
                                            classification,
@@ -64,14 +64,13 @@ class Signup_model extends CI_Model {
                                             $this->input->post('first_name') . "','" .
                                             $this->input->post('middle_name') . "','" .
                                             $this->input->post('last_name') . "','" .
-                                            $this->input->post('sex') . "','" .
+                                            $this->input->post('gender') . "','" .
                                             $birthday . "'," .
                                             1 . "," .
-                                            0 . ");"
-            ;
+                                            0 . ");");
         }
-        else{
-            echo "INSERT INTO user(email,
+        else if($this->input->post('type') == 'Faculty'){
+            $this->db->query("INSERT INTO user(email,
                                            password,
                                            first_name,
                                            middle_name,
@@ -86,12 +85,11 @@ class Signup_model extends CI_Model {
                                             $this->input->post('first_name') . "','" .
                                             $this->input->post('middle_name') . "','" .
                                             $this->input->post('last_name') . "','" .
-                                            $this->input->post('sex') . "','" .
+                                            $this->input->post('gender') . "','" .
                                             $birthday . "','" .
                                             $this->input->post('employee_number') . "'," .
                                             0 . "," .
-                                            1 . ");"
-            ;
+                                            1 . ");");
         }
 
     }

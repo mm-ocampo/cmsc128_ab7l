@@ -12,48 +12,48 @@
 
     <!-- Bootstrap core CSS -->
     <link href=<?php echo "\"".base_url()."assets/dist/css/bootstrap.css"."\""?> rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/signin.css"."\""?> rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href=<?php echo "\"".base_url()."assets/carousel.css"."\""?> rel="stylesheet">
-    <!--FLATSTRAP-->
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/bootstrap-responsive.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/docs.css"."\""?> rel="stylesheet">
-    <link href=<?php echo "\"".base_url()."assets/flatstrap/prettify.css"."\""?> rel="stylesheet">
-    <!--GLYPHICONS-->
-    <link href=<?php echo "\"".base_url()."assets/dist/glyphicons/png"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/docs.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/prettify.css"."\""?> rel="stylesheet">
+    <link href=<?php echo "\"".base_url()."assets/dashboard.css"."\""?> rel="stylesheet">    
+    <link href=<?php echo "\"".base_url()."assets/font-awesome/css/font-awesome.min.css"."\""?> rel="stylesheet">
+
   </head>
 
-<!-- Wrap all page content here -->
-<div id="wrap">
 
 <?php include"header.php";?>
 
 <body>
-
+  <div id="wrap">
       <!-- Begin page content -->
-      <div class="container">
-      <div class="row">
-      <div class="span4 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav affix">
-          <h2>Hi ADMIN!</h2>
-          <li class=""><a href="/UI128/index.php/elib/admin_default"><i class="icon-chevron-right"></i>Books</a></li>
-          <li class="active"><a href="/UI128/index.php/elib/admin_account"><i class="icon-chevron-right"></i>Accounts</a></li>
-          <li class=""><a href="/UI128/index.php/elib/admin_profile"><i class="icon-chevron-right"></i>Edit Profile</a></li>
-          <li class=""><a href="/UI128/index.php/elib/logout"><i class="icon-chevron-right"></i>Log Out</a></li>
+    <div id="width_limit">
+      <div class="sidebar">
+          <div class= "panel-group profile_bar">
+            <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+            <h2 class="panel-heading profile_greet">Welcome Admin!</h2>
+            <p class="text-muted">username@domain.com</p>          
+          </div>
+        <ul class="nav nav-sidebar ">          
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_default"><i class="fa fa-book fa-lg space"></i>Books<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item active" href="/UI128/index.php/elib/admin_account"><i class="fa fa-users fa-lg space"></i>Accounts<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/admin_profile"><i class="fa fa-edit fa-lg space"></i>Edit Profile<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
+          <li><a class="list-group-item" href="/UI128/index.php/elib/logout"><i class="fa fa-sign-out fa-lg space"></i>Log Out<i class="fa fa-chevron-right fa-lg space pull-right"></i></a></li>
         </ul>
-      </div>
-  		</div>
-      </div>
-</div>
 
-    <div class="floatright">
-      <a class="btn btn-primary" href="/UI128/index.php/elib/admin_account"><< Back</a>
+          <div id="footer">
+            <div id="container">
+              <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+            </div>
+          </div>
+    </div>         
+
+    <div class="content_right main">
+              <a class="btn btn-primary" href="/UI128/index.php/elib/admin_account"><span class="fa fa-arrow-left"></span> Back</a>  
 
         <form class="form-horizontal">
         <div id="cut">
-            <h3 class="page-header">Add Account</h3>
+            <h1 class="page-header">Add Account</h1>
         </div>
 
           <div class="control-group">
