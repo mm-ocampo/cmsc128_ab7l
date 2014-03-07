@@ -8,7 +8,7 @@
     </head>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+			<div class="">
 				<?php echo validation_errors('<p class="error">'); ?>
 				<form id="material_form" action="<?php echo base_url();?>index.php/material_controller/add" class="form" role="form" name="material_form" method="post">
 
@@ -73,7 +73,7 @@
 						</div>
 					</div>			
 
-					<div>
+					<div class="function_button">
 						<!-- <input type="submit" class="btn btn-primary" name="Add Reading Material" data-toggle="modal" data-target="#myModal"> -->
 				      	<input type="submit" class="btn btn-primary" value="Add" />
 				    </div>

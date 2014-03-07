@@ -32,7 +32,7 @@ foreach ($results as $row) {
 
         if($row->email!=""){
 
-            echo "reserved";
+            echo "RESERVED";
 
         }
         else{
