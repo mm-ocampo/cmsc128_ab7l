@@ -7,20 +7,43 @@
  * @author AMONCIO, Nazi M.
  * @date 2/28/2014
  *
+ * @description Controller handling the approval of reservation, pickup, and return of books
+ * in the system. Also checks for overdue status as well as handling email for reservation.
  *
+ * @section NOTE TO MAINTENANCE
+ * Increment version number, Add name to author's list, change date to current date,
+ * and put the changes done in the CHANGE LOG section below. follow format. Indicate
+ * the line number(s) that was/were changed.
+ *
+ * @section CHANGE LOG
+ * version 1.0 | GJPGagno, NMAmoncio | 2/28/2014
+ * - Line 1: created the file
  */
 class Admin_reserve extends CI_Controller{
-
+    /**
+     * Constructor of the controller. loads the needed helpers and models.
+     * @access public
+     */
     public function __construct(){
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->helper('file');
     }
 
+    /**
+     * Index (default) method of the controller. loads the view 'default_view'.
+     * @access public
+     */
     public function index(){
         $this->load->view('default_view');
     }
 
+    /**
+     * Loads the view 'admin_approve_view' which contains the list of current list of reserve requests, pickup lists,
+     * and overdue books.
+     *
+     * @access public
+     */
     public function indexes(){
         $data['result']  = $this->admin_model->select("select u.first_name, u.middle_name, u.last_name, u.student_number, u.employee_number, u.is_student, m.title, m.accession_number from user u, material m, reserves r where u.email=r.email and m.accession_number=r.accession_number");
         $data['result2'] = $this->admin_model->select("select u.first_name, u.middle_name, u.last_name, u.student_number, u.employee_number, u.is_student, m.title, m.accession_number from user u, material m, borrows r where u.email=r.email and m.accession_number=r.accession_number and m.status='ready'");
@@ -32,26 +55,13 @@ class Admin_reserve extends CI_Controller{
             $this->load->view('default_view');
     }
 
-    public function reservations(){
-        $data['results'] = $this->admin_model->select("select * from reserves");
-
-        if($this->session->userdata('type')=="admin")
-            $this->load->view('admin_view',$data);
-        else
-            $this->load->view('default_view');
-    }
-
-    public function borrow_list(){
-        $data['results'] = $this->admin_model->select("select * from borrows");
-
-        $this->load->view('admin_view', $data);
-
-        if($this->session->userdata('type')=="admin")
-            $this->load->view('admin_view',$data);
-        else
-            $this->load->view('default_view');
-    }
-
+    /**
+     * updates the 'borrows' table with the provided book and deletes that book from
+     * the 'reserves' table, signifying that the book has been reserved and is ready
+     * for pickup.
+     *
+     * @access public
+     */
     public function add_readyforpickup(){
         $email = $this->admin_model->select("SELECT email FROM reserves WHERE accession_number=\"".$this->input->post('request')."\"");
 
@@ -99,6 +109,11 @@ class Admin_reserve extends CI_Controller{
         $this->indexes();
     }
 
+    /**
+     * Method that, when called, approves the reservation request
+     *
+     * @access public
+     */
     public function do_approve(){
         $key = "accession_number";
         $data = array(
@@ -163,6 +178,10 @@ class Admin_reserve extends CI_Controller{
         $this->indexes();
     }
 
+    /**
+     * Method that, when called, sets the material status to 'available'.
+     * @access public
+     */
     public function do_return(){
         $key = "accession_number";
         $data = array(

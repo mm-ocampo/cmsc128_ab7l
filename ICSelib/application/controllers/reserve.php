@@ -8,7 +8,7 @@
  * @author MALLARI, Jeob Ervin F.
  * @date 2/28/2014
  *
- * @description Controller handling all operations related to reserving materials.
+ * @description Controller handling all client-side operations related to reserving materials.
  *
  * @section NOTE TO MAINTENANCE
  * Increment version number, Add name to author's list, change date to current date,
