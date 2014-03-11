@@ -1,5 +1,14 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Controller Admin_reserve
+ * @version 1.0
+ * @author GAGNO, Gabriel John P.
+ * @author AMONCIO, Nazi M.
+ * @date 2/28/2014
+ *
+ *
+ */
 class Admin_reserve extends CI_Controller{
 
     public function __construct(){
@@ -221,8 +230,7 @@ class Admin_reserve extends CI_Controller{
         $this->email->subject($subject);
         $this->email->message($message);
 
-        if($this->email->send()) echo "Email Sent to ".$receiver." and was sent by ".$config['smtp_user'];
-        else echo $this->email->print_debugger();   //if fail, prints the debugger
+        $this->email->send();
     }
 
     public function admin_reserve_logger($array){

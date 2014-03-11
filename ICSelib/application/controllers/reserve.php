@@ -1,7 +1,34 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Controller Reserve
+ * @version 1.5
+ * @author GAGNO, Gabriel John P.
+ * @author AMONCIO, Nazi M.
+ * @author MALLARI, Jeob Ervin F.
+ * @date 2/28/2014
+ *
+ * @description Controller handling all operations related to reserving materials.
+ *
+ * @section NOTE TO MAINTENANCE
+ * Increment version number, Add name to author's list, change date to current date,
+ * and put the changes done in the CHANGE LOG section below. follow format. Indicate
+ * the line number(s) that was/were changed.
+ *
+ * @section CHANGE LOG
+ * version 1.0 | GJPGagno, NMAmoncio, JEFMallari | 2/28/2014
+ * - Line 1: created the file
+ * version 1.5 | GJPGagno | 3/11/2014
+ * - (removed) Lines 36-88: removed unnecessary functions
+ */
 class Reserve extends CI_Controller{
-
+    /**
+     * Constructor of the controller, loads all needed models, helpers, and libraries
+     * not loaded in the autoload.php file
+     *
+     * @access public
+     *
+     */
     public function __construct(){
         parent::__construct();
         $this->load->model('get_database');
@@ -17,45 +44,29 @@ class Reserve extends CI_Controller{
         $this->load->helper('file');
     }
 
+    /**
+     * Index (default) method of the controller. Calls a method that redirects to the view 'default_view'.
+     * @access public
+     */
     public function index(){
         $this->home();
     }
 
+    /**
+     * Loads the view 'default_view'
+     * @access public
+     */
     public function home(){
         $this->load->view('default_view');
     }
 
-    public function search(){
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('format', 'Format', 'required');
-        $this->form_validation->set_rules('search_query', 'Search_query', 'required');
-
-        if ($this->form_validation->run() === FALSE){
-            $this->load->view('home_view');
-        }
-        else{
-            $data['search'] = $this->get_database->search();
-            $data['result_count'] = $this->get_database->count_results();
-            $this->load->view('search_view',$data);
-        }
-    }
-
-    public function delete(){
-        if (isset($_GET['id'])){					    // get this
-            $id = $_GET['id'];						    // get this
-            $this->delete_model->delete_material($id);	// get this
-            $this->load->view('home_view');
-        }
-    }
-
-    public function search_page(){
-        $data['search'] = $this->get_database->search_by_page();
-        $data['result_count'] = $this->get_database->count_results();
-        $this->load->view('search_view',$data);
-    }
-
+    /**
+     * Loads the book selected by the user and prepares it for reservation.
+     * Once the needed data are prepared, this method will then call another
+     * method which is now responsible for requesting the reservation.
+     *
+     * @access public
+     */
     public function load_book(){
         if(!$this->input->post('viewbook')){
             $this->load->view('default_view');
@@ -80,9 +91,15 @@ class Reserve extends CI_Controller{
             $this->session->set_userdata($newdata);
             $this->reservation();
         }
-        $date = date('Y-m-d');
     }
 
+    /**
+     * Updates the database table 'reserves' and puts a reservation request.
+     * A successful operation will also call a logger method to write the activity
+     * into a text file.
+     *
+     * @access public
+     */
     public function reservation(){
         $date_reserved = date('Y-m-d H:i:s');
         $email = $this->session->userdata('email');
@@ -114,6 +131,11 @@ class Reserve extends CI_Controller{
         $this->load->view('confirm_view');
     }
 
+    /**
+     * Logs the reserve operation
+     * @access public
+     * @param $array array()
+     */
     public function reserve_logger($array){
         $date = date('Y-m-d');
         $string = read_file("./application/logs/log-{$date}.txt");
