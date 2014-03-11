@@ -1,0 +1,6 @@
+Changes:
+
+1.) Static "/UI128/" in views changed to "<?php echo base_url();?>"
+2.) Changed reserve to main 
+3.) add query table in database
+4.) fixed linking in contact us pages

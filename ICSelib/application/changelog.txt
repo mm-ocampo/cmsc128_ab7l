@@ -1,0 +1,12 @@
+UI CHANGES:
+
+ - sign up in carousel LINKED to signup_view
+ - Home in navbar linked to default_view
+ - created about_view and contact_us_view layouts interlinked with default_home
+ - sign in available in default_view, about_view and contact_us_view
+ - UI for contact_us_view complete
+ - linked add book to UI
+ - linked search+delete book to ui
+ - combined search, delete, and update in 1 option in my library of admin
+
+ *last modified Feb 18 1:09am*
