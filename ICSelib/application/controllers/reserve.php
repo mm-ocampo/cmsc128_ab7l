@@ -60,6 +60,7 @@ class Reserve extends CI_Controller{
         $this->load->view('default_view');
     }
 
+
     /**
      * Loads the book selected by the user and prepares it for reservation.
      * Once the needed data are prepared, this method will then call another
@@ -90,6 +91,7 @@ class Reserve extends CI_Controller{
             );
             $this->session->set_userdata($newdata);
             $this->reservation();
+            redirect(base_url().'index.php/elib/user_search_book');
         }
     }
 
@@ -127,8 +129,6 @@ class Reserve extends CI_Controller{
             'actor' => $this->session->userdata('email')
         );
         $this->reserve_logger($log_array);
-
-        $this->load->view('confirm_view');
     }
 
     /**

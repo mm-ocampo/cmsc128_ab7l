@@ -109,24 +109,7 @@
             </form>
         </div>      
         </div> 
-    </body> 
-
-
-
-    <!-- Modal -->
-  <div class="modal fade" id="change_password_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h1 class="modal-title">Change Password</h1>
-        </div>
-        <div class="modal-body">
-          <?php include "user_change_password_view.php" ?>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+    </body>
 
     
     <script type="text/javascript" language="javascript">

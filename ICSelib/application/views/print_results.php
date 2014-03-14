@@ -88,7 +88,7 @@
                                     ?>
 
                                         <li> <form class="form_reserve" method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/reserve/load_book">
-                                            <button class="button_reserve" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>">Reserve</button>
+                                            <button class="button_reserve" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>" onclick="alert('Your request for this book has been sent to the administrator.')">Reserve</button>
                                         </form></li>
 
                                     <?php
@@ -164,7 +164,6 @@
 
 ?>
 
- 
 <script type='text/javascript' language='javascript'>
 
     function confirm_delete(){

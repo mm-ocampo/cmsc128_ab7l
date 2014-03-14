@@ -177,7 +177,7 @@
 					
 				switch($filter1){
 						
-					case "topic":			if($size <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR tag REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR tag='$search_query1')";
+					case "topic":			if($size1 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR tag REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR tag='$search_query1')";
 											else 			$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query1' in boolean mode)) ";
 											break;
 
@@ -211,7 +211,7 @@
 
 				switch($filter2){
 
-					case "topic":			if($size <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR tag REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR tag='$search_query2')";
+					case "topic":			if($size2 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR tag REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR tag='$search_query2')";
 											else 			$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query2' in boolean mode)) ";
 											break;
 						

@@ -26,7 +26,7 @@
       <file leaf-file-name="admin_reserve.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/admin_reserve.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="4913">
+            <state line="85" column="0" selection-start="3569" selection-end="3569" vertical-scroll-proportion="-6.8076925" vertical-offset="1268" max-vertical-offset="4913">
               <folding>
                 <marker date="1394549185385" expanded="true" signature="1530:1757" placeholder="select u.fir..user..." />
                 <marker date="1394549185385" expanded="true" signature="1816:2063" placeholder="select u.fir..user..." />
@@ -39,40 +39,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/signup_view.php">
+      <file leaf-file-name="user_search_results_view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/user_search_results_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="27" selection-start="8877" selection-end="8877" vertical-scroll-proportion="-19.884615" vertical-offset="3070" max-vertical-offset="5202">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="42.23077" vertical-offset="1098" max-vertical-offset="1649">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup_view.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="50" selection-start="10299" selection-end="10299" vertical-scroll-proportion="0.33333334" vertical-offset="2188" max-vertical-offset="7089">
-              <folding>
-                <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#9;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#10;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#10;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reserve.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="reserve.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/reserve.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="57" selection-start="587" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2652">
+            <state line="92" column="33" selection-start="2896" selection-end="2896" vertical-scroll-proportion="0.4754991" vertical-offset="1302" max-vertical-offset="2652">
               <folding />
             </state>
           </provider>
@@ -88,9 +67,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/reserve.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_reserve.php" />
         <option value="$PROJECT_DIR$/application/views/signup_view.php" />
+        <option value="$PROJECT_DIR$/application/views/user_update_view.php" />
+        <option value="$PROJECT_DIR$/application/views/include_modal_view.php" />
+        <option value="$PROJECT_DIR$/application/models/get_database.php" />
+        <option value="$PROJECT_DIR$/application/models/reserve_model.php" />
+        <option value="$PROJECT_DIR$/application/views/user_search_book_view.php" />
+        <option value="$PROJECT_DIR$/application/views/print_results.php" />
+        <option value="$PROJECT_DIR$/application/controllers/reserve.php" />
       </list>
     </option>
   </component>
@@ -188,6 +173,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSelib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSelib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,13 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/reserve.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="57" selection-start="587" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2652">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/signup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
@@ -425,9 +421,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/signup_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="211" column="27" selection-start="8877" selection-end="8877" vertical-scroll-proportion="-19.884615" vertical-offset="3070" max-vertical-offset="5202">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/search_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user_update_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="4" selection-start="9962" selection-end="9962" vertical-scroll-proportion="0.89880955" vertical-offset="1468" max-vertical-offset="3502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/get_database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="559" column="25" selection-start="24717" selection-end="24717" vertical-scroll-proportion="2.3139746" vertical-offset="8228" max-vertical-offset="13005">
+          <folding>
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..material_author..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="INSERT into ..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT mater..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..bookmark..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT * fro..material_author..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..bookmark..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT count..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..bookmark..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="INSERT into ..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material_author..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT disti..material..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..reserves..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..borrows..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..borrows..." />
+            <marker date="1394811541803" expanded="true" signature="-1:-1" placeholder="SELECT acces..bookmark..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="359" column="19" selection-start="19963" selection-end="20375" vertical-scroll-proportion="0.545283" vertical-offset="5814" max-vertical-offset="7089">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user_search_book_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="94" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.9352381" vertical-offset="818" max-vertical-offset="1445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/reserve_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="5" selection-start="834" selection-end="834" vertical-scroll-proportion="0.964539" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="30" selection-start="2342" selection-end="2342" vertical-scroll-proportion="-0.6152381" vertical-offset="1394" max-vertical-offset="5576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user_search_results_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="42.23077" vertical-offset="1098" max-vertical-offset="1649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/print_results.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="249" selection-start="3857" selection-end="3857" vertical-scroll-proportion="0.5372051" vertical-offset="1234" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_reserve.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="4913">
+        <state line="85" column="0" selection-start="3569" selection-end="3569" vertical-scroll-proportion="-6.8076925" vertical-offset="1268" max-vertical-offset="4913">
           <folding>
             <marker date="1394549185385" expanded="true" signature="1530:1757" placeholder="select u.fir..user..." />
             <marker date="1394549185385" expanded="true" signature="1816:2063" placeholder="select u.fir..user..." />
@@ -439,29 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/signup_view.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/reserve.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="27" selection-start="8877" selection-end="8877" vertical-scroll-proportion="-19.884615" vertical-offset="3070" max-vertical-offset="5202">
+        <state line="92" column="33" selection-start="2896" selection-end="2896" vertical-scroll-proportion="0.4754991" vertical-offset="1302" max-vertical-offset="2652">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="50" selection-start="10299" selection-end="10299" vertical-scroll-proportion="0.33333334" vertical-offset="2188" max-vertical-offset="7089">
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#9;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#10;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#10;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
