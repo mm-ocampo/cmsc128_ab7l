@@ -133,7 +133,7 @@
                                         <span name="promptemployeenumber"></span> <br/>
                                     </div>
                                 </div>
-                                <?php /*?>
+                                <?php ?>
                                 <div>
                                     <div class="form-group" style="width:80%">
                                         <label for="security_code" style="text-align: center">Security Code</label>
@@ -142,7 +142,7 @@
                                         <input type="text" name="vercode" />
                                     </div>
                                 </div>
-                                <?php */?>
+                                <?php ?>
 
                                 <input type="submit" name="submit" value="Submit" class="btn btn-block btn-primary"/>
                         </form>
