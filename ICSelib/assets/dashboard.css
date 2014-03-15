@@ -64,15 +64,16 @@ body {
  */
 
 .main {
-  padding-top: 30px;
+  padding-top: 20px;
   background: #f8f8f8;
-  min-height: 455px;
+  min-height: 470px;
   top:20px;
 }
 /*@media (min-width: 768px) {*/
   .main {
     padding-left: 40px;
     padding-right: 40px;
+    padding-bottom: 0px;
   }
 /*}*/
 .main .page-header {

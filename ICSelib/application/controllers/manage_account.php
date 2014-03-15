@@ -17,7 +17,7 @@ class Manage_account extends CI_Controller {
     public function manipulate_account(){
         //construct mailer
 
-        /*
+        
         $email_config = Array(
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -25,12 +25,12 @@ class Manage_account extends CI_Controller {
             'smtp_user' => 'ics.elib.admistrator@gmail.com',
             'smtp_pass' => 'icselibadmin'
         );
-        */
+        
         $user_email = $_POST["email"];
 
 
         if(isset($_POST["approve"])){
-            /*
+            
             $this->load->library('email', $email_config);
             $this->email->set_newline("\r\n");
             $this->email->set_mailtype('html');
@@ -43,17 +43,16 @@ class Manage_account extends CI_Controller {
 
             if( $this->email->send()){*/
                 $this->manage_account_model->approve_account();
-                redirect(base_url().'index.php/elib/load_home');
-            /*
+            
             }
             else{
                 show_error($this->email->print_debugger());
             }
-            */
+            
         }
 
         else if(isset($_POST["deactivate"])){
-            /*
+            
             $this->load->library('email', $email_config);
             $this->email->set_newline("\r\n");
             $this->email->set_mailtype('html');
@@ -65,19 +64,18 @@ class Manage_account extends CI_Controller {
             $this->email->message($message);
 
             if( $this->email->send()){
-                */
+                
                 $this->manage_account_model->deactivate_account();
-                redirect(base_url().'index.php/elib/load_home');
-                /*
+                
             }
             else{
                 show_error($this->email->print_debugger());
             }
-            */
+            
         }
         else if(isset($_POST["delete"])){
 
-            /*
+            
             $this->load->library('email', $email_config);
             $this->email->set_newline("\r\n");
             $this->email->set_mailtype('html');
@@ -89,19 +87,15 @@ class Manage_account extends CI_Controller {
             $this->email->message($message);
 
             if( $this->email->send()){
-            */
+            
                 $this->manage_account_model->delete_account();
-                redirect(base_url().'index.php/elib/load_home');
-            /*
             }
             else{
                 show_error($this->email->print_debugger());
             }
-            */
         }
         else if(isset($_POST["activate"])){
 
-            /*
             $this->load->library('email', $email_config);
             $this->email->set_newline("\r\n");
             $this->email->set_mailtype('html');
@@ -113,14 +107,12 @@ class Manage_account extends CI_Controller {
             $this->email->message($message);
 
             if( $this->email->send()){
-            */
+
                 $this->manage_account_model->activate_account();
-            /*
             }
             else{
                 show_error($this->email->print_debugger());
             }
-            */
         }
     }
 }

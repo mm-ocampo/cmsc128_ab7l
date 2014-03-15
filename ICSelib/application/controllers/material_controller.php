@@ -21,7 +21,7 @@ class Material_controller extends CI_Controller {
 		$this->form_validation->set_rules('subject', 'Subject', 'trim|xss_clean');
 		$this->form_validation->set_rules('thesissp_subject', 'Subject', 'trim|xss_clean');
 		$this->form_validation->set_rules('title', 'Title', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('inputAuthor[]', 'Author', 'trim|required|xss_clean');
+        //$this->form_validation->set_rules('inputAuthor[]', 'Author', 'trim|required|xss_clean'); //randall changes 03.15.14
 		$this->form_validation->set_rules('copyright_year', 'Copyright Year', 'trim|required|xss_clean|numeric');
 		$this->form_validation->set_rules('quantity', 'Quantity', 'trim|required|xss_clean|numeric');
 		$this->form_validation->set_rules('publisher', 'Publisher', 'trim|required|xss_clean');
@@ -97,8 +97,9 @@ class Material_controller extends CI_Controller {
 			    foreach($this->input->post('inputAuthor') as $temp){
                     $data2['author'] = $temp;
                     $data2['accession_number'] = $accession_number;
-                    $this->material_model->add_author($data2);
-                }
+                    if($data2['author']!="") //randall changes 03.15.14
+                    $this->material_model->add_author($data2);//randall changes 03.15.14
+                }//randall changes 03.15.14
 
 			    /* parse the string acquired from the textarea of the abstract */
 			    $str = explode(",", $this->input->post('tags'));

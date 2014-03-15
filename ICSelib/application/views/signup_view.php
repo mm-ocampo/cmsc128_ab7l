@@ -5,7 +5,7 @@
     <div id="">
         <div id="">
             <div class="">
-                <div class="container">
+                <div class="width_limit">
                     <div class="col-sm-6 col-sm-offset-3 main">
                         <h1 class="page-header">Sign-up</h1>
                         <?php $this->load->helper('url'); ?>
@@ -405,8 +405,8 @@
         <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
         <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 
-    <!--footer---------------------------------------------------------------------------------------------------------->
+    <!--footer -->
     <?php include("includes/footer.php"); ?>
 
 	</body>
-</html>                                                                        
+</html>

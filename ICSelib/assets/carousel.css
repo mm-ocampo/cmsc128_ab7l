@@ -132,23 +132,23 @@ body {
 }
 
 #contact_content {
-    margin-top: 20px;
-    float: left;
-    width: 660px;
+    margin-top: 50px;
+    float: right;
+    width: 50%;
+    padding: 20px; 
     background-color: #F8F8F8;
 }
 
-
+#resetbutton {
+  background: #FFFFFF;
+  border: 1px solid black;
+}
 
 #query_box {
     min-height: 200px;
     max-height: 200px;
     max-width: 100%;
     min-width: 100%;
-}
-
-#pics {
-    float: left;
 }
 
 #text {
@@ -162,19 +162,6 @@ li {
 
 #internal_links {
     width: 100%;
-}
-
-#input1, #input2{
-  width: 46%;
-  float: left;
-}
-
-#input1{
-    margin-right: 8%;
-}
-
-#input3 {
-    margin-top: 30px;
 }
 
 #query_messages {
@@ -205,6 +192,30 @@ li {
   max-width: 100%;
   min-width: 100%;
 }
+
+#pics{
+  width: 1024px;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rulesandreg {
+  height: 665px;
+}
+
+#pic_rules {
+  margin-top: 25px;
+  width: 915px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#copyright_year_div {
+  height: 70px;
+  float: left;
+}
 /**************** Jecho Changes End *********************/
 
 /* Frei Changes Start*/
@@ -234,7 +245,7 @@ li {
 }
 
 #content {
-  margin-top: 50px;
+  margin-top: 25px;
   float: left;
 }
 
@@ -429,7 +440,5 @@ legend{
 #row{
   margin: 0 auto;
 }
-#pics{
-  width:220px;
-}
+
 /*ENd*/

@@ -30,12 +30,12 @@ class Signup extends CI_Controller {
     }
 
     function insert_info(){
-       /* if($_POST["vercode"] != $_SESSION["security_code"] OR $_SESSION["security_code"]=='') {
+       if($_POST["vercode"] != $_SESSION["security_code"] OR $_SESSION["security_code"]=='') {
             $this->load->view("code_fail");
         }
-        else {*/
+        else {
             $this->signup_model->insert_data();
-/*
+
             $email_config = Array(
                 'protocol'  => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -57,11 +57,11 @@ class Signup extends CI_Controller {
             if( $this->email->send()){*/
                 $result = $this->signup_model->fetch_data();
                 $this->load->view('success_view', $result);
-           /* }
+            }
             else{
                 show_error($this->email->print_debugger());
             }
-        }*/
+        }
     }
 
     function checkAvailEmail(){

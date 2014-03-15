@@ -1,6 +1,6 @@
  <div class="sidebar">
   <div class= "panel-group profile_bar">
-    <img class="img-circle2" src=<?php echo "\"".base_url()."assets/profile.jpg"."\""?>/>
+    <img class="img-circle2" src="<?php echo base_url();?>assets/profile.jpg"/>
   <h2 class="panel-heading profile_greet">Hi </br><?php echo $this->session->userdata('name');?>!</h2>
     <p class="text-muted"> <?php echo $this->session->userdata('email');?></p>
   </div>

@@ -71,7 +71,7 @@
               <label class="checkbox">
                 <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
               </label>
-              <p>No yet registered? <a href="<?php echo base_url();?>index.php/elib/signup_view">Sign up today</a></p>              
+              <p>Not yet registered? <a href="<?php echo base_url();?>index.php/elib/signup_view">Sign up today</a></p>              
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
              </form>
         <img src="<?php echo base_url();?>assets/ICS Logo.png" class="footer_logo" alt="ICS Logo"/>
@@ -79,13 +79,14 @@
       </div>
       <!--END LOG-IN-->
     </div><!--END FLOAT_RIGHT-->
-</div>
-        <div id="footer_home">
+    <div id="footer_home">
         <div class="width_limit">
           <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
         </div>
         </div>
+    </div>
 </div>
+        
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -3468,6 +3468,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  background: #f8f8f8;
 }
 .nav-tabs > li {
   float: left;
