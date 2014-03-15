@@ -118,8 +118,8 @@
    
             <fieldset><legend>Filter</legend>
         <select class="filter_select form-control" name="filter">
-            <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>
         <option value="title" <?php if($filter=="title")    echo " selected='selected'";?> >Title</option>
+        <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>
         <option value="author"<?php if($filter=="author")   echo " selected='selected'";?> >Author</option>
         <option value="publisher"<?php if($filter=="publisher") echo " selected='selected'";?> >Publisher</option>
         <option value="subject"<?php if($filter=="subject") echo " selected='selected'";?> >Subject</option>
@@ -127,15 +127,6 @@
         <option value="accession_number"<?php if($filter=="accession_number")   echo " selected='selected'";?> >Accession Number</option>
         </select>
             </fieldset>          
-                <div id="sort">
-                    <fieldset><legend>Sort by:</legend>
-                        <div class="checkbox inline form-control">
-                            <input type="radio" id="radio1" class="sort" name="sort" value="alphabetical" checked/><label for="radio1">Alphabetical</label>
-                            <input type="radio" id="radio2" class="sort" name="sort" value="newest" <?php if($sort == "newest") echo "checked";?>/><label for="radio2">Newest</label>
-                        </div>                   
-                    </fieldset>
-                </div>
-
                 <div id="checklist">
                     <fieldset><legend>Format:</legend>
                          <div id="checklist ">

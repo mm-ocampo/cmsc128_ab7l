@@ -27,14 +27,14 @@
       
         <div class="form-group" id="input2">
         <label for="header">Header</label>
-        <input type="text" class="form-control" id="header" name="header" onchange="checkheader()" placeholder="Enter header here" value="<?php if(isset($_POST['submit'])) echo $_POST['header'];?>">
+        <input type="text" class="form-control" id="header" name="header" placeholder="Enter header here" value="<?php if(isset($_POST['submit'])) echo $_POST['header'];?>">
         <font color="red"><span name="promptheader"></span></font>
       </div>
     </div>
 
       <div class="form-group" id="input3">
        <label for="query">Message</label>
-       <textarea class="form-control" id="query_box" name="query_box" rows="10" onchange="checkmessage()" placeholder="Enter your query here"  /><?php if(isset($_POST['submit'])) echo $_POST['query_box'];?></textarea>
+       <textarea class="form-control" id="query_box" name="query_box" rows="10" placeholder="Enter your query here"  /><?php if(isset($_POST['submit'])) echo $_POST['query_box'];?></textarea>
        
       </div>
     <font color="red"><span name="promptmessage"></span></font><br><br>
@@ -67,20 +67,28 @@
 
       function checkmessage(){
             str=contact_form.query_box.value;
+            var temp;
             msg="";
             if(str=="") msg += " Please enter a message.";
-              contact_form.query_box.value.replace("script","-script-");
-              contact_form.query_box.value.replace("php","-php-");
+              temp = str.replace(/script/g,"-script-");
+              temp = temp.replace(/php/g,"-php-");
+              temp = temp.replace(/\"/g,"-\"-");
+              temp = temp.replace(/\'/g,"-\'-");
+              contact_form.query_box.value = temp;
             document.getElementsByName('promptmessage')[0].innerHTML=msg;
             if(msg=="") return true;
       }
 
       function checkheader(){
         str=contact_form.header.value;
+        var temp;
             msg="";
             if(str=="") msg += " Please enter a header.";
-              contact_form.header.value.replace("script","-script-");
-              contact_form.header.value.replace("php","-php-");
+              temp = str.replace(/script/g,"-script-");
+              temp = temp.replace(/php/g,"-php-");
+              temp = temp.replace(/\"/g,"-\"-");
+              temp = temp.replace(/\'/g,"-\'-");
+              contact_form.header.value = temp;
             document.getElementsByName('promptheader')[0].innerHTML=msg;
             if(msg=="") return true;
       }

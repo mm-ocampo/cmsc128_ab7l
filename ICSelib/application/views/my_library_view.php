@@ -63,10 +63,7 @@ foreach ($results as $row) {
 }
 
 if($count==0){
-
-    //Temporary lang
-    echo "Your library is empty. :(";
-
+    echo "</br></br></br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-floppy-remove glyphicon-large\"></span></span></br><h3 class=\"text-center\">Shelf Empty</h3></p>";
 }
 
 ?>

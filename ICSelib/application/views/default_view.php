@@ -62,7 +62,7 @@
               <h2 class="form-signin-heading">Please sign in</h2>
                 <div class="left-inner-addon ">
                   <i class="fa fa-user fa-lg"></i>
-                  <input type="text" class="form-custom" placeholder="Username" name="email" required autofocus>
+                  <input type="text" class="form-custom" placeholder="Email" name="email" required autofocus>
                 </div>
                 <div class="left-inner-addon ">
                   <i class="fa fa-key fa-lg"></i>

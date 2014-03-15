@@ -13,16 +13,13 @@
     $filter = "";
     if(isset($_GET['filter']))		$filter = $_GET['filter'];
 
-    $sort = "";
-    if(isset($_GET['sort']))		$sort = $_GET['sort'];
-
     if(isset($_GET['format']))		$format = $_GET['format'];
 
     ?>
 
     <select class="filter_select" name="filter">
-    <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>
-        <option value="title" <?php if($filter=="title")	echo " selected='selected'";?> >Title</option>
+    <option value="title" <?php if($filter=="title")    echo " selected='selected'";?> >Title</option>
+        <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>    
         <option value="author"<?php if($filter=="author")	echo " selected='selected'";?> >Author</option>
         <option value="publisher"<?php if($filter=="publisher")	echo " selected='selected'";?> >Publisher</option>
         <option value="subject"<?php if($filter=="subject")	echo " selected='selected'";?> >Subject</option>
@@ -30,9 +27,10 @@
         <option value="accession_number"<?php if($filter=="accession_number")	echo " selected='selected'";?> >Accession Number</option>
     </select>
 
-    <input type="text" autocomplete="off" id="search_bar"
+    <div class="input-group">
+        <input type="text" name="search_query" autocomplete= "off" id="search_bar" class="search-query form-custom-search" placeholder="Search library" id="search_bar"
         <?php
-        if(isset($_GET['search_query']) && $_GET['filter']!="subject")	
+        if(isset($_GET['search_query']) && $_GET['filter']!="subject")  
             echo "name='search_query' ";
         else if(isset($_GET['search_query']) && $_GET['filter']=="subject")
             echo "name='dummy' style='display:none'";
@@ -41,14 +39,26 @@
         ?>
 
     value="<?php
-        if(isset($_GET['search_query']))	echo str_replace('+',' ',$_GET['search_query']);
-    ?>"/><a href="<?php echo base_url(); if($this->session->userdata('type') == 'user') echo "index.php/elib/user_advanced_search?page_number=2"; else echo "index.php/elib/admin_advanced_search?page_number=1";?>">Advanced Search</a>
+        if(isset($_GET['search_query']))    echo str_replace('+',' ',$_GET['search_query']);
+    ?>"/>
 
-    <select id="search_subject"
+    <div id="display_suggestion">No Suggestion</div>
+        <div class="advanced_search">   
+            <p>
+                <a href="<?php echo base_url(); if($this->session->userdata('type') == 'user') echo "index.php/elib/user_advanced_search?page_number=2"; else echo "index.php/elib/admin_advanced_search?page_number=1";?>">
+                <i class="fa fa-search-plus"></i> Advanced Search
+                </a></p>
+        </div>
+        <div><button class="btn btn-primary search-icon">Submit Query</button></div>
+
+
+</div>
+
+<select id="search_subject"
         <?php
-        if(isset($_GET['search_query']) && $_GET['filter']=="subject")	
+        if(isset($_GET['search_query']) && $_GET['filter']=="subject")  
             echo "name='search_query' ";
-        else if(isset($_GET['search_query']) && $_GET['filter']!="subject")	
+        else if(isset($_GET['search_query']) && $_GET['filter']!="subject") 
             echo "name='dummy' style='display:none'";
         else 
             echo "name='dummy' style='display:none'";
@@ -99,11 +109,6 @@
 
     </div>
 
-    Sort by:</br>
-    <div class="checkbox inline">
-        <input type="radio" id="radio1" class="sort" name="sort" value="alphabetical" checked/><label for="radio1">Alphabetical</label>
-        <input type="radio" id="radio2" class="sort" name="sort" value="newest" <?php if($sort == "newest")	echo "checked";?>/><label for="radio2">Newest</label>
-    </div>
     <br>
     Type:</br>
     <div id="checklist">

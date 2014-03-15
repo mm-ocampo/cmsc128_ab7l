@@ -158,7 +158,7 @@
 
                 if($i==0){
 
-                    echo "No results found. :(";
+                    echo "</br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-book glyphicon-large\"></span></span></br><h3 class=\"text-center\">404 Material Not Found!</h3></p>";
 
                 }
 
