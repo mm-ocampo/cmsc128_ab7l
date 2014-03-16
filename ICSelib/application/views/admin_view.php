@@ -54,7 +54,7 @@
 						echo "\t<td>$row->accession_number</td>\n";
 						echo "<td>";
 						echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/add_readyforpickup\">";
-						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
+						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\" onclick=\"alert('This material has been approved and may now be picked up. An email has been sent to the borrower.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 
@@ -80,7 +80,7 @@
 							echo "\t<td>$row->employee_number</td>\n";
 						echo "\t<td>$row->title</td>\n";
 						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
+						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\" onclick=\"alert('This material has been claimed.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 
@@ -119,7 +119,7 @@
 							}
 						}
 						else echo "\t<td>Ok</td>\n";
-						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-danger\" value=\"$row->accession_number\" name=\"borrowed\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\"><span class=\"glyphicon glyphicon-remove glyphicon-medium\"></span></button></form></td>";
+						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-danger\" value=\"$row->accession_number\" name=\"borrowed\" onclick=\"alert('This material has been returned to the library.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\"><span class=\"glyphicon glyphicon-remove glyphicon-medium\"></span></button></form></td>";
 
 							echo "</tr>";
 
