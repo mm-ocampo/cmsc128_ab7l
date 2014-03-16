@@ -164,11 +164,6 @@ li {
     width: 100%;
 }
 
-#query_messages {
-    margin-top: 100px;
-    width: 80%;
-    margin-left: 270px;
-}
 
 .add_book_inputs {
   width: 100%;
@@ -203,6 +198,7 @@ li {
 
 .rulesandreg {
   height: 665px;
+  width: 100%;
 }
 
 #pic_rules {
@@ -215,6 +211,102 @@ li {
 #copyright_year_div {
   height: 70px;
   float: left;
+}
+
+#results {
+  border: 1px solid black;
+}
+
+/********************** Static from Print Results Start *************************/
+
+.results{
+      
+        float: left;
+        clear: both;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .results:hover{
+      
+        background: beige;
+      
+      }
+      
+      .results img{
+      
+        float: left;
+      
+      }
+
+      .result_information{
+        width: 98%;
+      }
+      
+      .results .result_information{
+      
+        float: left;
+      
+      }
+
+      .results form{
+
+        float: left;
+        clear: left;
+
+      }
+
+      .result_window{
+
+        border: 1px solid black;
+        height: 400px;
+        width: 100%;
+        position: fixed;
+        left: 400px;
+        display: none;
+
+      }
+
+      .result_header {
+        min-width: 100%;
+      }
+
+/****************** Static from Print Results End *********************/
+
+#guest_print_results {
+  float: left;
+  width: 100%;
+}
+
+.page-header{
+  background-color: #f8f8f8;
+  color: #428BCE;
+}
+
+#search_down_span {
+  float: left;
+}
+
+#signup_anchor{
+  margin-top: 40px;
+}
+
+#messages_result {
+  width: 100%;
+  border: 1px solid black;
+}
+
+#messages_id {
+  width: 3%;
+  border: 1px solid black;
+}
+
+#messages_message {
+  
+}
+
+.guest_search_view_module {
+  padding: 0px;
 }
 /**************** Jecho Changes End *********************/
 
@@ -246,6 +338,7 @@ li {
 
 #content {
   margin-top: 25px;
+  width: 100%;
   float: left;
 }
 
@@ -264,7 +357,8 @@ li {
 }
 .width_limit{
   width: 1024px;
-  margin:0 auto;
+  margin: auto;
+  min-height: 600px;
 }
 
 .glyphicon-large {
@@ -421,6 +515,7 @@ legend{
 .content_right{
   width: 750px;
   margin-top: 60px;
+  margin-bottom: 10px;
   float: right;
   min-height: 530px;
 }

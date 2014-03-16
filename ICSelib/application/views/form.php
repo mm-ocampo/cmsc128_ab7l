@@ -49,7 +49,7 @@
                 <i class="fa fa-search-plus"></i> Advanced Search
                 </a></p>
         </div>
-        <div><button class="btn btn-primary search-icon">Submit Query</button></div>
+        
 
 
 </div>

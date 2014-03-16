@@ -1,3 +1,5 @@
+<?php /*
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,26 +27,29 @@
     <link href=<?php echo "\"".base_url()."assets/dist/glyphicons/png"."\""?> rel="stylesheet">
   </head>
 
-<?php include"header_default.html";?>
+<?php include"header_default.html";?>  */?>
+
+<?php include"includes/header.php";?>
+
+<?php include"includes/navigation_bar.php";?>
 
 <body>
 
 </br></br></br>
-
+<div class="width_limit main">
+  <a class="btn btn-primary" href="<?php echo base_url();?>index.php/elib/load_home"><< Back</a>
+  <fieldset>
         <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal">
-        <div id="cut">
             <h3 class="page-header">Search Results</h3>
-        </div>
-          <!--SAME HERE, AYAW GUMANA :<-->
-          <div id="cut">
 
           <nav class="navigate_module">
             <?php include "navigator.php";?>
           </nav>
-
-          <section id="view_module">
-            <?php include "print_results.php";?>
-          </section>
+          <div id="guest_print_results">
+            <section id="view_module" class="guest_search_view_module">
+             <?php include "print_results.php";?>
+            </section>
+          </div>
 
           <script src="<?php echo base_url();?>js/jquery-1.9.1.js"></script>
               <script src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>
@@ -91,17 +96,15 @@
               </script>
           <!--END-->
         </form>
-      </div>
-
-    </div>
-
+    </fieldset>
+</div>
 
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 </body>

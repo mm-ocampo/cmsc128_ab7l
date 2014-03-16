@@ -20,7 +20,7 @@
       <?php }else{?>
       <div class="form-group" id="input1">
        <label for="input_email">Email address</label>
-       <input type="email" class="form-control" id="input_email" name="input_email" placeholder="Enter email here" value="<?php echo $this->session->userdata('email'); ?>" >
+       <input type="email" class="form-control" id="input_email" name="input_email" placeholder="Enter email here" value="<?php echo $this->session->userdata('email'); ?>">
        <font color="red"><span name="promptemail"></span></font>
       </div>
       <?php }?>
@@ -70,11 +70,8 @@
             var temp;
             msg="";
             if(str=="") msg += " Please enter a message.";
-              temp = str.replace(/script/g,"-script-");
-              temp = temp.replace(/php/g,"-php-");
-              temp = temp.replace(/\"/g,"-\"-");
-              temp = temp.replace(/\'/g,"-\'-");
-              contact_form.query_box.value = temp;
+            else if(str.length > 500)
+              msg += " Invalid message length.";
             document.getElementsByName('promptmessage')[0].innerHTML=msg;
             if(msg=="") return true;
       }
@@ -84,11 +81,8 @@
         var temp;
             msg="";
             if(str=="") msg += " Please enter a header.";
-              temp = str.replace(/script/g,"-script-");
-              temp = temp.replace(/php/g,"-php-");
-              temp = temp.replace(/\"/g,"-\"-");
-              temp = temp.replace(/\'/g,"-\'-");
-              contact_form.header.value = temp;
+            else if(str.length > 50)
+              msg += " Invalid header length.";
             document.getElementsByName('promptheader')[0].innerHTML=msg;
             if(msg=="") return true;
       }
@@ -109,6 +103,29 @@
             return false;
           }
           document.getElementById("contact_form").action = document.getElementById("contact_form").action + "true";
+
+          <?php echo 'str=contact_form.header.value;
+          temp = str.replace(/script/g,"-script-");
+          temp = temp.replace(/php/g,"-php-");
+          temp = temp.replace(/\"/g,"*"); '?>
+
+          <?php echo "temp = temp.replace(/\'/g,";?>
+
+          <?php echo ' "*"); ';?>
+
+          <?php echo '
+          contact_form.header.value = temp;
+          str=contact_form.query_box.value;
+          temp = str.replace(/script/g,"-script-");
+          temp = temp.replace(/php/g,"-php-");
+          temp = temp.replace(/\"/g,"*"); ';?>
+
+          <?php echo "temp = temp.replace(/\'/g,";?>
+
+          <?php echo ' "*"); 
+
+          contact_form.query_box.value = temp; ';?>
+
           return true;
         }
       } 

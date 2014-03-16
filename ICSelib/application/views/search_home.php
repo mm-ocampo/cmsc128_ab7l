@@ -2,9 +2,9 @@
             <?php include "form2.php";?>
           
 
-          <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
-          <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
-          <script src="<?php echo base_url();?>/js/main.js"></script>
+          <script src="<?php echo base_url();?>js/jquery-1.9.1.js"></script>
+          <script src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>
+          <script src="<?php echo base_url();?>js/main.js"></script>
               <script>
                   $(document).ready(function(){
                       $("#search_bar").keyup(function(){

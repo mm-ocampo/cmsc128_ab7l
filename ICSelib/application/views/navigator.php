@@ -7,7 +7,7 @@
 				*/
 
 				$count = 0;
-
+				echo "<ul class='pagination'>";
 				foreach ($result_count as $row){
 
 					$count =  $row->result_count;
@@ -34,8 +34,10 @@
 
 						if($page_number!=1){
 
-						echo "<a href=\"search?page_number=".($page_number-1),$link."Previous</a>";
+						echo "<li><a href=\"search?page_number=".($page_number-1),$link."Previous</a></li>";
 
+						}else {
+							echo "<li class='disabled'><a href='#'>Previous</a></li>";
 						}
 
 						if($count%10!=0)	$max = floor($count/10 + 1);
@@ -43,18 +45,24 @@
 
 						$i=1;
 						while($i<=$max){
-
-							echo "<a href=\"search?page_number=".$i,$link,$i."</a>";
+							if($_GET['page_number'] == $i)
+								echo "<li class='active'><a href=\"search?page_number=".$i,$link,$i."</a></li>";
+							else
+								echo "<li><a href=\"search?page_number=".$i,$link,$i."</a></li>";
 							$i++;
 
 						}
 
 						if($page_number!=$max){
 
-						echo "<a href=\"search?page_number=",($page_number + 1),$link."Next</a>";
+						echo "<li><a href=\"search?page_number=",($page_number + 1),$link."Next</a></li>";
 
+						}else {
+							echo "<li class='disabled'><a href='#'>Next</a></li>";
 						}
 
 					}
+
+					echo "</ul>";
 
 			?>

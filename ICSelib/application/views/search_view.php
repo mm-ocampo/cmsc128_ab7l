@@ -1,60 +1,6 @@
-<!DOCTYPE html>
-<html>
+<?php include "includes/header.php"; ?>
 
-	<head>
-
-		<meta charset="utf-8"/>
-		<style>
-		
-			.results{
-			
-				float: left;
-				clear: both;
-				height: 100px;
-				width: 400px;
-				margin: 10px;
-			
-			}
-
-			.results:hover{
-			
-				background: beige;
-			
-			}
-			
-			.results img{
-			
-				float: left;
-			
-			}
-			
-			.results .result_information{
-			
-				float: left;
-			
-			}
-
-			.results form{
-
-				float: left;
-				clear: left;
-
-			}
-
-			.result_window{
-
-				border: 1px solid black;
-				height: 400px;
-				width: 500px;
-				position: fixed;
-				left: 400px;
-				display: none;
-
-			}
-		
-		</style>
-
-	</head>
+<?php include "includes/navigation_bar.php"; ?>
 
 	<body>
 
@@ -124,7 +70,5 @@
             });
 
         </script>
-
 	</body>
-
 </html>

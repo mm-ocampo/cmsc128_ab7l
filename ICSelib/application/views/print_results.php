@@ -1,3 +1,6 @@
+
+
+
 <?php 
 
                 /*
@@ -16,13 +19,14 @@
                 foreach ($search as $row) {
 
                         echo "<div class='results'>";
+                        echo "<span class='glyphicon glyphicon-arrow-down' id='search_down_span'></span>";
                             echo "<div class='result_information'>";
                                 $title = $row->title;
                                 $publisher = $row->publisher;
                                 $accession_number = $row->accession_number;
                                 
                                 echo "<ul>";
-                                echo "<li class='result_header'>".$title."</li>";
+                                echo "<div class='result_header'><li ><strong>".$title."</strong></li></div>";
                                 echo "<div class='result_details'>";
                                 echo "<li>".$publisher."</li>";
                                 echo "<li>".$accession_number."</li>";
@@ -163,6 +167,8 @@
                 }
 
 ?>
+
+
 
 <script type='text/javascript' language='javascript'>
 

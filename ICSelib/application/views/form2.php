@@ -154,4 +154,3 @@
     </div>
 
 </form>
-    <!--<a href="<?php echo base_url();?>index.php/site/callResults" type="submit"><span class="glyphicon glyphicon-search search-icon"></span></a><br/>-->
