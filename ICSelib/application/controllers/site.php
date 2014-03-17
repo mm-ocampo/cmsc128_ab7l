@@ -116,7 +116,7 @@ class Site extends CI_Controller {
 
 
     public function delete(){
-        if (isset($_GET['id']) && $_GET['confirm']  == "true"){
+        if (isset($_GET['id']) && $_GET['confirm'] == 'true'){
             $id = $_GET['id'];
             $this->delete_model->delete_material($id);
         }
@@ -137,8 +137,8 @@ class Site extends CI_Controller {
 
         foreach($this->input->post('inputAuthor') as $temp){
             if($temp != ""){
-            $array[$i] = $temp;
-            $i++;
+                $array[$i] = $temp;
+                $i++;
             }
         }
 
