@@ -5,8 +5,8 @@
     <div id="">
         <div id="">
             <div class="">
-                <div class="width_limit">
-                    <div class="col-sm-6 col-sm-offset-3 main" id="signup_anchor">
+                <div class="container">
+                    <div class="col-sm-6 col-sm-offset-3 main">
                         <h1 class="page-header">Sign-up</h1>
                         <?php $this->load->helper('url'); ?>
                         <br/>
@@ -15,47 +15,47 @@
 
                                 <div class="form-group">
                                     <label for="fname" style="text-align: center">First Name</label>
-                                    <input type="text" name="first_name" id="fname" class="form-control input-mini" tabindex="1">
+                                    <input type="text" name="first_name" id="fname" class="form-control input-mini" maxlength="30" tabindex="1">
                                     <span name="promptfname"></span><br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="mname" style="text-align: center">Middle Name</label>
-                                    <input type="text" name="middle_name" id="mname" class="form-control input-mini" tabindex="2">
+                                    <input type="text" name="middle_name" id="mname" class="form-control input-mini" maxlength="30" tabindex="2">
                                     <span name="promptmname"></span><br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="lname" style="text-align: center">Last Name</label>
-                                    <input type="text" name="last_name" id="lname" class="form-control input-mini" tabindex="3">
+                                    <input type="text" name="last_name" id="lname" class="form-control input-mini" maxlength="30" tabindex="3">
                                     <span name="promptlname"></span><br/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="birthday">Birthday</label>
-                                    <input type="date" name="birthday" id="bday" class="form-control input-mini" placeholder="YYYY-MM-DD" tabindex="4">
+                                    <input type="date" name="birthday" id="bday" class="form-control input-mini" placeholder="MM/DD/YYYY" tabindex="4">
                                     <span name="promptbday"></span><br/>
                                 </div>
 
                                 <label for="radio_gender" style="text-align: center">Sex</label>
                                 <div name="radio_gender" style="text-align: center">
                                     <input type="text" id="gender" name="gender" hidden>
-                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%;border:1px solid #bbbbbb" onclick="male_buttonfunc()" tabindex="5">Male</div>
-                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%;border:1px solid #bbbbbb" onclick="female_buttonfunc()" tabindex="6">Female</div>
+                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="male_buttonfunc()" tabindex="5">Male</div>
+                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="female_buttonfunc()" tabindex="6">Female</div>
                                 </div>
                                 <br/><br/>
 
                                 <div class="form-group">
                                     <label for="email" style="text-align: center">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control input-mini" tabindex="7">
+                                    <input type="email" name="email" id="email" class="form-control input-mini" maxlength="50" tabindex="7">
                                     <span name="promptemail"></span> <br/>
                                 </div>
                                 <div class="form-group" style="width:49%;float:right;">
                                     <label for="password_confirmation" style="text-align: center">Confirm Password</label>
-                                    <input type="password" maxlength="16" name="password_confirmation" id="password_confirmation" class="form-control input-mini" tabindex="9">
+                                    <input type="password" maxlength="16" name="password_confirmation" id="password_confirmation" class="form-control input-mini" maxlength="40" tabindex="9">
                                     <span name="promptpassword2"></span> <br/>
                                 </div>
                                 <div class="form-group" style="width:49%; ">
                                     <label for="password" style="text-align: center">Password</label>
-                                    <input type="password" maxlength="16" name="password" id="password" class="form-control input-mini" tabindex="8">
+                                    <input type="password" maxlength="16" name="password" id="password" class="form-control input-mini" maxlength="40" tabindex="8">
                                     <span name="promptpassword"></span> <br/>
                                 </div>
 
@@ -71,18 +71,18 @@
                                 <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_faculty()" tabindex="11">Faculty</div>
                                 </div>
 
-                                <div id="student_form" style="z-index: 2;">
+                                <div id="student_form" class="invisible" style="z-index: 2;">
                                     <hr>
 
                                     <div class="form-group">
                                         <label for="student_number" style="text-align: center">Student Number</label>
-                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" readonly="readonly" tabindex="12">
+                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" maxlength="10" tabindex="12">
                                         <span name="promptstudentnumber"></span> <br/>
                                     </div>
 
                                     <?php $classification = array('Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate'); ?>
                                     <label for="classification">Classification</label>
-                                    <select id="classification" name="classification" class="form-control input-mini" readonly="readonly" tabindex="13">
+                                    <select id="classification" name="classification" class="form-control input-mini" tabindex="13">
                                         <?php
                                             foreach($classification as $class){
                                                 echo "<option value=\"$class\">$class</option>";
@@ -92,7 +92,7 @@
                                     <br/>
 
                                     <label for="degree_program">Degree Program</label>
-                                    <select id="degree_program" name="degree_program" class="form-control input-mini" readonly="readonly" tabindex="14">
+                                    <select id="degree_program" name="degree_program" class="form-control input-mini" tabindex="14">
                                         <option value="BSABM">BS Agribusiness Management</option>
                                         <option value="BSABT">BS Agricultural Biotechnology</option>
                                         <option value="BSAgChem">BS Agricultural Chemistry</option>
@@ -126,10 +126,10 @@
                                 </div>
 
 
-                                <div id="faculty_form" readonly style="z-index: 1;">
+                                <div id="faculty_form" class="invisible" style="z-index: 1;">
                                     <div class="form-group">
                                         <label for="employee_number" style="text-align: center">Employee Number</label>
-                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" readonly="readonly">
+                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" maxlength="15">
                                         <span name="promptemployeenumber"></span> <br/>
                                     </div>
                                 </div>
@@ -159,7 +159,6 @@
             document.getElementById("male_button").setAttribute("class","btn btn-primary");
             document.getElementById("female_button").setAttribute("class","btn btn-default custom");
             document.getElementById("gender").value = "Male";
-            console.log(document.getElementById("gender").value);
         }
 
         function female_buttonfunc(){
@@ -167,46 +166,33 @@
             document.getElementById("female_button").setAttribute("class","btn btn-primary");
             document.getElementById("male_button").setAttribute("class","btn btn-default custom");
             document.getElementById("gender").value = "Female";
-            console.log(document.getElementById("gender").value);
         }
 
         function show_student(){
             reset();
-            document.getElementById("faculty_form").style.opacity = "0.5";
-            document.getElementById("student_form").style.opacity = "1";
-            document.getElementById("student_number").removeAttribute("readonly");
-            document.getElementById("classification").removeAttribute("readonly");
-            document.getElementById("degree_program").removeAttribute("readonly");
-            document.getElementById("employee_number").setAttribute("readonly", "readonly");
+            document.getElementById("faculty_form").setAttribute("class", "invisible");
             document.getElementById("student_button").setAttribute("class","btn btn-primary");
+            document.getElementById("student_form").removeAttribute("class", "invisible");
             document.getElementById("type").value = "Student";
             document.getElementsByName('promptemployeenumber')[0].innerHTML="";
-            console.log(document.getElementById("type").value);
         }
 
         function show_faculty(){
             reset();
-            document.getElementById("student_form").style.opacity = "0.5";
-            document.getElementById("faculty_form").style.opacity = "1";
-            document.getElementById("student_number").setAttribute("readonly", "readonly");
-            document.getElementById("classification").setAttribute("readonly", "readonly");
-            document.getElementById("degree_program").setAttribute("readonly", "readonly");
-            document.getElementById("employee_number").removeAttribute("readonly");
+            document.getElementById("student_form").setAttribute("class", "invisible");
             document.getElementById("faculty_button").setAttribute("class","btn btn-primary");
+            document.getElementById("faculty_form").removeAttribute("class", "invisible");
             document.getElementById("type").value = "Faculty";
             document.getElementsByName('promptstudentnumber')[0].innerHTML="";
-            console.log(document.getElementById("type").value);
         }
 
         function reset(){
-            document.getElementById("faculty_form").style.opacity = "0.5";
-            document.getElementById("student_form").style.opacity = "0.5";
-            document.getElementById("student_number").setAttribute("readonly", "readonly");
-            document.getElementById("classification").setAttribute("readonly", "readonly");
-            document.getElementById("degree_program").setAttribute("readonly", "readonly");
-            document.getElementById("employee_number").setAttribute("readonly", "readonly");
-            document.getElementById("faculty_button").setAttribute("class","btn btn-large  btn-default custom");
-            document.getElementById("student_button").setAttribute("class","btn btn-large  btn-default custom");
+            document.getElementById("student_number").setAttribute("hidden", "hidden");
+            document.getElementById("classification").setAttribute("hidden", "hidden");
+            document.getElementById("degree_program").setAttribute("hidden", "hidden");
+            document.getElementById("employee_number").setAttribute("hidden", "hidden");
+            document.getElementById("faculty_button").setAttribute("class","btn btn-large btn-default custom");
+            document.getElementById("student_button").setAttribute("class","btn btn-large btn-default custom");
         }
 
         window.onload=function(){
@@ -223,7 +209,7 @@
         function checksNumber() {
             str=main_form.student_number.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
+            if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^[0-9]{4}\-[0-9]{5}$/))
                 msg += "Invalid student number.";
             document.getElementsByName('promptstudentnumber')[0].innerHTML=msg;
@@ -233,8 +219,8 @@
         function checkeNumber() {
             str=main_form.employee_number.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
-            else if(!str.match(/^[0-9]{9}$/))
+            if(str=="") msg += " Please fill out this field.";
+            else if(!str.match(/^[0-9]{15}$/))
                 msg += "Invalid employee number.";
             document.getElementsByName('promptemployeenumber')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -243,10 +229,9 @@
         function checkfName(){
             str=main_form.first_name.value;
             msg="";
-            if(str=="") msg += " Please fill this out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters hyphens and spaces are allowed.";
-            console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
+            if(str=="") msg += " Please fill out this field.";
+            else if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/))
+                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptfname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -254,9 +239,8 @@
         function checkmName(){
             str=main_form.middle_name.value;
             msg="";
-            if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters hyphens and spaces are allowed.";
+            if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/) && str != "")
+                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -265,18 +249,32 @@
             str=main_form.last_name.value;
             msg="";
             if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
-                msg += " Only letters, hyphens and spaces are allowed.";
+            else if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/))
+                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptlname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
 
         function checkBday(){
             str=main_form.birthday.value;
+            bdate = new Date(str);
+            date = new Date();
+            diff = date.getFullYear() - bdate.getFullYear();
+
+            if(date.getMonth() < bdate.getMonth()){
+                diff--;
+            }
+            else if(date.getDate() < bdate.getDate()){
+                diff--;
+            }
+            alert(date.getDate() + " " + bdate.getDate());
+            alert(diff);
             msg="";
             if(str=="") msg += " Please fill out this field.";
             else if(!str.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/))
-                msg += " Invalid date format (YYYY-MM-DD).";
+                msg += " Invalid date format (MM/DD/YYYY).";
+            else if(diff < 13)
+                msg += " Registrant is too young to use the system.";
             document.getElementsByName('promptbday')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -293,36 +291,31 @@
 
         function checkPassword(){
             str=main_form.password.value;
-            msg=" ";
+            msg="";
             if(str=="") msg = "Please fill out this field.";
             else if(str.match(/^[a-zA-Z0-9]{1,3}$/)){
                 msg+=" Password must be 4-16 long.";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
             }
             else if(!str.match(/^[a-zA-Z0-9]+$/)){
                 msg+="Special characters not allowed.";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
             }
-            else if(str.match(/^[a-z]+$/)){
-                msg+=" Weak :(";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
-                msg = "";
+            else if(str.match(/^[a-z]+$/) || str.match(/^[0-9]+$/)){
+                msg="Is that all you got?";
+                if(str.match(/^[a-z]+$/) && str.match(/^[0-9]+$/)){
+                    msg="You can do better man.";
+                    console.log('average');
+                    if(str.match(/^([a-z]+[A-Z]+[0-9]+)+$/) || 
+                    str.match(/^([a-z]+[0-9]+[A-Z]+)+$/) || 
+                    str.match(/^([0-9]+[a-z]+[A-Z]+)+$/) || 
+                    str.match(/^([0-9]+[A-Z]+[a-z]+)+$/) || 
+                    str.match(/^([A-Z]+[0-9]+[a-z]+)+$/) ||
+                    str.match(/^([A-Z]+[a-z]+[0-9]+)+$/)){
+                        console.log('strong');
+                        msg="Good job. :)";
+                    }
+                }
             }
-            else if(str.match(/^[0-9]+$/)){
-                msg+=" Weak :(";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
-                msg = "";
-            }
-            else if(str.match(/^[a-z0-9]+$/)){
-                msg+=" Fair :|";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
-                msg = "";
-            }
-            else if(str.match(/^[a-zA-Z0-9]+$/)){
-                msg+=" Strong :)";
-                document.getElementsByName('promptpassword')[0].innerHTML=msg;
-                msg = "";
-            }
+            
             document.getElementsByName('promptpassword')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -368,11 +361,39 @@
             return false;
         }
 
+        function checkAvailsNumber(){
+            var input = $('#student_number').val();
+            var query = {"student_number":input};
+            var result;
+            
+            function setResult(i){
+                result = i;
+            }
+            
+            if(checksNumber()){
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url(); ?>index.php/signup/checkAvailsNumber",
+                    data: query,
+                    cache: false,
+                    success: function(html){
+                        $('span[name="promptstudentnumber"]').html(html);
+                        $('span[name="promptstudentnumber"]').val(html);
+                    }
+                });
+            }
+
+            var result = ($('span[name="promptstudentnumber"]').val());
+            var regex = new RegExp("available"); 
+            if(result.match(regex)){
+                return true;
+            }
+            return false;
+        }
+        
         function checkAll(){
 
-            if(checkfName() && checklName() && checkBday() && checkemail() && checkmName() && checkPassword() && matchPassword() && checkAvailEmail()){
-                console.log(document.getElementById("gender").value);
-                console.log(document.getElementById("type").value);
+           if(checkfName() && checklName() && checkBday() && checkemail() && checkmName() && checkPassword() && matchPassword() && checkAvailEmail() && checkAvailsNumber()){
                 if(document.getElementById("type").value == "Student" && checksNumber())
                     return true;
                 else if(document.getElementById("type").value == "Faculty" && checkeNumber())
@@ -382,7 +403,7 @@
         }
 
         </script>
-        <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
+        <script src="<?php echo base_url();?>js/jquery-1.9.1.js"></script>
         <script>
         $(document).ready(function(){
 
@@ -390,8 +411,11 @@
                 checkAvailEmail();
             });
 
+            $("#student_number").keyup(function(){
+                checkAvailsNumber();
+            });
+
             $("#password_confirmation").keyup(function(){
-                console.log("confirm");
                 matchPassword();
             });
 
@@ -405,8 +429,8 @@
         <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
         <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 
-    <!--footer -->
+    <!--footer---------------------------------------------------------------------------------------------------------->
     <?php include("includes/footer.php"); ?>
 
-	</body>
+    </body>
 </html>

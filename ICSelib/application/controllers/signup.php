@@ -67,6 +67,10 @@ class Signup extends CI_Controller {
     function checkAvailEmail(){
         $this->signup_model->checkAvailEmail();
     }
+
+    function checkAvailsNumber(){
+        $this->signup_model->checkAvailsNumber();
+    }
 }
 
 ?>

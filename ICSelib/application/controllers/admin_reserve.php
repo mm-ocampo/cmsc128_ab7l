@@ -91,9 +91,9 @@ class Admin_reserve extends CI_Controller{
         $this->db->where($key, $value);
         $this->db->update('material', $data);
 
-        $message = "Hello!\r\nYour request for the book ".$this->input->post('request')." has been approved.\r\nYou may now claim for it at C-124, F.O. Santos Hall.
-        \r\n\r\nYours truly,\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Ba&ntilde;os\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
-        $subject = "ICS Library Reservation";
+        $message = "Hello!\r\nYour request for the book ".$this->input->post('request')." has been approved.\r\nYou may now claim it at the ICS Library, C-124, F.O. Santos Hall (Physical Sciences Bldg).
+        \r\n\r\nYours truly,\r\nLibrary Administrator\r\nInstitute of Computer Science\r\nUniversity of the Philippines Los Baños\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
+        $subject = "ICS Library Book Reservation";
         $receiver = $email;
 
         $this->do_send_email($message,$subject,$receiver);
@@ -271,7 +271,7 @@ class Admin_reserve extends CI_Controller{
         //three actions: approve_request, approve_borrow, approve_return
         switch($action){
             case 'approve_request':
-                $data = 'has approved the reserve request of';
+                $data = 'has approved the reservation request of';
                 break;
             case 'approve_borrow':
                 $data = 'has approved the borrow request of';

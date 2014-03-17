@@ -112,7 +112,7 @@
 							else{
 								echo "\t<td>Overdue</td>\n";
 								$CI =& get_instance();
-								$message = "Your borrowing period on the book ".$row->title." has expired. Please return the book as soon as possible\r\n\r\nYours truly,\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Ba&ntilde;os\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
+								$message = "Your borrowing period on the book ".$row->title." has expired. Please return the book as soon as possible\r\n\r\nYours truly,\r\nLibrary Administrator\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Baños\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
 								$subject = "Overdue Reservation";
 								$receiver = $row->email;
 								$CI->do_send_email($message,$subject,$receiver);			//if overdue, then send email

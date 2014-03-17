@@ -54,7 +54,7 @@ class Signup_model extends CI_Model {
                                             $this->input->post('student_number') . "','" .
                                             $this->input->post('degree_program') . "','" .
                                             $classification . "','" .
-                                            $this->input->post('password') . "','" .
+                                            sha1($this->input->post('password')) . "','" .
                                             $this->input->post('first_name') . "','" .
                                             $this->input->post('middle_name') . "','" .
                                             $this->input->post('last_name') . "','" .
@@ -103,6 +103,23 @@ class Signup_model extends CI_Model {
             echo 'Email is available.';
         else if($count >= 0)
             echo 'Email has already been used.';
+    }
+
+    function checkAvailsNumber(){
+        $student_number = $this->input->get('student_number');
+
+        $query = "SELECT * FROM user WHERE student_number='$student_number'";
+
+        $result = $this->db->query($query);
+
+        $count = 0;
+        foreach($result->result() as $i){
+            $count++;
+        }
+        if($count < 1)
+            echo 'Student Number is available.';
+        else if($count >= 0)
+            echo 'Student Number has already been used.';
     }
 }
 ?>

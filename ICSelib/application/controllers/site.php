@@ -16,8 +16,25 @@ class Site extends CI_Controller {
 
     public function index(){
 
-        $this->load->view('default_view');
+        $this->load_home();
 
+    }
+
+    public function load_home(){
+        $this->load->library('session');
+        if($this->session->userdata('type')=="admin"){
+            $this->load->view('admin_default_view');
+        }
+        else if($this->session->userdata('type')=="user"){
+            $email= $this->session->userdata('email');
+            $data['results']=$this->get_database->get_bookmarks($email);
+            $data['results2']=$this->get_database->get_author_for_bookmarks($email);
+            $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
+            $this->load->view('user_default_view', $data);
+        }
+        else{
+            $this->load->view('default_view');
+        }
     }
 
     public function login(){
@@ -51,10 +68,10 @@ class Site extends CI_Controller {
 
 
     public function search(){
-        if (!$this->input->get('search_query') || !$this->input->get('format') && $this->session->userdata('type')=='user'){
+        if ((!$this->input->get('search_query') || !$this->input->get('format')) && $this->session->userdata('type')=='user'){
             $this->load->view('user_search_book_view');
         }
-        else if (!$this->input->get('search_query') || !$this->input->get('format') && $this->session->userdata('type')=='admin'){
+        else if ((!$this->input->get('search_query') || !$this->input->get('format')) && $this->session->userdata('type')=='admin'){
             $this->load->view('admin_search_book_view');
         }
         else if (!$this->input->get('search_query') || !$this->input->get('format')){
@@ -116,7 +133,7 @@ class Site extends CI_Controller {
 
 
     public function delete(){
-        if (isset($_GET['id']) && $_GET['confirm']  == "true"){
+        if (isset($_GET['id']) && $_POST['value']  == "true"){
             $id = $_GET['id'];
             $this->delete_model->delete_material($id);
         }
@@ -248,12 +265,9 @@ class Site extends CI_Controller {
         $input = $this->input->post();
         $update = $this->get_database->update_user_details($input['email'],$input);
         if($update == 1){
-            echo 'update successful!';
-            $this->load->view('home_view');
-
+            $this->user_update_view();
         }else{
-            echo 'error occured';
-            $this->load->view('home_view');
+            $this->user_update_view();
         }
 
         $log_array = array(
@@ -261,7 +275,7 @@ class Site extends CI_Controller {
             'action' => 'updated account details',
             'actor' => $this->session->userdata('email')
         );
-        $this->cancel_bookmark_reserve_logger($log_array);
+        $this->update_user_logger($log_array);
     }
 
 //end of user update functions
@@ -318,5 +332,9 @@ class Site extends CI_Controller {
             $data = $string."\r\n".$new_data;
         }
         write_file("./application/logs/log-{$date}.txt", $data);
+    }
+
+    public function checkEmail(){
+        $this->log_in_model->checkEmail();
     }
 }

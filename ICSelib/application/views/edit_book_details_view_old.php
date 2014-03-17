@@ -32,6 +32,7 @@
                         <form name="material_form" class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>index.php/site/update_material_details" onsubmit="return validateAll();">
                             <input name="accession_number" type="hidden" class="form-control" value="<?php foreach($results as $row){echo $row->accession_number;} ?>">
                             <input type="text" id="type" name="type" hidden value="<?php foreach($results as $row){echo $row->type;}?>"/>
+                            
                             <div class="form-group">
                                 <label for="inputTitle">Title</label>
                                 <input type="text" class="form-control input-mini" id="inputTitle" name="inputTitle" value="<?php foreach($results as $row){echo $row->title;} ?>">
@@ -50,15 +51,6 @@
                                 <br/>
                             </div>
 
-                            <?php foreach($results as $row){if($row->type == 'thesis' || $row->type == 'sp'){?>
-                            <div id="abstract" class="row">
-                                <div class="form-group col-xs-5">
-                                    <label for="abstract_text" class="col-sm- control-label">Abstract</label>
-                                    <textarea id="abstract_text" name="abstract_text" class="form-control" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <?php }}?>    
-                            
                             <div class="form-group">
                                 <label for="inputPublisher">Publisher</label>
                                 <input type="text" class="form-control input-mini" id="inputPublisher" name="inputPublisher" value="<?php foreach($results as $row){echo $row->publisher;} ?>">
@@ -69,7 +61,6 @@
                                 <input type="number" class="form-control input-mini" id="inputYear" name="inputYear" value="<?php foreach($results as $row){echo $row->copyright_year;} ?>" min="1900">
                                 <span class="prompt" name="year_prompt"></span><br/>
                             </div>
-               
                             <div class="form-group">
                                 <label for="inputSubject">Subject</label>
                                 <select class="form-control input-mini" id="inputSubject" name="inputSubject">
@@ -231,91 +222,13 @@
     }
 
     function validate_author(){
-        <?php if(sizeof($results2)>1){?>
-            var prompts = new Array(material_form.inputAuthor.length);
-            var retbool = new Array(material_form.inputAuthor.length);
-            for(i=0;i<material_form.inputAuthor.length;i++){
-              prompts[i]= "";
-              str= material_form.inputAuthor[i].value;
-                if(str.trim().length==0)
-                    prompts[i] = "This is a required field.";
-                else if(!str.match(/^[a-zA-Z\-\ \.\,]+$/))
-                    prompts[i] = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-                document.getElementsByName('author_prompt')[i].innerHTML = prompts[i];
-              if(prompts[i] == "")
-                retbool[i] = true;
-            }
-            for(i=0;i<material_form.inputAuthor.length;i++){
-              if(retbool[i] != true)
-                return false;
-            }
-            return true;
-        <?php }?>
-        <?php if(sizeof($results2)==1){?>
-            if(more==1){
-            var prompt1 = "";
-            var str1= material_form.inputAuthor2.value;
-            if(str1.trim().length==0)
-               prompt1 = "This is a required field.";
-            else if(!str1.match(/^[a-zA-Z\-\ \.\,]+$/))
-               prompt1 = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-            document.getElementsByName('author2_prompt')[0].innerHTML = prompt1;
-              if(prompt1 == "")
-                return true;
-            }
-            else if(more==2){
-            var prompt1 = "";
-            var str1= material_form.inputAuthor2.value;
-            if(str1.trim().length==0)
-               prompt1 = "This is a required field.";
-            else if(!str1.match(/^[a-zA-Z\-\ \.\,]+$/))
-               prompt1 = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-            document.getElementsByName('author2_prompt')[0].innerHTML = prompt1;
-
-            var prompt2 = "";
-            var str2= inputAuthor.value;
-            if(str2.trim().length==0)
-               prompt2 = "This is a required field.";
-            else if(!str2.match(/^[a-zA-Z\-\ \.\,]+$/))
-               prompt2 = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-            document.getElementsByName('author3_prompt')[0].innerHTML = prompt2;
-              if(prompt1 == "" && prompt2 == "")
-                return true;
-            }
-            else if(more>2){
-            var prompt1 = "";
-            var str1= material_form.inputAuthor2.value;
-            if(str1.trim().length==0)
-               prompt1 = "This is a required field.";
-            else if(!str1.match(/^[a-zA-Z\-\ \.\,]+$/))
-               prompt1 = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-            document.getElementsByName('author2_prompt')[0].innerHTML = prompt1;
-
-                var prompts2 = new Array(inputAuthor.length);
-                var retbool2 = new Array(more);
-                for(i=0;i<inputAuthor.length;i++){
-                  prompts2[i]= "";
-                  str2= inputAuthor[i].value;
-//                  alert(inputAuthor[i].value);
-                  if(str2.trim().length==0)
-                    prompts2[i] = "This is a required field.";
-                  else if(!str2.match(/^[a-zA-Z\-\ \.\,]+$/))
-                    prompts2[i] = "Only Letters, Numbers, Spaces, Period and Hypen are allowed in this field.";
-                  document.getElementsByName('author3_prompt')[i].innerHTML = prompts2[i];
-                  if(prompts2[i] == "")
-                    retbool2[i] = true;
-
-                }
-
-                for(i=0;i<inputAuthor.length;i++){
-                  if(prompt1!="" || retbool2[i]!=true)
-                    return false;
-                }
-                return true;
-
-              }
-
-        <?php }?>
+      for(i=0;i<material_form.inputAuthor.length;i++){
+        prompt = "";
+        str= material_form.inputAuthor[i].value;
+        if(str.trim().length==0)
+          prompt = "This is a required field.";
+        document.getElementsByName('author_prompt')[0].innerHTML = prompt;
+      }
     }
 
     function validateAll(){

@@ -72,11 +72,10 @@
 
                 <!-- Subject for thesis and sp only -->
                 <div  id= "subject_thesissp" class="row">
-                    <div class="form-group col-xs-5">
+                    <div class="form-group col-xs-5" hidden="hidden">
                         <label for="thesissp_subject" class="col-sm- control-label">Subject</label>
                         <select name="thesissp_subject" class="form-control" id="thesissp_subject">
-                            <option value="cmsc199">CMSC 198</option>
-                            <option value="cmsc199">CMSC 199</option>
+                            <option value=" "></option>
                         </select>
                     </div>
                 </div>

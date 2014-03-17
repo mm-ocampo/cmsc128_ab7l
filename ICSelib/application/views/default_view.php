@@ -3,6 +3,7 @@
 <?php include "includes/navigation_bar.php"; ?>
 
   <body>
+
   <div class="width_limit">
     <!-- Carousel-->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -58,35 +59,72 @@
 
       <!--LOG-IN-->
       <div id="sign-in">
-             <form class="form-signin" role="form" method="POST" action="<?php echo base_url();?>index.php/site/login">
-              <h2 class="form-signin-heading">Please sign in</h2>
+             <form name="signin_form" class="form-signin" role="form" method="POST" action="<?php echo base_url();?>index.php/site/login">
+              <h2 class="form-signin-heading">Sign In</h2>
                 <div class="left-inner-addon ">
                   <i class="fa fa-user fa-lg"></i>
-                  <input type="text" class="form-custom" placeholder="Email" name="email" required autofocus>
+                  <input type="text" class="form-custom" placeholder="Email" id="email" name="email" required autofocus>
                 </div>
                 <div class="left-inner-addon ">
                   <i class="fa fa-key fa-lg"></i>
-                  <input type="password" class="form-custom" placeholder="Password" name="password" required>
+                  <input type="password" class="form-custom" placeholder="Password" id="password" name="password" required>
                 </div>
+                <span id="loginprompt" name="loginprompt"></span>
               <label class="checkbox">
                 <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
               </label>
-              <p>Not yet registered? <a href="<?php echo base_url();?>index.php/elib/signup_view">Sign up today</a></p>              
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
-             </form>
+             </form></br>
+             <p>Not yet registered? <a href="<?php echo base_url();?>index.php/elib/signup_view">Sign up today</a></p>
         <img src="<?php echo base_url();?>assets/ICS Logo.png" class="footer_logo" alt="ICS Logo"/>
         <img src="<?php echo base_url();?>assets/UPLB Logo.png" class="footer_logo" alt="UPLB Logo"/>
       </div>
       <!--END LOG-IN-->
     </div><!--END FLOAT_RIGHT-->
-    <div id="footer_home">
+</div>
+        <div id="footer_home">
         <div class="width_limit">
           <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
         </div>
         </div>
-    </div>
 </div>
-        
+    <script>
+        window.onload=function(){
+            signin_form.email.onblur = checkEmail;
+            signin_form.onsubmit = checkAll;
+        }
+
+        function checkEmail(){
+            var input = $('#email').val();
+            var query = {"email":input};
+
+            $.ajax({
+                type: "GET",
+                url: "<?php echo base_url(); ?>index.php/site/checkEmail",
+                data: query,
+                cache: false,
+                success: function(html){
+                    $('span[name="loginprompt"]').html(html);
+                    $('span[name="loginprompt"]').val(html);
+                }
+            });
+
+            var result = $('#loginprompt').val();
+            var regex = new RegExp("Invalid");
+            if(result.match(regex)){
+                return false;
+            }
+            return true;
+        }
+
+        function checkAll(){
+            if(checkEmail()){
+                return true;
+            }
+            return false;
+        }
+
+    </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

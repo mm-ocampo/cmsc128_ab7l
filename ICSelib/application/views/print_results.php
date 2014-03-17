@@ -15,20 +15,21 @@
                 *
                 */
                 $i = 0;
-
+                $res = -1;
                 foreach ($search as $row) {
-
+                        $res += 1;
                         echo "<div class='results'>";
                         echo "<span class='glyphicon glyphicon-arrow-down' id='search_down_span'></span>";
                             echo "<div class='result_information'>";
                                 $title = $row->title;
                                 $publisher = $row->publisher;
                                 $accession_number = $row->accession_number;
+                                $copyright_year = $row->copyright_year;
+                                $abstract = $row->abstract;
                                 
                                 echo "<ul>";
-                                echo "<div class='result_header'><li ><strong>".$title."</strong></li></div>";
+                                echo "<li class='result_header'>".$title."</li>";
                                 echo "<div class='result_details'>";
-                                echo "<li>".$publisher."</li>";
                                 echo "<li>".$accession_number."</li>";
 
                                 $author = $this->get_database->get_book_author($accession_number);
@@ -39,11 +40,15 @@
 
                                 }
 
+                                echo "<li>".$copyright_year."</li>";
+                                echo "<li>".$publisher."</li>";
+                                echo "<li>".$abstract."</li>";
+
                         $i = 1;
                         if($this->session->userdata('type')){
                         if($this->session->userdata['type']=="admin"){
 ?>
-    <?php echo "<li><a name='link' id='link' onclick='return confirm_delete()' href = '".base_url()."index.php/site/delete?id={$accession_number}&confirm='><input type='button' name='".$row->accession_number."' value='Delete' /></a></li>"; ?>
+    <?php echo "<li><input type='button' onclick='confirm_delete({$res})' id='link{$res}' name='".$row->accession_number."' value='Delete' /></li>"; ?>
         <li><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
         <input type="hidden" value="<?php echo $row->accession_number; ?>" id="accession_number" name="accession_number">
         <input type="submit" value="Edit" />
@@ -92,7 +97,7 @@
                                     ?>
 
                                         <li> <form class="form_reserve" method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/reserve/load_book">
-                                            <button class="button_reserve" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>" onclick="alert('Your request for this book has been sent to the administrator.')">Reserve</button>
+                                            <button class="button_reserve" id="viewbook" name="viewbook" type="submit" value="<?php echo $row->accession_number; ?>" onclick="return disable_reserve()">Reserve</button>
                                         </form></li>
 
                                     <?php
@@ -168,14 +173,11 @@
 
 ?>
 
-
-
 <script type='text/javascript' language='javascript'>
 
-    function confirm_delete(){
+    function confirm_delete(num){
         var temp = confirm("Do you really want to delete this material?");
-    
-        document.getElementById("link").setAttribute("href",document.getElementById("link").href + temp);
-    }
 
+        location.replace("<?php echo base_url();?>index.php/site/delete?id=" + document.getElementById('link' + num).name + "&confirm=" + temp);
+    }
 </script>

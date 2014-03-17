@@ -39,7 +39,7 @@
 			}
 
 
-			$pstmt = "SELECT distinct title,publisher,material.accession_number FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
+			$pstmt = "SELECT distinct title,publisher,material.accession_number,material.copyright_year,abstract FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -560,6 +560,11 @@
 	      	$statement =" INSERT into material_author values (\"$accession_number\", \"$temp\") ";
 	      	$this->db->query($statement);
 	      }
+	    }
+
+	    public function delete_book_tags($accession_number){
+	    	$this->db->where('accession_number', $accession_number);
+	    	$this->db->delete('topic');
 	    }
 
 	    public function delete_bookmark($accession_number, $email){

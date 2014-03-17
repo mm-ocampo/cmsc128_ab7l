@@ -14,7 +14,7 @@
 			$password = $this->input->post('password');
 			$count = 0;
 
-			$pstmt = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+			$pstmt = "SELECT * FROM user WHERE email='$email' AND password= '". sha1($password) . "' AND status='Active'";
 			$query = $this->db->query($pstmt);
 
 			foreach ($query->result() as $row):
@@ -41,8 +41,8 @@
 			$password = $this->input->post('password');
 			$count = 0;
 
-			$pstmt = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
-			$query = $this->db->query($pstmt);
+			$pstmt = "SELECT * FROM admin WHERE email='$email' AND password='". sha1($password) . "'";
+            $query = $this->db->query($pstmt);
 
 			foreach ($query->result() as $row):
 				$count++;
@@ -61,6 +61,32 @@
 			}
 
 		}
+
+		function checkEmail(){
+            $email = $this->input->get('email');
+
+            $query = "SELECT * FROM user WHERE email='$email' and status='Active'";
+
+            $result = $this->db->query($query);
+
+            $count = 0;
+            foreach($result->result() as $i){
+                $count++;
+            }
+            if($count < 1)
+
+            $query = "SELECT * FROM admin WHERE email='$email'";
+
+            $result = $this->db->query($query);
+
+            $count = 0;
+            foreach($result->result() as $i){
+                $count++;
+            }
+
+            if($count < 1 && $email != "")
+                echo 'Invalid email/password.';
+        }
 
 	}
 ?>

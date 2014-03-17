@@ -90,7 +90,10 @@ class Reserve extends CI_Controller{
                 'books_reserved' => $books_reserved
             );
             $this->session->set_userdata($newdata);
-            $this->reservation();
+            $exists_data = $this->reserve_model->select("select * from material where accession_number=\"$accession_number\"");
+            if($exists_data){
+                $this->reservation();
+            }
             redirect(base_url().'index.php/elib/user_search_book');
         }
     }
