@@ -38,6 +38,12 @@
 			</br>
 				<div id="request">
 					<?php
+						if($result==NULL){
+							echo "</br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-book glyphicon-large\"></span></span></br><h3 class=\"text-center\">404 No Results!</h3></p>";
+						}
+
+						else{
+
 						echo "<table class=\"table table-hover\" id=\"request\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th></th>";
@@ -50,22 +56,28 @@
 							echo "\t<td>$row->student_number</td>\n";
 						else
 							echo "\t<td>$row->employee_number</td>\n";
-						echo "\t<td>$row->title</td>\n";
-						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td>";
-						echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/add_readyforpickup\">";
-						echo "<button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"request\" onclick=\"alert('This material has been approved and may now be picked up. An email has been sent to the borrower.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
-
+						
+							echo "\t<td>$row->title</td>\n";
+							echo "\t<td>$row->accession_number</td>\n";
+							echo "<td>";
+							echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/add_readyforpickup\">";
+							echo "<button class=\"btn btn-success\" id=\"reservelink\" onclick=\"reservefunc()\" value=\"$row->accession_number\" name=\"request\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 							echo "</tr>";
 
 						}
 						echo "</table>";
+					}
 					?>
 					
 				</div>
 			</br>
 				<div id="reserve">
 					<?php
+					if($result2==NULL){
+						echo "</br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-book glyphicon-large\"></span></span></br><h3 class=\"text-center\">404 No Results!</h3></p>";
+					}
+					else{
+
 						echo "<table class=\"table table-hover\" id=\"reserve\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th></th>";
@@ -78,19 +90,28 @@
 							echo "\t<td>$row->student_number</td>\n";
 						else
 							echo "\t<td>$row->employee_number</td>\n";
-						echo "\t<td>$row->title</td>\n";
-						echo "\t<td>$row->accession_number</td>\n";
-						echo "<td><form method=\"POST\" action=\"" . base_url() . "index.php/admin_reserve/do_approve\"><button class=\"btn btn-success\" value=\"$row->accession_number\" name=\"reserve\" onclick=\"alert('This material has been claimed.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\" height=\"125px\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
-
+							
+							echo "\t<td>$row->title</td>\n";
+							echo "\t<td>$row->accession_number</td>\n";
+							echo "<td>";
+							echo "<form method=\"POST\" action=\"" . base_url() . "/index.php/admin_reserve/do_approve\">";
+							echo "<button class=\"btn btn-success\" id=\"borrowlink\" onclick=\"borrowfunc()\" value=\"$row->accession_number\" name=\"reserve\"><span class=\"glyphicon glyphicon-ok glyphicon-medium\"></span></button></form></td>";
 							echo "</tr>";
 
 						}
 						echo "</table>";
+					}
 					?>
 				</div>
 			</br>
 				<div id="borrowed">
 					<?php
+					if($result3==NULL){
+						echo "</br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-book glyphicon-large\"></span></span></br><h3 class=\"text-center\">404 No Results!</h3></p>";
+					}
+
+					else{
+
 						echo "<table class=\"table table-hover\" id=\"borrowed\" border=\"2\" class=\"nativetable\">";
 						echo "<tr>";
 						echo "<th>Name of Student</th><th>Student/Employee Number</th><th>Book Title</th><th>Accession Number</th><th>Status</th><th></th>";
@@ -112,22 +133,53 @@
 							else{
 								echo "\t<td>Overdue</td>\n";
 								$CI =& get_instance();
-								$message = "Your borrowing period on the book ".$row->title." has expired. Please return the book as soon as possible\r\n\r\nYours truly,\r\nLibrary Administrator\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Baños\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
+								$message = "Your borrowing period on the book ".$row->title." has expired. Please return the book as soon as possible\r\n\r\nYours truly,\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Ba&ntilde;os\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
 								$subject = "Overdue Reservation";
 								$receiver = $row->email;
 								$CI->do_send_email($message,$subject,$receiver);			//if overdue, then send email
 							}
 						}
 						else echo "\t<td>Ok</td>\n";
-						echo "<td><form method=\"POST\" action=\"".base_url()."index.php/admin_reserve/do_return\"><button class=\"btn btn-danger\" value=\"$row->accession_number\" name=\"borrowed\" onclick=\"alert('This material has been returned to the library.')\"><img href = \"/admin/index.php/admin/load_readyForPickUp\" height=\"20pt\"  height=\"125px\"><span class=\"glyphicon glyphicon-remove glyphicon-medium\"></span></button></form></td>";
-
-							echo "</tr>";
+						echo "<td>";
+						echo "<form method=\"POST\" action=\"".base_url()."/index.php/admin_reserve/do_return\">";
+						echo "<button class=\"btn btn-danger\" id=\"returnlink\" onclick=\"returnfunc()\" value=\"$row->accession_number\" name=\"borrowed\"><span class=\"glyphicon glyphicon-remove glyphicon-medium\"></span></button></form></td>";
+						echo "</tr>";
 
 						}
 						echo "</table>";
+
+					}
 					?>
 				</div>
 
 		</br></br></br>
 	</body>
+
+  <script>
+  	function reservefunc(){
+  		var r=confirm("Approve this material?");
+        if (r==true){
+  		document.getElementById("reservelink").setAttribute("href",document.getElementById("reservelink").href + r);
+  		}
+  		else return false;
+  	}
+
+  	function borrowfunc(){
+  		var r=confirm("Add to list of borrowed materials?");
+        if (r==true){
+  		document.getElementById("borrowlink").setAttribute("href",document.getElementById("borrowlink").href + r);
+  		}
+  		else return false;
+  	}
+
+  	function returnfunc(){
+  		var r=confirm("Make this material available?");
+        if (r==true){
+  		document.getElementById("returnlink").setAttribute("href",document.getElementById("returnlink").href + r);
+  		}
+  		else return false;
+  	}
+  </script>
+
+
 </html>

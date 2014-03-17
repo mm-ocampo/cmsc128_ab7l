@@ -6,6 +6,49 @@
 			$this->load->database();
 		}
 
+		public function search_details($search){
+
+			$array = array();
+			$i = 0;
+
+			foreach ($search as $row) {
+				
+				if($this->session->userdata('type')=="user"){
+
+					$query = $this->db->query("SELECT material.accession_number,status,borrows.email bemail,reserves.email remail FROM material LEFT JOIN reserves ON material.accession_number=reserves.accession_number LEFT JOIN borrows ON material.accession_number=borrows.accession_number where title='$row->title'");
+					$query = $query->result();
+					for($j=0;$j<count($query);$j++){
+						
+						if($query[$j]->status=="available" && ($query[$j]->bemail==NULL || $query[$j]->remail==NULL)){	
+							$array[$i] = $query[$j]->accession_number;
+							break;
+						}
+
+						if($query[$j]->status!="available" && $j==count($query)-1 && ($query[$j]->bemail!=NULL || $query[$j]->remail!=NULL)){
+							$array[$i] = $query[0]->accession_number;
+							break;
+						}
+					
+					}
+
+				}
+
+				else{
+
+					$query = $this->db->query("SELECT accession_number from material where title='$row->title'");
+					$query = $query->result();
+					$array[$i] = $query[0]->accession_number;
+
+				}
+
+				$i++;
+
+			}
+
+			return $array;
+
+		}
+
 		public function search(){
 			$search_query = $this->input->get('search_query');
 			$filter = $this->input->get('filter');
@@ -26,8 +69,7 @@
 
 			if($size <= 3){
 
-				$search_query = str_replace("+","[[:punct:]]",$search_query);
-				$search_query = str_replace("*","[[:punct:]]",$search_query);
+				
 
 			}
 
@@ -39,7 +81,7 @@
 			}
 
 
-			$pstmt = "SELECT distinct title,publisher,material.accession_number,material.copyright_year,abstract FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
+			$pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -50,28 +92,28 @@
 					
 			switch($filter){
 					
-				case "topic":			if($size <= 3)	$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR tag REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR tag='$search_query')";
-										else 			$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query' in boolean mode)) ";
-										break;
+				case "topic":			if($size <= 3)	$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query' in boolean mode)) ";
+											break;
 
-				case "title":			if($size <= 3)	$pstmt = $pstmt.") AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR title REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR title='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(title) against ('+$search_query' in boolean mode) ";
-										break;
-				case "publisher":		if($size <= 3)	$pstmt = $pstmt.") AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR publisher REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR publisher='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(publisher) against ('+$search_query' in boolean mode) ";
-										break;
-				case "author":			if($size <= 3)	$pstmt = $pstmt.") AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR author REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR author='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(author) against ('+$search_query' in boolean mode) ";
-										break;
-				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
-										break;
-				case "year":			$pstmt = $pstmt.") AND copyright_year='$search_query'";
-										break;
+					case "title":			if($size <= 3)	$pstmt = $pstmt.") AND (title LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(title) against ('+$search_query' in boolean mode) ";
+											break;
+					case "publisher":		if($size <= 3)	$pstmt = $pstmt.") AND (publisher LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(publisher) against ('+$search_query' in boolean mode) ";
+											break;
+					case "author":			if($size <= 3)	$pstmt = $pstmt.") AND (author LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(author) against ('+$search_query' in boolean mode) ";
+											break;
+					case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
+											break;
+					case "year":			$pstmt = $pstmt.") AND copyright_year='$search_query'";
+											break;
 
-				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
-										break;
+					case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+											break;
 
-				default:				return "error";
+					default:				return "error";
 					
 			}
 					
@@ -114,8 +156,7 @@
 			$size3 = strlen($search_query3);
 
 			if($size1 <= 3){
-				$search_query1 = str_replace("+","[[:punct:]]",$search_query1);
-				$search_query1 = str_replace("*","[[:punct:]]",$search_query1);
+				
 			}
 
 			else if($filter1=="title"||$filter1=="publisher"||$filter1=="author"){
@@ -129,9 +170,6 @@
 			}
 
 			if($size2 <= 3){
-
-				$search_query2 = str_replace("+","[[:punct:]]",$search_query2);
-				$search_query2 = str_replace("*","[[:punct:]]",$search_query2);
 
 			}
 
@@ -147,9 +185,6 @@
 
 			if($size3 <= 3){
 
-				$search_query3 = str_replace("+","[[:punct:]]",$search_query3);
-				$search_query3 = str_replace("*","[[:punct:]]",$search_query3);
-
 			}
 
 			else if($filter3=="title"||$filter3=="publisher"||$filter3=="author"){
@@ -162,7 +197,7 @@
 
 			}
 
-			$pstmt = "SELECT distinct title,publisher,material.accession_number FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
+			$pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -177,17 +212,17 @@
 					
 				switch($filter1){
 						
-					case "topic":			if($size1 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR tag REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR tag='$search_query1')";
+					case "topic":			if($size1 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query1' in boolean mode)) ";
 											break;
 
-					case "title":			if($size1 <= 3)	$pstmt = $pstmt." AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR title REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR title='$search_query1')";
+					case "title":			if($size1 <= 3)	$pstmt = $pstmt." AND (title LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(title) against ('+$search_query1' in boolean mode) ";
 											break;
-					case "publisher":		if($size1 <= 3)	$pstmt = $pstmt." AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR publisher REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR publisher='$search_query1')";
+					case "publisher":		if($size1 <= 3)	$pstmt = $pstmt." AND (publisher LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(publisher) against ('+$search_query1' in boolean mode) ";
 											break;
-					case "author":			if($size1 <= 3)	$pstmt = $pstmt." AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR author REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR author='$search_query1')";
+					case "author":			if($size1 <= 3)	$pstmt = $pstmt." AND (author LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(author) against ('+$search_query1' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." AND subject='$search_query1'";
@@ -211,17 +246,17 @@
 
 				switch($filter2){
 
-					case "topic":			if($size2 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR tag REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR tag='$search_query2')";
-											else 			$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query2' in boolean mode)) ";
+					case "topic":			if($size2 <= 3)	$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query2}%')";
+											else 			$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query2' in boolean mode)) ";
 											break;
-						
-					case "title":			if($size2 <= 3)	$pstmt = $pstmt." (title REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR title REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR title='$search_query2')";
+
+					case "title":			if($size2 <= 3)	$pstmt = $pstmt." (title LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(title) against ('+$search_query2' in boolean mode) ";
 											break;
-					case "publisher":		if($size2 <= 3)	$pstmt = $pstmt." (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR publisher REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR publisher='$search_query2')";
+					case "publisher":		if($size2 <= 3)	$pstmt = $pstmt." (publisher LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(publisher) against ('+$search_query2' in boolean mode) ";
 											break;
-					case "author":			if($size2 <= 3)	$pstmt = $pstmt." (author REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR author REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR author='$search_query2')";
+					case "author":			if($size2 <= 3)	$pstmt = $pstmt." (author LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(author) against ('+$search_query2' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." subject='$search_query2'";
@@ -245,13 +280,17 @@
 
 				switch($filter3){
 						
-					case "title":			if($size3 <= 3)	$pstmt = $pstmt." (title REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR title REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR title='$search_query3')";
+					case "topic":			if($size3 <= 3)	$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query3}%')";
+											else 			$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query3' in boolean mode)) ";
+											break;
+
+					case "title":			if($size3 <= 3)	$pstmt = $pstmt." (title LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(title) against ('+$search_query3' in boolean mode) ";
 											break;
-					case "publisher":		if($size3 <= 3)	$pstmt = $pstmt." (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR publisher REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR publisher='$search_query3')";
+					case "publisher":		if($size3 <= 3)	$pstmt = $pstmt." (publisher LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(publisher) against ('+$search_query3' in boolean mode) ";
 											break;
-					case "author":			if($size3 <= 3)	$pstmt = $pstmt." (author REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR author REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR author='$search_query3')";
+					case "author":			if($size3 <= 3)	$pstmt = $pstmt." (author LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(author) against ('+$search_query3' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." subject='$search_query3'";
@@ -293,9 +332,6 @@
 
 			if($size <= 3){
 
-				$search_query = str_replace("+","[[:punct:]]",$search_query);
-				$search_query = str_replace("*","[[:punct:]]",$search_query);
-
 			}
 
 			else if($filter=="title"||$filter=="publisher"||$filter=="author"){
@@ -308,8 +344,7 @@
 
 			}
 
-
-			$pstmt = "SELECT distinct COUNT(distinct title) result_count FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
+			$pstmt = "SELECT distinct COUNT(distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count) result_count FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -320,28 +355,28 @@
 					
 			switch($filter){
 
-				case "topic":			if($size <= 3)	$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR tag REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR tag REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR tag='$search_query')";
-										else 			$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query' in boolean mode)) ";
-										break;
-					
-				case "title":			if($size <= 3)	$pstmt = $pstmt.") AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR title REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR title='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(title) against ('+$search_query' in boolean mode) ";
-										break;
-				case "publisher":		if($size <= 3)	$pstmt = $pstmt.") AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR publisher REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR publisher='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(publisher) against ('+$search_query' in boolean mode) ";
-										break;
-				case "author":			if($size <= 3)	$pstmt = $pstmt.") AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query}' OR author REGEXP '{$search_query}[[:punct:]|[:space:]].*' OR author='$search_query')";
-										else 			$pstmt = $pstmt.") AND match(author) against ('+$search_query' in boolean mode) ";
-										break;
-				case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
-										break;
-				case "year":			$pstmt = $pstmt.") AND copyright_year='$search_query'";
-										break;
+				case "topic":			if($size <= 3)	$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query' in boolean mode)) ";
+											break;
 
-				case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
-										break;
+					case "title":			if($size <= 3)	$pstmt = $pstmt.") AND (title LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(title) against ('+$search_query' in boolean mode) ";
+											break;
+					case "publisher":		if($size <= 3)	$pstmt = $pstmt.") AND (publisher LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(publisher) against ('+$search_query' in boolean mode) ";
+											break;
+					case "author":			if($size <= 3)	$pstmt = $pstmt.") AND (author LIKE '%{$search_query}%')";
+											else 			$pstmt = $pstmt.") AND match(author) against ('+$search_query' in boolean mode) ";
+											break;
+					case "subject":			$pstmt = $pstmt.") AND subject='$search_query'";
+											break;
+					case "year":			$pstmt = $pstmt.") AND copyright_year='$search_query'";
+											break;
 
-				default:				return "error";
+					case "accession_number":$pstmt = $pstmt.") AND material.accession_number = '$search_query'";
+											break;
+
+					default:				return "error";
 					
 			}
 
@@ -378,9 +413,6 @@
 
 			if($size1 <= 3){
 
-				$search_query1 = str_replace("+","[[:punct:]]",$search_query1);
-				$search_query1 = str_replace("*","[[:punct:]]",$search_query1);
-
 			}
 
 			else if($filter1=="title"||$filter1=="publisher"||$filter1=="author"){
@@ -394,9 +426,6 @@
 			}
 
 			if($size2 <= 3){
-
-				$search_query2 = str_replace("+","[[:punct:]]",$search_query2);
-				$search_query2 = str_replace("*","[[:punct:]]",$search_query2);
 
 			}
 
@@ -412,9 +441,6 @@
 
 			if($size3 <= 3){
 
-				$search_query3 = str_replace("+","[[:punct:]]",$search_query3);
-				$search_query3 = str_replace("*","[[:punct:]]",$search_query3);
-
 			}
 
 			else if($filter3=="title"||$filter3=="publisher"||$filter3=="author"){
@@ -427,7 +453,7 @@
 
 			}
 
-			$pstmt = "SELECT distinct count(distinct material.title) result_count FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
+			$pstmt = "SELECT distinct count(distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count) result_count FROM material LEFT JOIN material_author ON material.accession_number = material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -442,13 +468,17 @@
 					
 				switch($filter1){
 						
-					case "title":			if($size1 <= 3)	$pstmt = $pstmt." AND (title REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR title REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR title='$search_query1')";
+					case "topic":			if($size1 <= 3)	$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query1}%')";
+											else 			$pstmt = $pstmt." AND material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query1' in boolean mode)) ";
+											break;
+
+					case "title":			if($size1 <= 3)	$pstmt = $pstmt." AND (title LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(title) against ('+$search_query1' in boolean mode) ";
 											break;
-					case "publisher":		if($size1 <= 3)	$pstmt = $pstmt." AND (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR publisher REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR publisher='$search_query1')";
+					case "publisher":		if($size1 <= 3)	$pstmt = $pstmt." AND (publisher LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(publisher) against ('+$search_query1' in boolean mode) ";
 											break;
-					case "author":			if($size1 <= 3)	$pstmt = $pstmt." AND (author REGEXP '.*[[:punct:]|[:space:]]{$search_query1}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query1}' OR author REGEXP '{$search_query1}[[:punct:]|[:space:]].*' OR author='$search_query1')";
+					case "author":			if($size1 <= 3)	$pstmt = $pstmt." AND (author LIKE '%{$search_query1}%')";
 											else 			$pstmt = $pstmt." AND match(author) against ('+$search_query1' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." AND subject='$search_query1'";
@@ -472,13 +502,17 @@
 
 				switch($filter2){
 						
-					case "title":			if($size2 <= 3)	$pstmt = $pstmt." (title REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR title REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR title='$search_query2')";
+					case "topic":			if($size2 <= 3)	$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query2}%')";
+											else 			$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query2' in boolean mode)) ";
+											break;
+
+					case "title":			if($size2 <= 3)	$pstmt = $pstmt." (title LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(title) against ('+$search_query2' in boolean mode) ";
 											break;
-					case "publisher":		if($size2 <= 3)	$pstmt = $pstmt." (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR publisher REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR publisher='$search_query2')";
+					case "publisher":		if($size2 <= 3)	$pstmt = $pstmt." (publisher LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(publisher) against ('+$search_query2' in boolean mode) ";
 											break;
-					case "author":			if($size2 <= 3)	$pstmt = $pstmt." (author REGEXP '.*[[:punct:]|[:space:]]{$search_query2}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query2}' OR author REGEXP '{$search_query2}[[:punct:]|[:space:]].*' OR author='$search_query2')";
+					case "author":			if($size2 <= 3)	$pstmt = $pstmt." (author LIKE '%{$search_query2}%')";
 											else 			$pstmt = $pstmt." match(author) against ('+$search_query2' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." subject='$search_query2'";
@@ -502,13 +536,17 @@
 
 				switch($filter3){
 						
-					case "title":			if($size3 <= 3)	$pstmt = $pstmt." (title REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR title REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR title REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR title='$search_query3')";
+					case "topic":			if($size3 <= 3)	$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE tag LIKE '%{$search_query3}%')";
+											else 			$pstmt = $pstmt." material.accession_number IN (SELECT accession_number FROM topic WHERE match(tag) against ('+$search_query3' in boolean mode)) ";
+											break;
+
+					case "title":			if($size3 <= 3)	$pstmt = $pstmt." (title LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(title) against ('+$search_query3' in boolean mode) ";
 											break;
-					case "publisher":		if($size3 <= 3)	$pstmt = $pstmt." (publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR publisher REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR publisher REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR publisher='$search_query3')";
+					case "publisher":		if($size3 <= 3)	$pstmt = $pstmt." (publisher LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(publisher) against ('+$search_query3' in boolean mode) ";
 											break;
-					case "author":			if($size3 <= 3)	$pstmt = $pstmt." (author REGEXP '.*[[:punct:]|[:space:]]{$search_query3}[[:punct:]|[:space:]].*' OR author REGEXP '.*[[:punct:]|[:space:]]{$search_query3}' OR author REGEXP '{$search_query3}[[:punct:]|[:space:]].*' OR author='$search_query3')";
+					case "author":			if($size3 <= 3)	$pstmt = $pstmt." (author LIKE '%{$search_query3}%')";
 											else 			$pstmt = $pstmt." match(author) against ('+$search_query3' in boolean mode) ";
 											break;
 					case "subject":			$pstmt = $pstmt." subject='$search_query3'";
@@ -633,7 +671,7 @@
 	    }
 //End of user update account
 
-public function suggest(){
+		public function suggest(){
 
 		
 			$search_query = $this->input->get('search_query');
@@ -669,45 +707,45 @@ public function suggest(){
 				case "title":			$pstmt = "SELECT distinct title FROM material WHERE title LIKE '%$search_query%' AND $formatquery LIMIT 5";
 										$query = $this->db->query($pstmt);
 					
-										echo "<ul>";
+										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->title);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->title</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->title</a>";
 								        endforeach;
-								        echo "</ul>";
+								        echo "</p>";
 
 										break;
 				case "publisher":		$pstmt = "SELECT distinct publisher FROM material WHERE publisher LIKE '%$search_query%' AND $formatquery LIMIT 5";
 										$query = $this->db->query($pstmt);
 										
-										echo "<ul>";
+										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->publisher);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->publisher</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->publisher</a>";
 								        endforeach;
-								        echo "</ul>";
+								        echo "</p>";
 										
 										break;
 				case "author":			$pstmt = "SELECT distinct author FROM material_author WHERE author LIKE '%$search_query%' AND $formatquery LIMIT 5";
 										$query = $this->db->query($pstmt);
 
-										echo "<ul>";
+										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->author);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->author</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->author</a>";
 								        endforeach;
-								        echo "</ul>";
+								        echo "</p>";
 										
 										break;
 				case "accession_number":$pstmt = "SELECT distinct accession_number FROM material WHERE accession_number LIKE '%$search_query%' AND $formatquery LIMIT 5";
 										$query = $this->db->query($pstmt);
 
-										echo "<ul>";
+										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->accession_number);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'><li>$row->accession_number</li></a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->accession_number</a>";
 								        endforeach;
-								        echo "</ul>";
+								        echo "</p>";
 
 										break;
 					
@@ -726,7 +764,7 @@ public function suggest(){
         public function get_reserve_search(){
             $email = $this->session->userdata('email');
 
-            $pstmt = "SELECT accession_number,email FROM reserves WHERE email='$email' UNION SELECT accession_number,email FROM borrows where email='$email'";
+            $pstmt = "SELECT title,reserves.accession_number,email FROM reserves LEFT JOIN material ON material.accession_number=reserves.accession_number UNION SELECT title,borrows.accession_number,email FROM borrows LEFT JOIN material ON material.accession_number=borrows.accession_number";
 
             $query = $this->db->query($pstmt);
 
@@ -752,7 +790,7 @@ public function suggest(){
 
 			$email = $this->session->userdata('email');
 
-			$pstmt = "SELECT accession_number FROM bookmark where email='$email'";
+			$pstmt = "SELECT title,bookmark.accession_number,email FROM bookmark LEFT JOIN material ON bookmark.accession_number=material.accession_number where email='$email'";
 
 			$query = $this->db->query($pstmt);
 

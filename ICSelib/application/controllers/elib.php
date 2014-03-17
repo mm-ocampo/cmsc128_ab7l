@@ -5,6 +5,8 @@ class Elib extends CI_Controller {
     function Elib(){
         parent::__construct();
         $this->load->model('get_database');
+        $this->load->model('statistics_model');
+        $this->load->model('notification_model');
         $this->load->library('session');
         $this->load->model('log_in_model');
     }
@@ -35,6 +37,7 @@ class Elib extends CI_Controller {
         }
         else if($this->session->userdata('type')=="user"){
             $email= $this->session->userdata('email');
+            $data['notification'] = $this->notification_model->get_notifications();
             $data['results']=$this->get_database->get_bookmarks($email);
             $data['results2']=$this->get_database->get_author_for_bookmarks($email);
             $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -107,8 +110,13 @@ class Elib extends CI_Controller {
             } 
 
             public function admin_search_book(){
-                if($this->session->userdata('type')=="admin")
-                    $this->load->view('admin_search_book_view');
+                if($this->session->userdata('type')=="admin"){
+                    
+                    $data['statistics'] = $this->statistics_model->get_statistics();
+                    $data['search_details'] = $this->get_database->search_details($data['statistics']);
+                    $this->load->view('admin_search_book_view',$data);
+
+                }
                 else
                     $this->load_home();
             }
@@ -256,17 +264,24 @@ class Elib extends CI_Controller {
     #1 Search
     */
     public function user_search_book(){
-        $this->load->view('user_search_book_view');
+        $data['notification'] = $this->notification_model->get_notifications();
+        $data['statistics'] = $this->statistics_model->get_statistics();
+        $data['search_details'] = $this->get_database->search_details($data['statistics']);
+        $data['reserved'] = $this->get_database->get_reserve_search();
+        $data['bookmarked'] = $this->get_database->get_bookmarked();
+        $this->load->view('user_search_book_view',$data);
     }
 
     public function user_advanced_search(){
-        $this->load->view('user_advance_search_view');
+        $data['notification'] = $this->notification_model->get_notifications();
+        $this->load->view('user_advance_search_view',$data);
     }
     /*
     #2 Profile
     */
     public function user_profile(){
-        $this->load->view('user_profile_view');
+        $data['notification'] = $this->notification_model->get_notifications();
+        $this->load->view('user_profile_view',$data);
     }
 
     public function signup_view() {

@@ -1,7 +1,4 @@
-<?php include "includes/header.php"; ?>
-
-<?php include "includes/navigation_bar.php";?>
-
+</br>
     <div id="">
         <div id="">
             <div class="">
@@ -230,7 +227,7 @@
             str=main_form.first_name.value;
             msg="";
             if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/))
+            else if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/))
                 msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptfname')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -239,7 +236,7 @@
         function checkmName(){
             str=main_form.middle_name.value;
             msg="";
-            if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/) && str != "")
+            if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/) && str != "")
                 msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -249,7 +246,7 @@
             str=main_form.last_name.value;
             msg="";
             if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z0-9\ \-\.]+$/))
+            else if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/))
                 msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
             document.getElementsByName('promptlname')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -429,8 +426,4 @@
         <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
         <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 
-    <!--footer---------------------------------------------------------------------------------------------------------->
-    <?php include("includes/footer.php"); ?>
-
-    </body>
-</html>
+</br>

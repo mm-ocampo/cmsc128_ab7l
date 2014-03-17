@@ -2,22 +2,6 @@
 
 
     <script language="javascript" type="text/javascript" src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
-    <script>
-    $(document).ready(function(){
-        $('#display_suggestion').hide();
-      $('#search_bar').click(function(){
-        $('#display_suggestion').show();
-        return false;
-      });
-      $('#search_bar').keyup(function(){
-        if(document.guest_search.search_bar.value.length==0)
-           $('#display_suggestion').hide(); 
-        else{
-            $('#display_suggestion').show();
-        }
-      });
-    });
-    </script>
 
     <?php
 

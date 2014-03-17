@@ -30,7 +30,7 @@
 
 					if($count>10){
 
-						$link =  "&search_query=".str_replace(' ','+',$_GET['search_query'])."&filter=".$_GET['filter']."&sort=".$_GET['sort'].$format_link."\">";
+						$link =  "&search_query=".str_replace(' ','+',$_GET['search_query'])."&filter=".$_GET['filter'].$format_link."\">";
 
 						if($page_number!=1){
 

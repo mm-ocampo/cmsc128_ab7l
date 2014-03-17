@@ -2,9 +2,9 @@
 
 class Material_model extends CI_Model {
 
-	public function __construct(){
-		parent::__construct();
-	}
+    public function __construct(){
+        parent::__construct();
+    }
 
     public function add_reading_materials($data){
         $query = $this->db->insert("material", $data);

@@ -27,7 +27,17 @@
           <section id="view_module">
             <?php include "print_results.php";?>
           </section>
-          <?php }?>
+          <?php }
+
+          else if(isset($statistics)){
+
+             $search = $statistics;
+
+             include "print_results.php";
+
+          }
+
+          ?>
 
           <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
           <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
@@ -58,8 +68,10 @@
                                   data: query,
                                   cache: false,
                                   success: function(html){
+                                    if(html.length > 9){
                                       $("#display_suggestion").css("display","block");
                                       $("#display_suggestion").html(html);
+                                    }
                                   }
                               });
                           }

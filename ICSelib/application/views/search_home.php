@@ -31,7 +31,7 @@
                                   data: query,
                                   cache: false,
                                   success: function(html){
-                                      if(html.length>0){
+                                      if(html.length>9){
                                       $("#display_suggestion").css("display","block");
                                       $("#display_suggestion").addClass("suggested_results");
                                       $("#display_suggestion").html(html);

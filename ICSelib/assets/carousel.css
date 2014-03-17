@@ -486,6 +486,7 @@ li {
 
 
 #display_suggestion{
+  display: none;
   width: 177px;
   padding: 11px;
   background-color: #fff;

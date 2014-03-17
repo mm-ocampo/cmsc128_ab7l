@@ -7,6 +7,8 @@ class Site extends CI_Controller {
         $this->load->model('admin_model');
         $this->load->model('get_database');
         $this->load->model('delete_model');
+        $this->load->model('statistics_model');
+        $this->load->model('notification_model');
         $this->load->library('session');
         $this->load->model('log_in_model');
         $this->load->helper('url');
@@ -27,6 +29,11 @@ class Site extends CI_Controller {
         }
         else if($this->session->userdata('type')=="user"){
             $email= $this->session->userdata('email');
+            $data['notification'] = $this->notification_model->get_notifications();
+            $data['statistics'] = $this->statistics_model->get_most_bookmark();
+            $data['search_details'] = $this->get_database->search_details($data['statistics']);
+            $data['reserved'] = $this->get_database->get_reserve_search();
+            $data['bookmarked'] = $this->get_database->get_bookmarked();
             $data['results']=$this->get_database->get_bookmarks($email);
             $data['results2']=$this->get_database->get_author_for_bookmarks($email);
             $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -49,6 +56,11 @@ class Site extends CI_Controller {
             $this->log_in_model->login_user();
             if($this->session->userdata('email')){
                 $email = $this->session->userdata('email');
+                $data['notification'] = $this->notification_model->get_notifications();
+                $data['statistics'] = $this->statistics_model->get_most_bookmark();
+                $data['search_details'] = $this->get_database->search_details($data['statistics']);
+                $data['reserved'] = $this->get_database->get_reserve_search();
+                $data['bookmarked'] = $this->get_database->get_bookmarked();
                 $data['results']=$this->get_database->get_bookmarks($email);
                 $data['results2']=$this->get_database->get_author_for_bookmarks($email);
                 $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -79,6 +91,7 @@ class Site extends CI_Controller {
         }
         else{
             $data['search'] = $this->get_database->search();
+            $data['search_details'] = $this->get_database->search_details($data['search']);
             $data['result_count'] = $this->get_database->count_results();
 
             if(($data['search'] == "error" || $data['result_count'] == "error") && $this->session->userdata('type')=="user")        
@@ -92,6 +105,7 @@ class Site extends CI_Controller {
                 $this->load->view('admin_search_results_view',$data);
 
             else if($this->session->userdata('type')=="user"){
+                $data['notification'] = $this->notification_model->get_notifications();
                 $data['reserved'] = $this->get_database->get_reserve_search();
                 $data['bookmarked'] = $this->get_database->get_bookmarked();
                 $this->load->view('user_search_book_view',$data);
@@ -111,11 +125,13 @@ class Site extends CI_Controller {
         }
         else{
             $data['search'] = $this->get_database->advanced_search();
+            $data['search_details'] = $this->get_database->search_details($data['search']);
             $data['result_count'] = $this->get_database->advanced_count_results();
 
             if($data['search'] == "error" || $data['result_count'] == "error")      
                 $this->load->view('user_search_book_view');
             else if($this->session->userdata('type')=="user"){
+                $data['notification'] = $this->notification_model->get_notifications();
                 $data['reserved'] = $this->get_database->get_reserve_search();
                 $data['bookmarked'] = $this->get_database->get_bookmarked();
                 $this->load->view('user_advanced_results_view',$data);
@@ -182,6 +198,11 @@ class Site extends CI_Controller {
 
     public function get_my_library_data(){
         $email= $this->session->userdata('email');
+        $data['notification'] = $this->notification_model->get_notifications();
+        $data['statistics'] = $this->statistics_model->get_most_bookmark();
+        $data['search_details'] = $this->get_database->search_details($data['statistics']);
+        $data['reserved'] = $this->get_database->get_reserve_search();
+        $data['bookmarked'] = $this->get_database->get_bookmarked();
         $data['results']=$this->get_database->get_bookmarks($email);
         $data['results2']=$this->get_database->get_author_for_bookmarks($email);
         $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -196,6 +217,7 @@ class Site extends CI_Controller {
         $this->get_database->add_bookmark($accession_number,$email);
         
         $email= $this->session->userdata('email');
+        $data['notification'] = $this->notification_model->get_notifications();
         $data['results']=$this->get_database->get_bookmarks($email);
         $data['results2']=$this->get_database->get_author_for_bookmarks($email);
         $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
@@ -239,6 +261,7 @@ class Site extends CI_Controller {
         echo "Book removed from My Library.";
 
         $email= $this->session->userdata('email');
+        $data['notification'] = $this->notification_model->get_notifications();
         $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
         $data['results']=$this->get_database->get_bookmarks($email);
         $data['results2']=$this->get_database->get_author_for_bookmarks($email);

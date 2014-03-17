@@ -111,7 +111,8 @@
         </div> 
     </body>
 
-    
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
+    <script src=<?php echo "\"".base_url()."js/main.js"."\""?> ></script>
     <script type="text/javascript" language="javascript">
         window.onload=function(){
             user_update.first_name.onblur=checkfName;

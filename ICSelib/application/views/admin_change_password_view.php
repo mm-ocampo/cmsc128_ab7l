@@ -49,6 +49,7 @@
                 msg+=" Password does not match your current password";
             document.getElementsByName('prompt_current_password')[0].innerHTML=msg;
             if(msg=="") return true;
+            return false;
         }
 
         function checkPassword(){

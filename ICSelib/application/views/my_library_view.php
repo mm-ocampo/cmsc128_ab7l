@@ -30,7 +30,7 @@ foreach ($results as $row) {
 
     <?php
 
-        if($row->email!=""){
+        if($row->remail!="" || $row->bemail!=""){
 
             echo "RESERVED";
 
@@ -64,7 +64,27 @@ foreach ($results as $row) {
 
 if($count==0){
     echo "</br></br></br><p class=\"text-center\"><span class=\"circle\" <br/><span class=\"glyphicon glyphicon-floppy-remove glyphicon-large\"></span></span></br><h3 class=\"text-center\">Shelf Empty</h3></p>";
+
+    if(isset($statistics)){
+        $search = $statistics;
+        echo "<a data-toggle=\"modal\" href=\"#top_modal\" ><span class=\"glyphicon glyphicon-star glyphicon-medium\"></span> Most Borrowed Books</a>";
+    }
 }
 
 ?>
+
+<div class="modal fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Top Ten Books</h1>
+        </div>
+        <div class="modal-body">
+          <?php include "top_view.php" ?>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
 </body>

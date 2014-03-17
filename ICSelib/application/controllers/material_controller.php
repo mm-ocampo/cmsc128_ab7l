@@ -21,11 +21,11 @@ class Material_controller extends CI_Controller {
 		$this->form_validation->set_rules('subject', 'Subject', 'trim|xss_clean');
 		$this->form_validation->set_rules('thesissp_subject', 'Subject', 'trim|xss_clean');
 		$this->form_validation->set_rules('title', 'Title', 'trim|required|xss_clean');
-        //$this->form_validation->set_rules('inputAuthor[]', 'Author', 'trim|required|xss_clean'); //randall changes 03.15.14
-		$this->form_validation->set_rules('copyright_year', 'Copyright Year', 'trim|required|xss_clean|numeric');
+        $this->form_validation->set_rules('inputAuthor[]', 'Author', 'trim|xss_clean'); //randall changes 03.15.14
+		$this->form_validation->set_rules('copyright_year', 'Copyright Year', 'trim|xss_clean|numeric');
 		$this->form_validation->set_rules('quantity', 'Quantity', 'trim|required|xss_clean|numeric');
-		$this->form_validation->set_rules('publisher', 'Publisher', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('publisher', 'Publisher', 'trim|xss_clean');
+		$this->form_validation->set_rules('type', 'Type', 'trim|xss_clean');
 		$this->form_validation->set_rules('tags', 'Topics', 'trim|xss_clean');
 		$this->form_validation->set_rules('abstract', 'Abstract', 'trim|xss_clean');
 
@@ -56,18 +56,17 @@ class Material_controller extends CI_Controller {
 				/* if the type is sp or thesis, fetch the abstract */
 				/* generate accesion number by concatinating subject and id */
 				if($this->input->post('type') == "book"){
-
 					$subject = $this->input->post('subject');
 					$abstract = "";
 					$accession_number = strtoupper($subject)."-".sprintf("%05d", $next_id);
 				}				
 				else if($this->input->post('type') == "sp"){
-					$subject = $this->input->post('thesissp_subject');
+					$subject = "";
 					$abstract = $this->input->post('abstract');
 					$accession_number = "SP-".sprintf("%05d", $next_id);
 				}
 				else if($this->input->post('type') == "thesis"){
-					$subject = $this->input->post('thesissp_subject');
+					$subject = "";
 					$abstract = $this->input->post('abstract');
 					$accession_number = "THESIS-".sprintf("%05d", $next_id);
 				}
@@ -81,13 +80,12 @@ class Material_controller extends CI_Controller {
 				$data = array(
 				    	'accession_number'=>$accession_number,
 				    	'id'=> $next_id,
-				    	'subject'=>$subject,
-				    	'title'=>$this->input->post('title'),
-				    	'copyright_year'=>$this->input->post('copyright_year'),
-				    	'publisher'=>$this->input->post('publisher'),
-				    	'type'=>$this->input->post('type'),
-				    	'status'=>"available",
-
+				    	'subject'=> $subject,
+				    	'title'=> $this->input->post('title'),
+				    	'copyright_year'=> $this->input->post('copyright_year'),
+				    	'publisher'=> $this->input->post('publisher'),
+				    	'type'=> $this->input->post('type'),
+				    	'status'=> "available",
 				    	'abstract' => $abstract
 				    );
 
@@ -97,7 +95,7 @@ class Material_controller extends CI_Controller {
 			    foreach($this->input->post('inputAuthor') as $temp){
                     $data2['author'] = $temp;
                     $data2['accession_number'] = $accession_number;
-                    if($data2['author']!="") //randall changes 03.15.14
+                    if($data2['author'] != "") //randall changes 03.15.14
                     $this->material_model->add_author($data2);//randall changes 03.15.14
                 }//randall changes 03.15.14
 

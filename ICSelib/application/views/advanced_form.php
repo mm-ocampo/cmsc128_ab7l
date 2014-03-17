@@ -1,6 +1,7 @@
 <form action="<?php echo base_url();?>index.php/site/advanced_search?page_number=1" method="get" accept-charset="utf-8">
 
     <select class="filter_select1" name="filter1">
+        <option value="topic">Topic</option>
         <option value="title" selected='selected' >Title</option>
         <option value="author" >Author</option>
         <option value="publisher">Publisher</option>
@@ -9,7 +10,7 @@
         <option value="accession_number">Accession Number</option>
     </select>
 
-    <input type="text" autocomplete="off" id="search_bar1" name="search_query1" />
+    <input type="text" autocomplete="off" maxlength=80 id="search_bar1" name="search_query1" />
 
     <select id="search_subject1" name="dummy" style="display:none">
 
@@ -53,6 +54,7 @@
     <br/>
 
      <select class="filter_select2" name="filter2">
+        <option value="topic">Topic</option>
         <option value="title" >Title</option>
         <option value="author" selected='selected'>Author</option>
         <option value="publisher">Publisher</option>
@@ -105,6 +107,7 @@
     <br/>
 
      <select class="filter_select3" name="filter3">
+        <option value="topic">Topic</option>
         <option value="title" >Title</option>
         <option value="author" >Author</option>
         <option value="publisher">Publisher</option>

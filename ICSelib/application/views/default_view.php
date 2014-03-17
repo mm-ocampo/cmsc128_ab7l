@@ -18,7 +18,6 @@
           <img src="<?php echo base_url();?>assets/lib1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <p><a class="btn btn-primary pull-right" href="<?php echo base_url(); ?>/index.php/elib/signup_view" role="button">Sign up today</a></p>
               <h3 class="form-heading">University of the Philippines Los Baños</br>Institute of Computer Science</h3>
             </div>
           </div>
@@ -75,13 +74,18 @@
               </label>
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
              </form></br>
-             <p>Not yet registered? <a href="<?php echo base_url();?>index.php/elib/signup_view">Sign up today</a></p>
+             <p>Not yet registered? <a data-toggle="modal" href="#signup_modal" >Sign up today</a></p>              
         <img src="<?php echo base_url();?>assets/ICS Logo.png" class="footer_logo" alt="ICS Logo"/>
         <img src="<?php echo base_url();?>assets/UPLB Logo.png" class="footer_logo" alt="UPLB Logo"/>
       </div>
       <!--END LOG-IN-->
     </div><!--END FLOAT_RIGHT-->
 </div>
+
+<div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <?php include "signup_view.php" ?>
+  </div><!-- /.modal -->
+
         <div id="footer_home">
         <div class="width_limit">
           <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
