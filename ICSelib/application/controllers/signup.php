@@ -54,7 +54,7 @@ class Signup extends CI_Controller {
             $this->email->subject('ICS eLib Account Request Waiting for Approval');
             $this->email->message($message);
 
-            if( $this->email->send()){*/
+            if( $this->email->send()){
                 $result = $this->signup_model->fetch_data();
                 $this->load->view('success_view', $result);
             }

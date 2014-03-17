@@ -95,6 +95,7 @@ class Admin_reserve extends CI_Controller{
         \r\n\r\nYours truly,\r\nThe Institute of Computer Science\r\nUniversity of the Philippines Los Ba&ntilde;os\r\nF.O. Santos Hall, UPLB, College, Laguna 4031";
         $subject = "ICS Library Reservation";
         $receiver = $email;
+
         $this->do_send_email($message,$subject,$receiver);
 
         $log_array = array(
@@ -237,19 +238,20 @@ class Admin_reserve extends CI_Controller{
             'protocol' => 'smtp',                               //used this instead of sendmail.. bullshit yon
             'smtp_host' => 'ssl://smtp.googlemail.com',         //gmail ang gamit
             'smtp_port' => 465,                                 //port for gmail
-            'smtp_user' => 'uplbicslibrarysender@gmail.com',    //username mo sa gmail
-            'smtp_pass' => 'pinakamalaki'                       //password mo sa gmail
+            'smtp_user' => 'ics.elib.admistrator@gmail.com',    //username mo sa gmail
+            'smtp_pass' => 'icselibadmin'                       //password mo sa gmail
 
         );
         $this->load->library('email', $config);                 //load email together dun sa config
         
         $this->email->set_newline("\r\n");
-        $this->email->from($config['smtp_user'],'ICS Librarian');
+        $this->email->from($config['smtp_user'],'ICS e-lib Admistrator');
         $this->email->to($receiver);
         $this->email->subject($subject);
         $this->email->message($message);
 
-        $this->email->send();
+        //check if email send is successful. if not, then display some catchment error.
+        return $this->email->send();
     }
 
     public function admin_reserve_logger($array){
