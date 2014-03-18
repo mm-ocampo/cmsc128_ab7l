@@ -256,7 +256,7 @@ class Admin_reserve extends CI_Controller{
 
     public function admin_reserve_logger($array){
         $date = date('Y-m-d');
-        $string = read_file('./application/logs/log.txt');
+        $string = read_file("./application/logs/log-{$date}.txt");
         if($string==false){
             $data = $array['date_time']." ".$array['actor_admin']." ".$this->admin_reserve_logger_sorter($array['action'])." ".$array['actor_user']." for ".$array['book'];
         }
@@ -264,7 +264,7 @@ class Admin_reserve extends CI_Controller{
             $new_data = $array['date_time']." ".$array['actor_admin']." ".$this->admin_reserve_logger_sorter($array['action'])." ".$array['actor_user']." for ".$array['book'];
             $data = $string."\r\n".$new_data;
         }
-        write_file('./application/logs/log.txt', $data);
+        write_file("./application/logs/log-{$date}.txt", $data);
     }
 
     public function admin_reserve_logger_sorter($action){

@@ -9,9 +9,15 @@
         <!-- Begin page content -->
             <div id="width_limit">
                 <?php include "includes/admin_sidebar.php"; ?>
-
         <div class="content_right main">
             <h1 class="page-header">Activity Log</h1>
+            <p>
+                <?php
+                $date = date('Y-m-d');
+                $string = read_file("./application/logs/log-{$date}.txt");
+                echo $string;
+                ?>
+            </p>
         </div>
 
         <!-- Bootstrap core JavaScript

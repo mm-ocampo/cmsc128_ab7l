@@ -9,6 +9,7 @@ class Elib extends CI_Controller {
         $this->load->model('notification_model');
         $this->load->library('session');
         $this->load->model('log_in_model');
+        $this->load->helper('file');
     }
 
     /**
@@ -182,8 +183,10 @@ class Elib extends CI_Controller {
             }
 
             public function activity(){
-                if($this->session->userdata('type')=="admin")
+                if($this->session->userdata('type')=="admin"){
+
                     $this->load->view('activity_log');
+                }
                 else
                     $this->load_home();
             }
