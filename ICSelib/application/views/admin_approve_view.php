@@ -17,7 +17,7 @@
 
       <!--==============================================================================-->
 
-      <ul class="nav nav-tabs" id="myTab">
+      <ul class="nav nav-tabs" id="approve_tab">
              <li class="active"><a href="#request" data-toggle="tab">Book Request/s</a></li>
              <li><a href="#reserved" data-toggle="tab">List of Reserved Book/s</a></li>
              <li><a href="#borrowed" data-toggle="tab">List of Borrowed Book/s</a></li>
@@ -159,7 +159,7 @@
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
     <script>
       $(function () {
-      $('#myTab a:first').tab('show')
+      $('#approve_tab a:first').tab('show')
       })
     </script>
 </body>

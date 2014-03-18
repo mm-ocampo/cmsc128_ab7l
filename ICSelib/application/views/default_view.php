@@ -80,9 +80,13 @@
       </div>
       <!--END LOG-IN-->
     </div><!--END FLOAT_RIGHT-->
+    <div id="footer_home">
+      <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
+    </div> 
 </div>
 
 <div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
           <?php include "signup_view.php" ?>
   </div><!-- /.modal -->
 

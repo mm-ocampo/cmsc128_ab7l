@@ -132,12 +132,21 @@ body {
 }
 
 #contact_content {
-    margin-top: 50px;
+    margin-top: 60px;
     float: right;
     width: 50%;
     padding: 20px; 
     background-color: #F8F8F8;
 }
+
+#staff_contact {
+    margin-top: 60px;
+    float: left;
+    width: 49%;
+    padding: 20px; 
+    background-color: #F8F8F8;
+}
+
 
 #resetbutton {
   background: #FFFFFF;
@@ -362,6 +371,39 @@ li {
   box-shadow: 1px 1px 3px #000000;
   text-align: left;
 }
+
+#contact_logo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+}
+
+#contact_desc {
+  margin-left: auto;
+  margin-right: auto;
+  width: 91.5%;
+}
+
+#about_tab li{
+  width: 25%;
+  text-align: center;
+}
+
+#reg_tab li {
+  width: 50%;
+  text-align: center; 
+}
+
+#approve_tab li{
+  width: 33.3%;
+  text-align: center;
+}
+
+#adjust_staff_contact {
+  margin-top: 59px;
+  margin-bottom: 59px;
+}
+
 
 /**************** Jecho Changes End *********************/
 

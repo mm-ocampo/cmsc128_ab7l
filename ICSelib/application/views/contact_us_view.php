@@ -6,8 +6,25 @@
     <!-- Wrap all page content here -->
 <div class="width_limit">
   <div id="staff_contact">
-
+    <div id="adjust_staff_contact">
+      <div id="contact_logo" >
+       <image src="<?php echo base_url();?>assets/ICS Logo.png">
+      </div>
+    
+    <div id="contact_desc">
+     <p>
+       <h3><strong>INSTITUTE OF COMPUTER SCIENCE</strong></h3>
+       College of Arts and Sciences<br>
+       University of the Philippines Los Baños<br>
+       College 4031, Laguna, PHILIPPINES<br>
+       <br>
+       Daytime Phone (8:00-17:00 +8:00GMT): 63-49-536-2313<br>
+       Facsimile: 63-49-536-2302<br>
+       <a href="http://www.ics.uplb.edu.ph/">http://www.ics.uplb.edu.ph/</a>
+     </p>
+    </div>
   </div>
+</div>
 <div id="contact_content">
   <form role="form" id="contact_form" name="contact_form" method="post" onsubmit=checkContents() action=<?php echo "\"".base_url()."index.php/query/insertquery?confirm="."\"";?>>
     <div>

@@ -4,6 +4,7 @@
             <div class="">
                 <div class="container">
                     <div class="col-sm-6 col-sm-offset-3 main">
+                    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h1 class="page-header">Sign-up</h1>
                         <?php $this->load->helper('url'); ?>
                         <br/>
@@ -35,8 +36,8 @@
                                 <label for="radio_gender" style="text-align: center">Sex</label>
                                 <div name="radio_gender" style="text-align: center">
                                     <input type="text" id="gender" name="gender" hidden>
-                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="male_buttonfunc()" tabindex="5">Male</div>
-                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="female_buttonfunc()" tabindex="6">Female</div>
+                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="male_buttonfunc()" tabindex="5">Male</div>
+                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="female_buttonfunc()" tabindex="6">Female</div>
                                 </div>
                                 <br/><br/>
 
@@ -64,8 +65,8 @@
                                 <label for="radio_type" style="text-align: center">Type</label>
                                 <div name="radio_type" style="text-align: center">
                                 <input type="text" id="type" name="type" hidden>
-                                <div id="student_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_student()" tabindex="10">Student</div>
-                                <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_faculty()" tabindex="11">Faculty</div>
+                                <div id="student_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="show_student()" tabindex="10">Student</div>
+                                <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="show_faculty()" tabindex="11">Faculty</div>
                                 </div>
 
                                 <div id="student_form" class="invisible" style="z-index: 2;">

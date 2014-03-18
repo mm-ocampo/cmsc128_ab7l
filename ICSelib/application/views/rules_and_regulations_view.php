@@ -14,7 +14,7 @@
   <div id="content">
         <h2 class="page-header" style="color: #428bce;">Rules and Regulation</h2>
         <ul>
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="reg_tab">
              <li class="active"><a href="#general" data-toggle="tab">General</a></li>
              <li><a href="#borrowing" data-toggle="tab">Borrowing</a></li>
         </ul>
@@ -58,7 +58,7 @@
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
     <script>
       $(function () {
-      $('#myTab a:first').tab('show')
+      $('#reg_tab a:first').tab('show')
       })
     </script>
   </body>

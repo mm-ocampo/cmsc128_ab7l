@@ -13,7 +13,7 @@
           <img src=<?php echo "\"".base_url()."assets/resize/9.jpg"."\"";?>>
         </div>
         <div class="content main">
-            <ul class="nav nav-tabs" id="myTab">
+            <ul class="nav nav-tabs" id="about_tab">
              <li class="active"><a href="#mission" data-toggle="tab">Mission</a></li>
              <li><a href="#vision" data-toggle="tab">Vision</a></li>
              <li><a href="#history" data-toggle="tab">History</a></li>
@@ -68,7 +68,7 @@
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
     <script>
       $(function () {
-      $('#myTab a:first').tab('show')
+      $('#about_tab a:first').tab('show')
       })
     </script>
   </body>
