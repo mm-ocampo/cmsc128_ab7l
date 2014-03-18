@@ -40,7 +40,7 @@
                         if($this->session->userdata('type')){
                         if($this->session->userdata['type']=="admin"){
 ?>
-    <?php echo "<li><a name='link' id='link' onclick='return confirm_delete()' href = '".base_url()."index.php/site/delete?id={$accession_number}&confirm='><input type='button' name='".$accession_number."' value='Delete' /></a></li>"; ?>
+    <?php echo "<li><input type='button' onclick='confirm_delete({$res})' id='link{$res}' name='".$accession_number."' value='Delete' /></li>"; ?>
         <li><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
         <input type="hidden" value="<?php echo $accession_number; ?>" id="accession_number" name="accession_number">
         <input type="submit" value="Edit" />
@@ -172,10 +172,10 @@
 
 <script type='text/javascript' language='javascript'>
 
-    function confirm_delete(){
+    function confirm_delete(num){
         var temp = confirm("Do you really want to delete this material?");
-    
-        document.getElementById("link").setAttribute("href",document.getElementById("link").href + temp);
+
+        location.replace("<?php echo base_url();?>index.php/site/delete?id=" + document.getElementById('link' + num).name + "&confirm=" + temp);
     }
 
     function confirm_reserve(){

@@ -160,6 +160,6 @@ $('.result_header').click(function(){
 
 
 		$('.result_details').slideUp();
-		$(this).next().slideToggle("fast");
+		$(this).next().slideDown();
 
 });

@@ -92,7 +92,7 @@
 -->
     <div id="display_suggestion">No Suggestion</div>
         <div class="advanced_search">   
-            <p><a class="advanced_search_link" data-toggle="collapse" href="#collapse_advanced_search">
+            <p><a class="advanced_search_link" data-toggle="collapse" id="adv_link" href="#collapse_advanced_search">
                 <i class="fa fa-search-plus"></i> Advanced Search
             </a></p>
         </div>
@@ -111,9 +111,9 @@
         <option value="accession_number"<?php if($filter=="accession_number")   echo " selected='selected'";?> >Accession Number</option>
         </select>
             </fieldset>          
-                <div id="checklist">
+                <div id="checklist" class="checklist3">
                     <fieldset><legend>Format:</legend>
-                         <div id="checklist ">
+                         <div id="checklist" class="checklist3">
                             <label class="checkbox inline" for="check1"><input type="checkbox" id="check1" value="book" name="format[]" <?php if(!isset($format))echo "checked"; else if($format[0]=="book")echo "checked";?>/>Book </label>
                             <?php
                             $sp = false;

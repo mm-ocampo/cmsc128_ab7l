@@ -710,7 +710,7 @@
 										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->title);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->title</a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->title</a><br>";
 								        endforeach;
 								        echo "</p>";
 
@@ -721,7 +721,7 @@
 										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->publisher);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->publisher</a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->publisher</a><br>";
 								        endforeach;
 								        echo "</p>";
 										
@@ -732,7 +732,7 @@
 										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->author);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->author</a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->author</a><br>";
 								        endforeach;
 								        echo "</p>";
 										
@@ -743,7 +743,7 @@
 										echo "<p>";
 										foreach ($query->result() as $row):
 											$q = str_replace(' ','+',$row->accession_number);
-								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->accession_number</a>";
+								        	echo "<a href='" . base_url() . "index.php/site/search?page_number=1&search_query={$q}&filter={$filter}&sort={$sort}{$format_link}'></br>$row->accession_number</a><br>";
 								        endforeach;
 								        echo "</p>";
 

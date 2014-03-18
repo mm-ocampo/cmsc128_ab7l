@@ -44,8 +44,13 @@
                   });
           </script>
           <script>
-            $('#close_advanced').onclick(function () {
-              $('#checklist').slideUp();
+            $('#close_advanced').click(function () {
+              $('#collapse_advanced_search').hide();
+            })
+          </script>
+          <script>
+            $('#adv_link').click(function () {
+              $('#collapse_advanced_search').show();
             })
           </script>
 
