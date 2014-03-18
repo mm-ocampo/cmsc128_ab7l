@@ -172,9 +172,10 @@
 
 <script type='text/javascript' language='javascript'>
 
-    function confirm_delete(num){
+    function confirm_delete(){
         var temp = confirm("Do you really want to delete this material?");
-        location.replace("<?php echo base_url();?>index.php/site/delete?id=" + document.getElementById('link' + num).name + "&confirm=" + temp);
+    
+        document.getElementById("link").setAttribute("href",document.getElementById("link").href + temp);
     }
 
     function confirm_reserve(){
