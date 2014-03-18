@@ -226,9 +226,10 @@
         function checkfName(){
             str=main_form.first_name.value;
             msg="";
-            if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/))
-                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
+            if(str=="") msg += " Please fill this out this field.";
+            else if(!str.match(/^[a-zA-Z0-9\ \-]+[\.]?[a-zA-Z0-9\ \-]*$/))
+                msg += " Only letters hyphens and spaces are allowed.";
+            console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
             document.getElementsByName('promptfname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -236,8 +237,9 @@
         function checkmName(){
             str=main_form.middle_name.value;
             msg="";
-            if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/) && str != "")
-                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
+            if(!str.match(/^[a-zA-Z\ \-]+$/))
+                msg += " Only letters hyphens and spaces are allowed.";
+            if(str.trim().length==0) msg ="";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -280,7 +282,7 @@
             str=main_form.email.value;
             msg="";
             if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/))
+            else if(!str.match(/^([a-zA-Z0-9_-]+[\.]?[a-zA-Z0-9])+@([\da-z\.-]+)\.([a-z\.]{2,6})$/))
                 msg += "Invalid E-mail.";
             document.getElementsByName('promptemail')[0].innerHTML=msg;
             if(msg=="") return true;
