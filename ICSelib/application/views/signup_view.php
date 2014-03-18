@@ -67,19 +67,19 @@
                                     <div id="student_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_student()" tabindex="10">Student</div>
                                     <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_faculty()" tabindex="11">Faculty</div>
                                 </div>
-
-                                <div id="student_form" style="z-index: 2;">
-                                    <hr>
+                                <div class="tab-content">
+                                <hr>
+                                <div id="student_form" style="z-index: 2;" class="tab-pane fade">
 
                                     <div class="form-group">
                                         <label for="student_number" style="text-align: center">Student Number</label>
-                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" readonly="readonly" tabindex="12">
+                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" tabindex="12">
                                         <span name="promptstudentnumber"></span> <br/>
                                     </div>
 
                                     <?php $classification = array('Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate'); ?>
                                     <label for="classification">Classification</label>
-                                    <select id="classification" name="classification" class="form-control input-mini" readonly="readonly" tabindex="13">
+                                    <select id="classification" name="classification" class="form-control input-mini" tabindex="13">
                                         <?php
                                         foreach($classification as $class){
                                             echo "<option value=\"$class\">$class</option>";
@@ -89,7 +89,7 @@
                                     <br/>
 
                                     <label for="degree_program">Degree Program</label>
-                                    <select id="degree_program" name="degree_program" class="form-control input-mini" readonly="readonly" tabindex="14">
+                                    <select id="degree_program" name="degree_program" class="form-control input-mini" tabindex="14">
                                         <option value="BSABM">BS Agribusiness Management</option>
                                         <option value="BSABT">BS Agricultural Biotechnology</option>
                                         <option value="BSAgChem">BS Agricultural Chemistry</option>
@@ -123,12 +123,13 @@
                                 </div>
 
 
-                                <div id="faculty_form" readonly style="z-index: 1;">
+                                <div id="faculty_form" style="z-index: 1;" class="tab-pane fade">
                                     <div class="form-group">
                                         <label for="employee_number" style="text-align: center">Employee Number</label>
-                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" readonly="readonly">
+                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" >
                                         <span name="promptemployeenumber"></span> <br/>
                                     </div>
+                                </div>
                                 </div>
                                 <?php /*?>
                                 <div>
@@ -167,41 +168,36 @@
 
         function show_student(){
             reset();
-            document.getElementById("faculty_form").style.opacity = "0.5";
-            document.getElementById("student_form").style.opacity = "1";
-            document.getElementById("student_number").removeAttribute("readonly");
-            document.getElementById("classification").removeAttribute("readonly");
-            document.getElementById("degree_program").removeAttribute("readonly");
-            document.getElementById("employee_number").setAttribute("readonly", "readonly");
+            document.getElementById("faculty_form").setAttribute("class", "tab-pane fade");
             document.getElementById("student_button").setAttribute("class","btn btn-primary");
+            document.getElementById("student_form").setAttribute("class", "tab-pane fade in active");
+            document.getElementById("student_number").setAttribute("required", "required");
+            document.getElementById("classification").setAttribute("required","required");
+            document.getElementById("degree_program").setAttribute("required", "required");
             document.getElementById("type").value = "Student";
             document.getElementsByName('promptemployeenumber')[0].innerHTML="";
-            console.log(document.getElementById("type").value);
         }
 
         function show_faculty(){
             reset();
-            document.getElementById("student_form").style.opacity = "0.5";
-            document.getElementById("faculty_form").style.opacity = "1";
-            document.getElementById("student_number").setAttribute("readonly", "readonly");
-            document.getElementById("classification").setAttribute("readonly", "readonly");
-            document.getElementById("degree_program").setAttribute("readonly", "readonly");
-            document.getElementById("employee_number").removeAttribute("readonly");
+            document.getElementById("student_form").setAttribute("class", "tab-pane fade");
             document.getElementById("faculty_button").setAttribute("class","btn btn-primary");
+            document.getElementById("faculty_form").setAttribute("class", "tab-pane fade in active");
             document.getElementById("type").value = "Faculty";
             document.getElementsByName('promptstudentnumber')[0].innerHTML="";
-            console.log(document.getElementById("type").value);
+            document.getElementById("employee_number").setAttribute("required", "required");
         }
 
         function reset(){
-            document.getElementById("faculty_form").style.opacity = "0.5";
-            document.getElementById("student_form").style.opacity = "0.5";
-            document.getElementById("student_number").setAttribute("readonly", "readonly");
-            document.getElementById("classification").setAttribute("readonly", "readonly");
-            document.getElementById("degree_program").setAttribute("readonly", "readonly");
-            document.getElementById("employee_number").setAttribute("readonly", "readonly");
-            document.getElementById("faculty_button").setAttribute("class","btn btn-large  btn-default custom");
-            document.getElementById("student_button").setAttribute("class","btn btn-large  btn-default custom");
+            document.getElementById("student_form").setAttribute("class", "tab-pane fade");
+            document.getElementById("faculty_form").setAttribute("class", "tab-pane fade");
+            document.getElementById("faculty_button").setAttribute("class","btn btn-large btn-default custom");
+            document.getElementById("student_button").setAttribute("class","btn btn-large btn-default custom");
+
+            document.getElementById("student_number").removeAttribute("required", "required");
+            document.getElementById("classification").removeAttribute("required", "required");
+            document.getElementById("degree_program").removeAttribute("required", "required");
+            document.getElementById("employee_number").removeAttribute("required", "required");
         }
 
         window.onload=function(){
