@@ -186,9 +186,7 @@
 
     function confirm_delete(num){
         var temp = confirm("Do you really want to delete this material?");
-
         location.replace("<?php echo base_url();?>index.php/site/delete?id=" + document.getElementById('link' + num).name + "&confirm=" + temp);
-        
     }
 
     function confirm_reserve(){
