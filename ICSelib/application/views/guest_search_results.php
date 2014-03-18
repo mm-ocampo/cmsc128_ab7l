@@ -34,13 +34,30 @@
 <?php include"includes/navigation_bar.php";?>
 
 <body>
+<div class="width_limit">
 
-</br></br></br>
-<div class="width_limit main">
-  <a class="btn btn-primary" href="<?php echo base_url();?>index.php/elib/load_home"><< Back</a>
+     <div id="float_right2">
+      <!--SEARCH-->
+      <form name="guest_search" class="form-signin" action="<?php echo base_url(); ?>index.php/site/search?page_number=1">
+        <h2 class="form-signin-heading">Discover more</h2>
+        <table>
+          <tr>
+            <td><?php include "search_home2.php";?>
+            </td>
+           
+          </tr>
+        </table>
+      </form>    
+      <!--END SEARCH-->
+    </div><!--END FLOAT_RIGHT-->
+
+
+
+
+  <div class="content_left2 main">
   <fieldset>
         <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal">
-            <h3 class="page-header">Search Results</h3>
+            <h1 class="page-header">Search Results</h1>
 
           <nav class="navigate_module">
             <?php include "navigator.php";?>
@@ -98,7 +115,7 @@
         </form>
     </fieldset>
 </div>
-
+</div>
 
 
     <!-- Bootstrap core JavaScript

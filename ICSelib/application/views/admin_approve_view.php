@@ -12,11 +12,6 @@
       </div>
     <div class="content_right main">
       <h1 class="page-header">Book Reservations and Availability</h1>
-
-      <!--TABLE SAMPLE - BUT THIS MUST HIDE AFTER OPENING OTHER TABLES-->
-
-      <!--==============================================================================-->
-
       <ul class="nav nav-tabs" id="approve_tab">
              <li class="active"><a href="#request" data-toggle="tab">Book Request/s</a></li>
              <li><a href="#reserved" data-toggle="tab">List of Reserved Book/s</a></li>
@@ -147,9 +142,32 @@
 
       <!--==============================================================================-->
 
-      
+  
     </div>
 </div>
+
+
+   <!--Inline javascript powered by JQuery2.0.3-->
+  <script language="javascript" type="text/javascript" src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
+  <script>
+    $(document).ready(function(){
+      $('.requestbtn').click(function(){
+        $('#request').toggle();
+        $('#reserve').hide();
+        $('#borrowed').hide();
+      });
+      $('.reservebtn').click(function(){
+        $('#reserve').toggle();
+        $('#request').hide();
+        $('#borrowed').hide();
+      });
+      $('.borrowedbtn').click(function(){
+        $('#borrowed').toggle();
+        $('#request').hide();
+        $('#reserve').hide();
+      });
+    });
+  </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -157,10 +175,12 @@
     <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
+
     <script>
       $(function () {
       $('#approve_tab a:first').tab('show')
       })
     </script>
+
 </body>
 </html>

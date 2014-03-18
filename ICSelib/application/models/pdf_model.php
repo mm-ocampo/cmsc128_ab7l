@@ -28,7 +28,7 @@
 			$materials = array();
 			$i = 0;
 
-			$query = $this->db->query("SELECT * FROM material left join material_author on material.accession_number = material_author.accession_number GROUP BY title ORDER BY title");
+			$query = $this->db->query("SELECT * FROM material left join material_author on material.accession_number = material_author.accession_number GROUP BY material.accession_number ORDER BY title");
 
 			foreach ($query->result() as $row) {
 

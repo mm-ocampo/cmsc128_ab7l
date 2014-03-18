@@ -11,4 +11,12 @@ class Notification extends CI_Controller {
     public function get_notification(){
         $this->notification_model->get_notifications();
     }
+
+    public function get_notification_ajax(){
+        $this->notification_model->get_notifications_ajax();
+    }
+
+    public function print_notification(){
+        $this->notification_model->print_notifications();
+    }
 }

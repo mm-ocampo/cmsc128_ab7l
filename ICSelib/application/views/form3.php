@@ -2,6 +2,22 @@
 
 
     <script language="javascript" type="text/javascript" src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
+    <script>
+    $(document).ready(function(){
+        $('#display_suggestion').hide();
+      $('#search_bar').click(function(){
+        $('#display_suggestion').show();
+        return false;
+      });
+      $('#search_bar').keyup(function(){
+        if(document.guest_search.search_bar.value.length==0)
+           $('#display_suggestion').hide(); 
+        else{
+            $('#display_suggestion').show();
+        }
+      });
+    });
+    </script>
 
     <?php
 
@@ -91,26 +107,19 @@
     <!--<input class="btn btn-primary" href="<?php echo base_url();?>index.php/site/callResults" type="submit"/><br/>
 -->
     <div id="display_suggestion">No Suggestion</div>
-        <div class="advanced_search">   
-            <p><a class="advanced_search_link" data-toggle="collapse" href="#collapse_advanced_search">
-                <i class="fa fa-search-plus"></i> Advanced Search
-            </a></p>
-        </div>
-
-
-    <div id="collapse_advanced_search" class="panel-collapse collapse">
-            
-            <fieldset><legend>Filter<button type="button" class="close" id="close_advanced" aria-hidden="true">&times;</button></legend>
+   <br/><br/>
+            <fieldset><legend>Filter</legend>
         <select class="filter_select form-control" name="filter">
-        <option value="title" <?php if($filter=="title")    echo " selected='selected'";?> >Title</option>
         <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>
+        <option value="title" <?php if($filter=="title")    echo " selected='selected'";?> >Title</option>
         <option value="author"<?php if($filter=="author")   echo " selected='selected'";?> >Author</option>
         <option value="publisher"<?php if($filter=="publisher") echo " selected='selected'";?> >Publisher</option>
         <option value="subject"<?php if($filter=="subject") echo " selected='selected'";?> >Subject</option>
         <option value="year"<?php if($filter=="year") echo " selected='selected'";?> >Year</option>
         <option value="accession_number"<?php if($filter=="accession_number")   echo " selected='selected'";?> >Accession Number</option>
         </select>
-            </fieldset>          
+            </fieldset>
+            <br/>          
                 <div id="checklist">
                     <fieldset><legend>Format:</legend>
                          <div id="checklist ">
@@ -134,7 +143,5 @@
                         </div>                  
                     </fieldset>
                 </div>
-      
-    </div>
-
 </form>
+    <!--<a href="<?php echo base_url();?>index.php/site/callResults" type="submit"><span class="glyphicon glyphicon-search search-icon"></span></a><br/>-->

@@ -1,11 +1,11 @@
           
-            <?php include "form2.php";?>
+            <?php include "form3.php";?>
           
 
-          <script src="<?php echo base_url();?>js/jquery-1.9.1.js"></script>
-          <script src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>
-          <script src="<?php echo base_url();?>js/main.js"></script>
-          <script>
+          <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
+          <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
+          <script src="<?php echo base_url();?>/js/main.js"></script>
+              <script>
                   $(document).ready(function(){
                       $("#search_bar").keyup(function(){
                           var input = $(this).val();
@@ -31,7 +31,7 @@
                                   data: query,
                                   cache: false,
                                   success: function(html){
-                                      if(html.length>9){
+                                      if(html.length>0){
                                       $("#display_suggestion").css("display","block");
                                       $("#display_suggestion").addClass("suggested_results");
                                       $("#display_suggestion").html(html);
@@ -42,11 +42,5 @@
                           return false;
                       });
                   });
-          </script>
-          <script>
-            $('#close_advanced').onclick(function () {
-              $('#checklist').slideUp();
-            })
-          </script>
-
+              </script>
           <!--END-->

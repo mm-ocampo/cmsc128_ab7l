@@ -68,13 +68,15 @@
                   <i class="fa fa-key fa-lg"></i>
                   <input type="password" class="form-custom" placeholder="Password" id="password" name="password" required>
                 </div>
+                <a href="/ICSelib/index.php/elib/forgot_password">Forgot password?</a>
                 <span id="loginprompt" name="loginprompt"></span>
+
               <label class="checkbox">
                 <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
               </label>
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
              </form></br>
-             <p>Not yet registered? <a data-toggle="modal" href="#signup_modal" >Sign up today</a></p>              
+             <p>Not yet registered? <a data-toggle="modal" href="#signup_modal" >Sign up today</a></p>
         <img src="<?php echo base_url();?>assets/ICS Logo.png" class="footer_logo" alt="ICS Logo"/>
         <img src="<?php echo base_url();?>assets/UPLB Logo.png" class="footer_logo" alt="UPLB Logo"/>
       </div>
@@ -89,12 +91,6 @@
   
           <?php include "signup_view.php" ?>
   </div><!-- /.modal -->
-
-        <div id="footer_home">
-        <div class="width_limit">
-          <p class="text-muted">&copy; 2014 ICS eLib &middot; All rights reserved.</p>
-        </div>
-        </div>
 </div>
     <script>
         window.onload=function(){

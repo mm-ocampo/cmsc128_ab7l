@@ -3,28 +3,28 @@
     <?php
 
     /*
-    *	FORM
-    *	Ito yung mga form na ginamit ko sa home_view at search_view
+    *   FORM
+    *   Ito yung mga form na ginamit ko sa home_view at search_view
     *
     */
 
 
     //Initialization lang ng variables
     $filter = "";
-    if(isset($_GET['filter']))		$filter = $_GET['filter'];
+    if(isset($_GET['filter']))      $filter = $_GET['filter'];
 
-    if(isset($_GET['format']))		$format = $_GET['format'];
+    if(isset($_GET['format']))      $format = $_GET['format'];
 
     ?>
     <div id="whole_search_bar">
     <select class="filter_select" name="filter" id="filter_drop">
     <option value="title" <?php if($filter=="title")    echo " selected='selected'";?> >Title</option>
         <option value="topic" <?php if($filter=="topic")    echo " selected='selected'";?> >Topic</option>    
-        <option value="author"<?php if($filter=="author")	echo " selected='selected'";?> >Author</option>
-        <option value="publisher"<?php if($filter=="publisher")	echo " selected='selected'";?> >Publisher</option>
-        <option value="subject"<?php if($filter=="subject")	echo " selected='selected'";?> >Subject</option>
+        <option value="author"<?php if($filter=="author")   echo " selected='selected'";?> >Author</option>
+        <option value="publisher"<?php if($filter=="publisher") echo " selected='selected'";?> >Publisher</option>
+        <option value="subject"<?php if($filter=="subject") echo " selected='selected'";?> >Subject</option>
         <option value="year"<?php if($filter=="year") echo " selected='selected'";?> >Year</option>
-        <option value="accession_number"<?php if($filter=="accession_number")	echo " selected='selected'";?> >Accession Number</option>
+        <option value="accession_number"<?php if($filter=="accession_number")   echo " selected='selected'";?> >Accession Number</option>
     </select>
 
     <div class="input-group" id="admin_search_bar">
@@ -119,16 +119,16 @@
         if(isset($format)){
             $count = count($format);
             for($i = 0;$i < $count;$i++){
-                if($format[$i]=="sp")	$sp = true;
+                if($format[$i]=="sp")   $sp = true;
                 if($format[$i]=="thesis") $thesis = true;
-                if($format[$i]=="journal")	$journal = true;
+                if($format[$i]=="journal")  $journal = true;
             }
         }
         ?>
 
-        <input type="checkbox" id="check2" value="sp" name="format[]" <?php if($sp)	echo "checked";?>/><label class="checkbox inline" for="check2">SP </label>
-        <input type="checkbox" id="check3" value="thesis" name="format[]"<?php if($thesis)	echo "checked";?>/><label class="checkbox inline" for="check3">Thesis </label>
-        <input type="checkbox" id="check4" value="journal" name="format[]"<?php if($journal)	echo "checked";?>/><label class="checkbox inline" for="check4">Journal </label>
+        <input type="checkbox" id="check2" value="sp" name="format[]" <?php if($sp) echo "checked";?>/><label class="checkbox inline" for="check2">SP </label>
+        <input type="checkbox" id="check3" value="thesis" name="format[]"<?php if($thesis)  echo "checked";?>/><label class="checkbox inline" for="check3">Thesis </label>
+        <input type="checkbox" id="check4" value="journal" name="format[]"<?php if($journal)    echo "checked";?>/><label class="checkbox inline" for="check4">Journal </label>
     </div>
     </div>
     <input class="btn btn-primary" href="<?php echo base_url();?>index.php/site/callResults" type="submit"/><br/>

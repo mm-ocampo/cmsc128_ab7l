@@ -288,8 +288,10 @@ class Site extends CI_Controller {
         $input = $this->input->post();
         $update = $this->get_database->update_user_details($input['email'],$input);
         if($update == 1){
+            echo 'update successful!';
             $this->user_update_view();
         }else{
+            echo 'error occurred';
             $this->user_update_view();
         }
 

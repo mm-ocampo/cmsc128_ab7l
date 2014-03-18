@@ -45,10 +45,21 @@
 
 						$i=1;
 						while($i<=$max){
-							if($_GET['page_number'] == $i)
+							if(isset($_GET['page_number'])){
+								if($_GET['page_number'] == $i)
 								echo "<li class='active'><a href=\"search?page_number=".$i,$link,$i."</a></li>";
-							else
+								else
 								echo "<li><a href=\"search?page_number=".$i,$link,$i."</a></li>";
+							}
+							else{
+
+								if($i == 1)
+								echo "<li class='active'><a href=\"search?page_number=".$i,$link,$i."</a></li>";
+								else
+								echo "<li><a href=\"search?page_number=".$i,$link,$i."</a></li>";
+
+							}
+							
 							$i++;
 
 						}

@@ -13,23 +13,23 @@
 
                                 <div class="form-group">
                                     <label for="fname" style="text-align: center">First Name</label>
-                                    <input type="text" name="first_name" id="fname" class="form-control input-mini" maxlength="30" tabindex="1">
+                                    <input type="text" name="first_name" id="fname" class="form-control input-mini" tabindex="1">
                                     <span name="promptfname"></span><br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="mname" style="text-align: center">Middle Name</label>
-                                    <input type="text" name="middle_name" id="mname" class="form-control input-mini" maxlength="30" tabindex="2">
+                                    <input type="text" name="middle_name" id="mname" class="form-control input-mini" tabindex="2">
                                     <span name="promptmname"></span><br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="lname" style="text-align: center">Last Name</label>
-                                    <input type="text" name="last_name" id="lname" class="form-control input-mini" maxlength="30" tabindex="3">
+                                    <input type="text" name="last_name" id="lname" class="form-control input-mini" tabindex="3">
                                     <span name="promptlname"></span><br/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="birthday">Birthday</label>
-                                    <input type="date" name="birthday" id="bday" class="form-control input-mini" placeholder="MM/DD/YYYY" tabindex="4">
+                                    <input type="date" name="birthday" id="bday" class="form-control input-mini" placeholder="YYYY-MM-DD" tabindex="4">
                                     <span name="promptbday"></span><br/>
                                 </div>
 
@@ -43,17 +43,17 @@
 
                                 <div class="form-group">
                                     <label for="email" style="text-align: center">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control input-mini" maxlength="50" tabindex="7">
+                                    <input type="email" name="email" id="email" class="form-control input-mini" tabindex="7">
                                     <span name="promptemail"></span> <br/>
                                 </div>
                                 <div class="form-group" style="width:49%;float:right;">
                                     <label for="password_confirmation" style="text-align: center">Confirm Password</label>
-                                    <input type="password" maxlength="16" name="password_confirmation" id="password_confirmation" class="form-control input-mini" maxlength="40" tabindex="9">
+                                    <input type="password" maxlength="16" name="password_confirmation" id="password_confirmation" class="form-control input-mini" tabindex="9">
                                     <span name="promptpassword2"></span> <br/>
                                 </div>
                                 <div class="form-group" style="width:49%; ">
                                     <label for="password" style="text-align: center">Password</label>
-                                    <input type="password" maxlength="16" name="password" id="password" class="form-control input-mini" maxlength="40" tabindex="8">
+                                    <input type="password" maxlength="16" name="password" id="password" class="form-control input-mini" tabindex="8">
                                     <span name="promptpassword"></span> <br/>
                                 </div>
 
@@ -69,28 +69,28 @@
                                 <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="show_faculty()" tabindex="11">Faculty</div>
                                 </div>
 
-                                <div id="student_form" class="invisible" style="z-index: 2;">
+                                <div id="student_form" style="z-index: 2;">
                                     <hr>
 
                                     <div class="form-group">
                                         <label for="student_number" style="text-align: center">Student Number</label>
-                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" maxlength="10" tabindex="12">
+                                        <input type="text" name="student_number" id="student_number" class="form-control input-mini" readonly="readonly" tabindex="12">
                                         <span name="promptstudentnumber"></span> <br/>
                                     </div>
 
                                     <?php $classification = array('Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate'); ?>
                                     <label for="classification">Classification</label>
-                                    <select id="classification" name="classification" class="form-control input-mini" tabindex="13">
+                                    <select id="classification" name="classification" class="form-control input-mini" readonly="readonly" tabindex="13">
                                         <?php
-                                            foreach($classification as $class){
-                                                echo "<option value=\"$class\">$class</option>";
-                                            }
+                                        foreach($classification as $class){
+                                            echo "<option value=\"$class\">$class</option>";
+                                        }
                                         ?>
                                     </select>
                                     <br/>
 
                                     <label for="degree_program">Degree Program</label>
-                                    <select id="degree_program" name="degree_program" class="form-control input-mini" tabindex="14">
+                                    <select id="degree_program" name="degree_program" class="form-control input-mini" readonly="readonly" tabindex="14">
                                         <option value="BSABM">BS Agribusiness Management</option>
                                         <option value="BSABT">BS Agricultural Biotechnology</option>
                                         <option value="BSAgChem">BS Agricultural Chemistry</option>
@@ -124,14 +124,14 @@
                                 </div>
 
 
-                                <div id="faculty_form" class="invisible" style="z-index: 1;">
+                                <div id="faculty_form" readonly style="z-index: 1;">
                                     <div class="form-group">
                                         <label for="employee_number" style="text-align: center">Employee Number</label>
-                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" maxlength="15">
+                                        <input type="text" name="employee_number" id="employee_number" class="form-control input-mini" tabindex="15" readonly="readonly">
                                         <span name="promptemployeenumber"></span> <br/>
                                     </div>
                                 </div>
-                                <?php ?>
+                                <?php /*?>
                                 <div>
                                     <div class="form-group" style="width:80%">
                                         <label for="security_code" style="text-align: center">Security Code</label>
@@ -140,7 +140,7 @@
                                         <input type="text" name="vercode" />
                                     </div>
                                 </div>
-                                <?php ?>
+                                <?php */?>
 
                                 <input type="submit" name="submit" value="Submit" class="btn btn-block btn-primary"/>
                         </form>
@@ -168,29 +168,41 @@
 
         function show_student(){
             reset();
-            document.getElementById("faculty_form").setAttribute("class", "invisible");
+            document.getElementById("faculty_form").style.opacity = "0.5";
+            document.getElementById("student_form").style.opacity = "1";
+            document.getElementById("student_number").removeAttribute("readonly");
+            document.getElementById("classification").removeAttribute("readonly");
+            document.getElementById("degree_program").removeAttribute("readonly");
+            document.getElementById("employee_number").setAttribute("readonly", "readonly");
             document.getElementById("student_button").setAttribute("class","btn btn-primary");
-            document.getElementById("student_form").removeAttribute("class", "invisible");
             document.getElementById("type").value = "Student";
             document.getElementsByName('promptemployeenumber')[0].innerHTML="";
+            console.log(document.getElementById("type").value);
         }
 
         function show_faculty(){
             reset();
-            document.getElementById("student_form").setAttribute("class", "invisible");
+            document.getElementById("student_form").style.opacity = "0.5";
+            document.getElementById("faculty_form").style.opacity = "1";
+            document.getElementById("student_number").setAttribute("readonly", "readonly");
+            document.getElementById("classification").setAttribute("readonly", "readonly");
+            document.getElementById("degree_program").setAttribute("readonly", "readonly");
+            document.getElementById("employee_number").removeAttribute("readonly");
             document.getElementById("faculty_button").setAttribute("class","btn btn-primary");
-            document.getElementById("faculty_form").removeAttribute("class", "invisible");
             document.getElementById("type").value = "Faculty";
             document.getElementsByName('promptstudentnumber')[0].innerHTML="";
+            console.log(document.getElementById("type").value);
         }
 
         function reset(){
-            document.getElementById("student_number").setAttribute("hidden", "hidden");
-            document.getElementById("classification").setAttribute("hidden", "hidden");
-            document.getElementById("degree_program").setAttribute("hidden", "hidden");
-            document.getElementById("employee_number").setAttribute("hidden", "hidden");
-            document.getElementById("faculty_button").setAttribute("class","btn btn-large btn-default custom");
-            document.getElementById("student_button").setAttribute("class","btn btn-large btn-default custom");
+            document.getElementById("faculty_form").style.opacity = "0.5";
+            document.getElementById("student_form").style.opacity = "0.5";
+            document.getElementById("student_number").setAttribute("readonly", "readonly");
+            document.getElementById("classification").setAttribute("readonly", "readonly");
+            document.getElementById("degree_program").setAttribute("readonly", "readonly");
+            document.getElementById("employee_number").setAttribute("readonly", "readonly");
+            document.getElementById("faculty_button").setAttribute("class","btn btn-large  btn-default custom");
+            document.getElementById("student_button").setAttribute("class","btn btn-large  btn-default custom");
         }
 
         window.onload=function(){
@@ -227,9 +239,10 @@
         function checkfName(){
             str=main_form.first_name.value;
             msg="";
-            if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/))
-                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
+            if(str=="") msg += " Please fill this out this field.";
+            else if(!str.match(/^[a-zA-Z0-9\ \-]+[\.]?[a-zA-Z0-9\ \-]*$/))
+                msg += " Only letters hyphens and spaces are allowed.";
+            console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
             document.getElementsByName('promptfname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -237,8 +250,9 @@
         function checkmName(){
             str=main_form.middle_name.value;
             msg="";
-            if(!str.match(/^[Ñña-zA-Z0-9\ \-\.]+$/) && str != "")
-                msg += " Only alphanumeric characters, hyphens, dots and spaces are allowed.";
+            if(!str.match(/^[a-zA-Z\ \-]+$/))
+                msg += " Only letters hyphens and spaces are allowed.";
+            if(str.trim().length==0) msg ="";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
         }
@@ -281,7 +295,7 @@
             str=main_form.email.value;
             msg="";
             if(str=="") msg += " Please fill out this field.";
-            else if(!str.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/))
+            else if(!str.match(/^([a-zA-Z0-9_-]+[\.]?[a-zA-Z0-9])+@([\da-z\.-]+)\.([a-z\.]{2,6})$/))
                 msg += "Invalid E-mail.";
             document.getElementsByName('promptemail')[0].innerHTML=msg;
             if(msg=="") return true;

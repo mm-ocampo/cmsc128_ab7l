@@ -4,7 +4,7 @@ body {
 
 .form-signin {
   max-width: 250px;
-  padding-top: 25px;
+  padding-top: 5px;
   /*float: right;*/
 }
 
@@ -150,6 +150,9 @@ code {
 .result_details{
   display:none;
   list-style: none;
+  font-weight: bold;
+  padding-left: 10px;
+  border: 2px solid #428bce;
 }
 
 .result_header{
