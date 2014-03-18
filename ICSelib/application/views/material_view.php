@@ -82,7 +82,7 @@
           <div id="title_div" class="add_book_inputs">
             <div class="form-group">
               <label for="title" class="col-sm- control-label">Title *</label>
-              <input type="text" name="title" class="form-control input-mini" id="title" required="true">
+              <input type="text" name="title" class="form-control input-mini" id="title" maxlength="80" required="true">
               <span class="prompt" name="title_prompt"></span>
             </div>
           </div>
@@ -91,7 +91,7 @@
           <div id="abstract" class="add_book_inputs">
             <div class="form-group">
               <label for="abstract_title" class="col-sm- control-label">Abstract</label>
-              <textarea id="abstract_title" name="abstract" class="form-control input-mini" rows="5"></textarea>
+              <textarea id="abstract_title" name="abstract" class="form-control input-mini" maxlength="1500" rows="5"></textarea>
             </div>
           </div>      
 
@@ -105,7 +105,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><input type="text" class="form-control input-mini" name="inputAuthor[]" value="" style="border: none;"></td>
+                    <td><input type="text" class="form-control input-mini" maxlength="50" name="inputAuthor[]" value="" style="border: none;"></td>
                 </tr>
                 </tbody>
             </table>
@@ -125,7 +125,7 @@
           <div id="publisher_div" class="add_book_inputs">
             <div class="form-group">
               <label for="publisher" class="col-sm- control-label">Publisher</label>
-              <input type="text" name="publisher" class="form-control input-mini" id="publisher">
+              <input type="text" name="publisher" class="form-control input-mini" maxlength="75" id="publisher">
               <span class="prompt" name="publisher_prompt"></span>
             </div>
           </div>

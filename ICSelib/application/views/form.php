@@ -28,7 +28,7 @@
     </select>
 
     <div class="input-group" id="admin_search_bar">
-        <input type="text" name="search_query" autocomplete= "off" id="search_bar" class="search-query form-custom-search" placeholder="Search library"
+        <input type="text" name="search_query" autocomplete= "off" id="search_bar" maxlength="80" class="search-query form-custom-search" placeholder="Search library"
         <?php
         if(isset($_GET['search_query']) && $_GET['filter']!="subject")  
             echo "name='search_query' ";

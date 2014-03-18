@@ -45,7 +45,7 @@ class Site extends CI_Controller {
     }
 
     public function login(){
-        if(isset($_POST['AdminLogIn'])){
+        if($this->input->post('AdminLogIn')){
             $this->log_in_model->login_admin();
             if($this->session->userdata('email')){
                 $this->load->view('admin_default_view');
@@ -157,7 +157,8 @@ class Site extends CI_Controller {
 
 
     public function delete(){
-        if (isset($_GET['id']) && $_POST['value']  == "true"){
+        //if (isset($_GET['id']) && $_POST['value']  == "true"){ check this
+        if (isset($_GET['id']) == "true"){
             $id = $_GET['id'];
             $this->delete_model->delete_material($id);
         }

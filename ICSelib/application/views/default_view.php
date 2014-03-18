@@ -68,6 +68,7 @@
                   <i class="fa fa-key fa-lg"></i>
                   <input type="password" class="form-custom" placeholder="Password" id="password" name="password" required>
                 </div>
+                <span name="loginprompt" id="loginprompt" hidden></span>
                 <a href="/ICSelib/index.php/elib/forgot_password">Forgot password?</a>
                 
               <h5 style="color: red"><?php if(isset($message)) echo $message; ?></h5>

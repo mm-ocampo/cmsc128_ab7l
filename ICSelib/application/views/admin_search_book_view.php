@@ -13,7 +13,7 @@
 
     <div class="content_right main">
         <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal">
-              <a class="btn btn-primary" href="<?php echo base_url();?>index.php/elib/admin_default?page_number=1"><span class="fa fa-arrow-left"></span> Back</a>  
+              <!--a class="btn btn-primary" href="<?php echo base_url();?>index.php/elib/admin_default?page_number=1"><span class="fa fa-arrow-left"></span> Back</a-->
             <h1 class="page-header">Search</h1>
           <section id="search_module">
             <?php include "form.php";?>

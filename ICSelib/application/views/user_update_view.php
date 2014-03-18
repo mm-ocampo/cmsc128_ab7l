@@ -11,24 +11,24 @@
                 <!--Name-->
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" name="first_name" id="fname" class="form-control input-lg" placeholder="First Name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"tabindex="3">
+                    <input type="text" name="first_name" id="fname" maxlength="30" class="form-control input-lg" placeholder="First Name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"tabindex="1">
                     <span name="promptfname"></span> <br/>
                 </div>
                 <div class="form-group">
                     <label for="mname">Middle Name</label>
-                    <input type="text" name="middle_name" id="mname" class="form-control input-lg" placeholder="Middle Name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>" tabindex="3">
+                    <input type="text" name="middle_name" id="mname" maxlength="30" class="form-control input-lg" placeholder="Middle Name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>" tabindex="1">
                     <span name="promptmname"></span> <br/>
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" name="last_name" id="lname" class="form-control input-lg" placeholder="Last Name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>" tabindex="3">
+                    <input type="text" name="last_name" id="lname" maxlength="30" class="form-control input-lg" placeholder="Last Name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>" tabindex="1">
                     <span name="promptlname"></span> <br/>
                 </div>
                 <!--End of Name-->
 
                 <div class="form-group">
                     <label for="birth_date">Date of Birth</label>
-                    <input type="date" name="birth_date" id="birth_date" class="form-control input-lg" placeholder="Birthday" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>" tabindex="3">
+                    <input type="date" name="birth_date" id="birth_date" class="form-control input-lg" placeholder="Birthday" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>" tabindex="4">
                     <span name="promptbday"></span> <br/>
                 </div>
 
@@ -37,12 +37,12 @@
 
                         <div class="form-group">
                             <label for="student_number">Student No.</label>
-                            <input type="text" name="student_number" id="student_number" class="form-control input-lg" placeholder="Student Number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>" tabindex="3">
+                            <input type="text" name="student_number" id="student_number" maxlength="10" class="form-control input-lg" placeholder="Student Number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>" tabindex="5">
                             <span name="promptstudentnumber"></span> <br/>
                         </div>
                         <br/>
                         <label for="classification">Classification</label>
-                        <select name="classification" class="form-control input-lg">
+                        <select name="classification" class="form-control input-lg" tabindex="6">
                             <option value="FM" <?php echo($results['classification'] == 'FM')?'selected':'';?>>Freshman</option>
                             <option value="SO" <?php echo($results['classification'] == 'SO')?'selected':'';?>>Sophomore</option>
                             <option value="JR" <?php echo($results['classification'] == 'JR')?'selected':'';?>>Junior</option>
@@ -52,7 +52,7 @@
                         <br/>
 
                         <label for="degree_program">Degree Program</label>
-                        <select name="degree_program" class="form-control input-lg">
+                        <select name="degree_program" class="form-control input-lg" tabindex="7">
                             <option value="BSABM" <?php echo($results['degree_program'] == 'BSABM')?'selected':'';?> >BS Agribusiness Management</option>
                                             <option value="BSABT" <?php echo($results['degree_program'] == 'BSABT')?'selected':'';?> >BS Agricultural Biotechnology</option>
                                             <option value="BSAgChem" <?php echo($results['degree_program'] == 'BSAgChem')?'selected':'';?> >BS Agricultural Chemistry</option>
@@ -88,7 +88,7 @@
                     </br>  
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="text" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<?php for($i=0; $i<strlen($results['password'] != ''?$results['password']:''); $i++) echo "*";?>" disabled tabindex="3">
+                            <input type="text" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<?php for($i=0; $i<strlen($results['password'] != ''?$results['password']:''); $i++) echo "*";?>" disabled tabindex="8">
                         </div> 
                     
                     <a data-toggle="modal" href="#change_password_modal">Change Password</a>
@@ -98,13 +98,13 @@
                     <div id="faculty_form" class="<?php echo($results['is_faculty'] == 0)?'invisible':'';?>">
                         <hr>
                         <div class="form-group">
-                            <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" tabindex="3"> <span name="promptemployeenumber"></span>
+                            <input type="text" name="employee_number" id="employee_number" maxlength="15" class="form-control input-lg" placeholder="Employee Number" tabindex="9"> <span name="promptemployeenumber"></span>
                         </div>
                         <hr/>
                     </div>
                 <div class="form-actions col-sm-offset-4" id="cut">
-                <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
-                <a href="<?php echo base_url();?>index.php/site/get_my_library_data"><button type="button" class="btn">Cancel</button></a>
+                <button type="submit" id="submit" class="btn btn-primary" tabindex="10">Save changes</button>
+                <a href="<?php echo base_url();?>index.php/site/get_my_library_data"><button type="button" class="btn" tabindex="11">Cancel</button></a>
                 </div>
             </form>
         </div>      

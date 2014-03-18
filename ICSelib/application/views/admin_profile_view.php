@@ -18,38 +18,38 @@
           <!--Name-->
           <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="text" name="first_name" id="fname" class="form-control input-lg" placeholder="First Name" value="<?php foreach($results as $row){echo $row->first_name;}?>"tabindex="3">
+            <input type="text" name="first_name" id="fname" maxlength="30" class="form-control input-lg" placeholder="First Name" value="<?php foreach($results as $row){echo $row->first_name;}?>"tabindex="1">
             <span name="promptfname"></span> <br/>
           </div>
           <div class="form-group">
             <label for="mname">Middle Name</label>
-            <input type="text" name="middle_name" id="mname" class="form-control input-lg" placeholder="Middle Name" value="<?php foreach($results as $row){echo $row->middle_name;}?>" tabindex="3">
+            <input type="text" name="middle_name" id="mname" maxlength="30" class="form-control input-lg" placeholder="Middle Name" value="<?php foreach($results as $row){echo $row->middle_name;}?>" tabindex="2">
             <span name="promptmname"></span> <br/>
           </div>
           <div class="form-group">
             <label for="lname">Last Name</label>
-            <input type="text" name="last_name" id="lname" class="form-control input-lg" placeholder="Last Name" value="<?php foreach($results as $row){echo $row->last_name;}?>" tabindex="3">
+            <input type="text" name="last_name" id="lname" maxlength="30" class="form-control input-lg" placeholder="Last Name" value="<?php foreach($results as $row){echo $row->last_name;}?>" tabindex="3">
             <span name="promptlname"></span> <br/>
           </div>
           <!--End of Name-->
 
           <div class="form-group">
             <label for="employee_number">Employee Number</label>
-            <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" value="<?php foreach($results as $row){echo $row->employee_number;}?>" tabindex="3"> <span name="promptemployeenumber"></span>
+            <input type="text" name="employee_number" id="employee_number" maxlength="15" class="form-control input-lg" placeholder="Employee Number" value="<?php foreach($results as $row){echo $row->employee_number;}?>" tabindex="4"> <span name="promptemployeenumber"></span>
             <br/>
           </div>
 
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<?php foreach($results as $row){for($i=0; $i<strlen($row->password); $i++) echo "*";}?>" disabled tabindex="3">
+            <input type="text" name="password" id="password" maxlength="30" class="form-control input-lg" placeholder="Password" value="<?php foreach($results as $row){for($i=0; $i<strlen($row->password); $i++) echo "*";}?>" disabled tabindex="5">
             </div>
           <a data-toggle="modal" href="#change_password_modal" >Change password</a>
 
           </br></br>
 
           <div class="form-actions" id="cut">
-          <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
-          <a href="<?php echo base_url();?>index.php/elib/admin_default"><button type="button" class="btn">Cancel</button></a>
+          <button type="submit" id="submit" class="btn btn-primary" tabindex="6">Save changes</button>
+          <a href="<?php echo base_url();?>index.php/elib/admin_default"><button type="button" class="btn" tabindex="7">Cancel</button></a>
           </div>
         </form>
       </div>

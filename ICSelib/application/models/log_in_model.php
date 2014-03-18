@@ -52,7 +52,7 @@
 				$name = $row->first_name;	
 			endforeach;
 
-			if($count == 1){
+			if($count > 0){
 
 				$newdata = array(
 					'type'  => "admin",

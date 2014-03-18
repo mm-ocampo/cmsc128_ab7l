@@ -48,12 +48,12 @@
                                 </div>
                                 <div class="form-group" style="width:49%;float:right;">
                                     <label for="password_confirmation" style="text-align: center">Confirm Password</label>
-                                    <input type="password" maxlength="16" name="password_confirmation" id="password_confirmation" class="form-control input-mini" maxlength="40" tabindex="9">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-mini" maxlength="40" tabindex="9">
                                     <span name="promptpassword2"></span> <br/>
                                 </div>
                                 <div class="form-group" style="width:49%; ">
                                     <label for="password" style="text-align: center">Password</label>
-                                    <input type="password" maxlength="16" name="password" id="password" class="form-control input-mini" maxlength="40" tabindex="8">
+                                    <input type="password" name="password" id="password" class="form-control input-mini" maxlength="40" tabindex="8">
                                     <span name="promptpassword"></span> <br/>
                                     <div id="indicator" style="color: red; width: 80px; height: 5px;"></div>
                                 </div>

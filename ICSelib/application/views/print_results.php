@@ -42,7 +42,7 @@
 ?>
     <?php echo "<li><input type='button' onclick='confirm_delete({$res})' id='link{$res}' name='".$accession_number."' value='Delete' /></li>"; ?>
         <li><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
-        <input type="hidden" value="<?php echo $accession_number; ?>" id="accession_number" name="accession_number">
+        <input type="hidden" value="<?php echo $accession_number; ?>" id="accession_number" name="accession_number"/>
         <input type="submit" value="Edit" />
         </form></li>
     <?php
