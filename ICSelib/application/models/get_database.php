@@ -197,7 +197,7 @@
 
 			}
 
-			$pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
+            $pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 

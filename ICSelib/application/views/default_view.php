@@ -74,7 +74,8 @@
               </label>
               <button class="btn btn-large btn-block btn-primary" name="SignIn" type="submit" width="100%">Sign in</button>
              </form></br>
-             <p>Not yet registered? <a data-toggle="modal" href="#signup_modal" >Sign up today</a></p>              
+             <p>Not yet registered? <a data-toggle="modal" href="#signup_modal" >Sign up today</a></p>
+             <a href="/ICSelib/index.php/elib/forgot_password">Forgot password?</a>           
         <img src="<?php echo base_url();?>assets/ICS Logo.png" class="footer_logo" alt="ICS Logo"/>
         <img src="<?php echo base_url();?>assets/UPLB Logo.png" class="footer_logo" alt="UPLB Logo"/>
       </div>

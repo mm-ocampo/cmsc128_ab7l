@@ -1,21 +1,32 @@
 $(document).ready(function(){
 
-	$.ajax({
-           	type: "GET",
-            url: "/UI128/index.php/notification/get_notification",
-            cache: false,
-            success: function(html){
+    $.ajax({
+        type: "GET",
+        url: "/ICSelib/index.php/notification/get_notification_ajax",
+        cache: false,
+        success: function(html){
 
-                $(".notification").html(html);
+            $(".notification").html(html);
 
-            }
+        }
     });
 
-	setInterval(function(){
+    $.ajax({
+        type: "GET",
+        url: "/ICSelib/index.php/notification/print_notification",
+        cache: false,
+        success: function(html){
 
-		$.ajax({
-           	type: "GET",
-            url: "/UI128/index.php/notification/get_notification",
+            $(".notifs").html(html);
+
+        }
+    });
+
+    setInterval(function(){
+
+        $.ajax({
+            type: "GET",
+            url: "/ICSelib/index.php/notification/get_notification_ajax",
             cache: false,
             success: function(html){
 
@@ -24,10 +35,20 @@ $(document).ready(function(){
             }
         });
 
-	},10000);
+        $.ajax({
+            type: "GET",
+            url: "/ICSelib/index.php/notification/print_notification",
+            cache: false,
+            success: function(html){
+
+                $(".notifs").html(html);
+
+            }
+        });
+
+    },2000);
 
 });
-
 
 $(".filter_select").change(function(){
 

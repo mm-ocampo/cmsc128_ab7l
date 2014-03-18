@@ -14,17 +14,30 @@
 <html>
 
     <head>
-        <title>Success!</title>
+        <title>Forgot Password</title>
     </head>
 
     <body>
+
+    <?php include('header_default.php'); ?>
+
+             <div class="container">
+                    <div class="col-sm-7 col-sm-offset-2 main container">
+
+                        <?php $this->load->helper('url'); ?>
+				<h1>Forgot Password</h1>
+				</div>
+				</div>
+
     <script type="text/javascript">
-		
-			alert("Success! You have completed providing the required information. Please wait for the librarian's confirmation via email before using your account.");
+		window.onload=function(){
+			alert("You have successfully reset your password. Check your e-mail for your new password. Thank you!");
 			window.location.href = "../../";
+		}
     </script>
+
+    <!--footer---------------------------------------------------------------------------------------------------------->
+    <?php include("includes/footer.php"); ?>
 
 	</body>
 </html>
-    
-

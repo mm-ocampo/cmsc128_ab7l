@@ -288,6 +288,10 @@ class Elib extends CI_Controller {
         $this->load->view('signup_view');
     }
 
+    public function forgot_password() {
+        $this->load->view('forgot_password_view');
+    }
+
     public function logout(){
         $this->session->sess_destroy();
         $this->load->view('default_view');
