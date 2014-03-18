@@ -233,13 +233,13 @@ li {
       
         float: left;
         clear: both;
-        margin-top: 10px;
+        margin-top: 0px;
         width: 100%;
       }
 
       .results:hover{
       
-        background: beige;
+        background: white;
       
       }
       
@@ -251,6 +251,7 @@ li {
 
       .result_information{
         width: 98.5%;
+        
       }
       
       .results .result_information{
@@ -345,7 +346,7 @@ li {
 }
 
 #checklist {
-  width: 100%;
+  width: 77.3%;
   float: left;
 }
 
@@ -420,6 +421,10 @@ li {
 
 #modal_top_ten {
   min-height: 850px;
+}
+
+#search_submit {
+  width: 150px;
 }
 
 /**************** Jecho Changes End *********************/

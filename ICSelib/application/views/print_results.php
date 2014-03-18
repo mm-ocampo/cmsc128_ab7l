@@ -13,9 +13,9 @@
                 */
                 $i = 0;
                 $j = 0;
-
+                $res = -1;
                 foreach ($search as $row) {
-
+                        $res += 1;
                         echo "<div class='results'>";
                             echo "<div class='result_information'>";
                                 $title = $row->title;

@@ -69,8 +69,8 @@
                   <input type="password" class="form-custom" placeholder="Password" id="password" name="password" required>
                 </div>
                 <a href="/ICSelib/index.php/elib/forgot_password">Forgot password?</a>
-                <span id="loginprompt" name="loginprompt"></span>
-
+                
+              <h5 style="color: red"><?php if(isset($message)) echo $message; ?></h5>
               <label class="checkbox">
                 <input type="checkbox" name="AdminLogIn" value="remember-me" data-toggle="checkbox">Log-in as Administrator
               </label>
@@ -94,6 +94,15 @@
 </div>
     <script>
         window.onload=function(){
+            main_form.first_name.onblur=checkfName;
+            main_form.middle_name.onblur=checkmName;
+            main_form.last_name.onblur=checklName;
+            main_form.password.onblur=checkPassword;
+            main_form.birthday.onblur=checkBday;
+            main_form.student_number.onblur=checkAvailsNumber;
+            main_form.employee_number.onblur=checkeNumber;
+            main_form.email.onblur=checkAvailEmail;
+            main_form.onsubmit=checkAll;
             signin_form.email.onblur = checkEmail;
             signin_form.onsubmit = checkAll;
         }

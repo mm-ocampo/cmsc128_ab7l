@@ -131,6 +131,6 @@
         <input type="checkbox" id="check4" value="journal" name="format[]"<?php if($journal)    echo "checked";?>/><label class="checkbox inline" for="check4">Journal </label>
     </div>
     </div>
-    <input class="btn btn-primary" href="<?php echo base_url();?>index.php/site/callResults" type="submit"/><br/>
+    <input class="btn btn-primary" id="search_submit" href="<?php echo base_url();?>index.php/site/callResults" type="submit"/><br/>
 
 </form>

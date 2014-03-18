@@ -50,7 +50,11 @@ class Site extends CI_Controller {
             if($this->session->userdata('email')){
                 $this->load->view('admin_default_view');
             }
-            else $this->load->view('default_view');
+            //changes as of March 7, 2014
+            else{
+                $data['message'] = "Invalid email address or password.";
+                $this->load->view('default_view', $data);
+            }
         }
         else{ 
             $this->log_in_model->login_user();
@@ -69,7 +73,11 @@ class Site extends CI_Controller {
 
                 $this->load->view('user_default_view',$data);
             }
-            else $this->load->view('default_view');
+            //changes as of March 7, 2014
+            else{
+                $data['message'] = "Invalid email address or password.";
+                $this->load->view('default_view', $data);
+            }
         } 
             
     }

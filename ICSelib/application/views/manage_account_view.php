@@ -32,7 +32,7 @@
             }
             $user_count = sizeof($result);
 
-            echo "<table class='table table-striped'>";
+            echo "<table class='table table-hover'>";
             echo "<tr>".
                 "<td>Name</td>".
                 "<td>Email</td>".
