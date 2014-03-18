@@ -135,10 +135,10 @@ $("body").click(function(){
 
 });
 
-
-
 $('.result_header').click(function(){
 
-	$(this).next().slideToggle("fast");
+
+		$('.result_details').slideUp();
+		$(this).next().slideToggle("fast");
 
 });

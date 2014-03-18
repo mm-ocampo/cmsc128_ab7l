@@ -150,6 +150,9 @@ code {
 .result_details{
   display:none;
   list-style: none;
+  font-weight: bold;
+  padding-left: 10px;
+  border: 2px solid #428bce;
 }
 
 .result_header{

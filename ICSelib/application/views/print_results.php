@@ -1,6 +1,3 @@
-
-
-
 <?php 
 
                 /*
@@ -16,21 +13,19 @@
                 */
                 $i = 0;
                 $j = 0;
-                $res = -1;
+
                 foreach ($search as $row) {
-                        $res += 1;
+
                         echo "<div class='results'>";
-                        echo "<span class='glyphicon glyphicon-arrow-down' id='search_down_span'></span>";
                             echo "<div class='result_information'>";
                                 $title = $row->title;
                                 $publisher = $row->publisher;
                                 $accession_number = $search_details[$j];
-                                $copyright_year = $row->copyright_year;
-                                $abstract = $row->abstract;
                                 
                                 echo "<ul>";
-                                echo "<li class='result_header'>".$title."</li>";
+                                echo "<li class='result_header'><i class='fa fa-book fa-lg space'></i>".$title."</li>";
                                 echo "<div class='result_details'>";
+                                echo "<li>".$publisher."</li>";
                                 echo "<li>".$accession_number."</li>";
 
                                 $author = $this->get_database->get_book_author($accession_number);
@@ -41,15 +36,11 @@
 
                                 }
 
-                                echo "<li>".$copyright_year."</li>";
-                                echo "<li>".$publisher."</li>";
-                                echo "<li>".$abstract."</li>";
-
                         $i = 1;
                         if($this->session->userdata('type')){
                         if($this->session->userdata['type']=="admin"){
 ?>
-    <?php echo "<li><input type='button' onclick='confirm_delete({$res})' id='link{$res}' name='".$accession_number."' value='Delete' /></li>"; ?>
+    <?php echo "<li><a name='link' id='link' onclick='return confirm_delete()' href = '".base_url()."index.php/site/delete?id={$accession_number}&confirm='><input type='button' name='".$accession_number."' value='Delete' /></a></li>"; ?>
         <li><form method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/site/update_material">
         <input type="hidden" value="<?php echo $accession_number; ?>" id="accession_number" name="accession_number">
         <input type="submit" value="Edit" />
@@ -57,7 +48,7 @@
     <?php
                         }
 
-                         else if($this->session->userdata['type']=="user"){
+                        else if($this->session->userdata['type']=="user"){
 ?>
                            
                             <?php 
@@ -65,57 +56,54 @@
                                 $number_reserved = 0;
                                 $count = 0;
 
-                                if($row->type=="book"){
+                                foreach ($reserved as $row2) {
+                                    
+                                    if($this->session->userdata('email') == $row2->email)$number_reserved++;
 
-                                    foreach ($reserved as $row2) {
-                                        
-                                        if($this->session->userdata('email') == $row2->email)$number_reserved++;
+                                }
 
-                                    }
+                                foreach ($reserved as $row2) {
+                                    
+                                    if($row2->title == $title){
 
-                                    foreach ($reserved as $row2) {
-                                        
-                                        if($row2->title == $title){
+                                        if($row2->email==$this->session->userdata('email')){
 
-                                            if($row2->email==$this->session->userdata('email')){
-
-                                                $count = 1;
-                                                break;
-
-                                            }
-
-                                            else $count = -1;
-
+                                            $count = 1;
                                             break;
 
                                         }
 
-                                    }
+                                        else $count = -1;
 
-                                    if($count==1) echo "<li>Reserved</li>";
-
-                                    else if($number_reserved==3){
-
-                                        echo "<li>Maximum</li>";
+                                        break;
 
                                     }
-
-                                    else if($count==0){
-
-                                        ?>
-
-                                            <li> <form class="form_reserve" method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/reserve/load_book">
-                                            <button class="button_reserve" name="viewbook" type="submit" value="<?php echo $accession_number; ?>" onclick="confirm_reserve()">Reserve</button>
-                                            </form></li>
-
-                                        <?php
-
-                                    }
-
-                                    
-                                    else               echo "<li>Not available</li>";
 
                                 }
+
+                                if($count==1) echo "<li>Reserved</li>";
+
+                                else if($number_reserved==3){
+
+                                    echo "<li>Maximum</li>";
+
+                                }
+
+                                else if($count==0){
+
+                                    ?>
+
+                                        <li> <form class="form_reserve" method="post" accept-charset="utf-8" action="<?php echo base_url();?>index.php/reserve/load_book">
+                                            <button class="button_reserve" name="viewbook" type="submit" value="<?php echo $accession_number; ?>" onclick="confirm_reserve()">Reserve</button>
+                                        </form></li>
+
+                                    <?php
+
+                                }
+
+                                
+                                else               echo "<li>Not available</li>";
+
 
                                  $count = 0;
                                 foreach ($bookmarked as $row2) {
