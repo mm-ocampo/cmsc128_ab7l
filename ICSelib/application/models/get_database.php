@@ -81,7 +81,7 @@
 			}
 
 
-			$pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
+			$pstmt = "SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract FROM material LEFT JOIN material_author ON material.accession_number=material_author.accession_number";
 
 			$pstmt = $pstmt." WHERE (type='$format[0]'";
 
@@ -617,7 +617,7 @@
 
 	    	$start = ($page_number - 1) * 5 ;
 
-	    	$statement ="SELECT material.accession_number,publisher, title,reserves.email from material LEFT JOIN reserves ON material.accession_number = reserves.accession_number where material.accession_number in (SELECT accession_number FROM bookmark where email=\"$email\") LIMIT $start,5";
+	    	$statement ="SELECT material.accession_number,publisher, title,reserves.email remail,borrows.email bemail from material LEFT JOIN reserves ON material.accession_number = reserves.accession_number LEFT JOIN borrows ON material.accession_number = borrows.accession_number where material.accession_number in (SELECT accession_number FROM bookmark where email=\"$email\") LIMIT $start,5";
 	    	$query = $this->db->query($statement);
 
 	    	return $query->result();
