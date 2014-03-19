@@ -61,7 +61,7 @@ class Site extends CI_Controller {
             if($this->session->userdata('email')){
                 $email = $this->session->userdata('email');
                 $data['notification'] = $this->notification_model->get_notifications();
-                $data['statistics'] = $this->statistics_model->get_most_bookmark();
+                $data['statistics'] = $this->statistics_model->get_statistics();
                 $data['search_details'] = $this->get_database->search_details($data['statistics']);
                 $data['reserved'] = $this->get_database->get_reserve_search();
                 $data['bookmarked'] = $this->get_database->get_bookmarked();
@@ -207,7 +207,7 @@ class Site extends CI_Controller {
     public function get_my_library_data(){
         $email= $this->session->userdata('email');
         $data['notification'] = $this->notification_model->get_notifications();
-        $data['statistics'] = $this->statistics_model->get_most_bookmark();
+        $data['statistics'] = $this->statistics_model->get_statistics();
         $data['search_details'] = $this->get_database->search_details($data['statistics']);
         $data['reserved'] = $this->get_database->get_reserve_search();
         $data['bookmarked'] = $this->get_database->get_bookmarked();
