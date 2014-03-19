@@ -237,11 +237,7 @@ li {
         width: 100%;
       }
 
-      .results:hover{
-      
-        background: white;
-      
-      }
+   
       
       .results img{
       
@@ -301,20 +297,6 @@ li {
 
 #signup_anchor{
   margin-top: 40px;
-}
-
-#messages_result {
-  width: 100%;
-  border: 1px solid black;
-}
-
-#messages_id {
-  width: 3%;
-  border: 1px solid black;
-}
-
-#messages_message {
-  
 }
 
 .guest_search_view_module {
@@ -427,6 +409,13 @@ li {
   width: 150px;
 }
 
+#message_results {
+  margin-top: 30px;
+}
+
+.message_delete {
+  float: right;
+}
 /**************** Jecho Changes End *********************/
 
 /* Frei Changes Start*/
