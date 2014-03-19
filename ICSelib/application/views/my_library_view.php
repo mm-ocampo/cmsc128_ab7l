@@ -30,10 +30,13 @@ foreach ($results as $row) {
 
     <?php
 
-        if($row->remail!="" || $row->bemail!=""){
+        if($row->remail!=""){
 
-            echo "RESERVED";
-
+            echo "<form method=\"post\" action=\"{base_url()}index.php/site/remove_reserve\">";
+            echo "<button name=\"reserved_book\" value=\"$row->accession_number\">Cancel Reserve</button></form>";
+        }
+        else if ($row->bemail!=""){
+            echo "BORROWED";
         }
         else{
 

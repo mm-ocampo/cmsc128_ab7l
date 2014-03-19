@@ -40,8 +40,17 @@ class Elib extends CI_Controller {
             $email= $this->session->userdata('email');
             $data['notification'] = $this->notification_model->get_notifications();
             $data['results']=$this->get_database->get_bookmarks($email);
-            $data['results2']=$this->get_database->get_author_for_bookmarks($email);
-            $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
+            $data['search_details'] = $this->get_database->search_details($data['results']);
+            $data['reserved'] = $this->get_database->get_reserve_search();
+            $data['bookmarked'] = $this->get_database->get_bookmarked();
+            $data['borrowed'] = $this->get_database->get_borrowed();
+            $data['borrowed_details'] = $this->get_database->search_details($data['borrowed']);
+            $data['overdue'] = $this->get_database->get_overdue();
+            $data['overdue_details'] = $this->get_database->search_details($data['overdue']);
+            $data['history'] = $this->get_database->get_history();
+            $data['history_details'] = $this->get_database->search_details($data['history']);
+            $data['statistics'] = $this->statistics_model->get_statistics();
+            $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
             $this->load->view('user_default_view', $data);
         }
         else{
@@ -242,11 +251,7 @@ class Elib extends CI_Controller {
         return $query->result();
     }
 
-    public function update_admin_password($email, $password){
-        $statement= "UPDATE admin SET password=\"$password\" where email=\"$email\"";
-        $query = $this->db->query($statement);
-        return 1;
-    }
+   
 
     public function change_password_view_admin(){
         $email=$this->session->userdata('email');
@@ -254,13 +259,7 @@ class Elib extends CI_Controller {
         $this->load->view('admin_change_password_view', $data);
     }
 
-    public function change_password_admin(){
-        $email=$this->session->userdata('email');
-        $password=$this->input->post('password');
-        $update = $this->update_admin_password($email,$password);
-
-        $this->admin_profile();   
-    }
+    
 
     //USER PAGES//
     /*
@@ -269,6 +268,7 @@ class Elib extends CI_Controller {
     public function user_search_book(){
         $data['notification'] = $this->notification_model->get_notifications();
         $data['statistics'] = $this->statistics_model->get_statistics();
+            $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
         $data['search_details'] = $this->get_database->search_details($data['statistics']);
         $data['reserved'] = $this->get_database->get_reserve_search();
         $data['bookmarked'] = $this->get_database->get_bookmarked();
@@ -276,7 +276,12 @@ class Elib extends CI_Controller {
     }
 
     public function user_advanced_search(){
-        $data['notification'] = $this->notification_model->get_notifications();
+         $data['notification'] = $this->notification_model->get_notifications();
+        $data['statistics'] = $this->statistics_model->get_statistics();
+            $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
+         $data['search_details'] = $this->get_database->search_details($data['statistics']);
+        $data['reserved'] = $this->get_database->get_reserve_search();
+        $data['bookmarked'] = $this->get_database->get_bookmarked();
         $this->load->view('user_advance_search_view',$data);
     }
     /*
@@ -318,5 +323,53 @@ class Elib extends CI_Controller {
         $result = $this->manage_account_model->get_accounts($operation);
         $this->load->view('manage_account_view', array("result" => $result));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function update_admin_password($email, $password){
+            $statement= "UPDATE admin SET password=\"$password\" where email=\"$email\"";
+            $query = $this->db->query($statement);
+            return 1;
+    }
+
+    public function change_password_admin(){
+        $email=$this->session->userdata('email');
+        $current_input=sha1($this->input->post('current_password'));
+        $password=sha1($this->input->post('password_new'));
+
+        $statement= "SELECT password from admin where email= \"$email\"";
+        $query = $this->db->query($statement);
+        $current_password=$query->result();
+        foreach($current_password as $row){
+            $lol=$row->password;
+            if($lol==$current_input){
+                $update = $this->update_admin_password($email,$password);
+                $this->admin_profile(); 
+            }
+            else{
+                $this->admin_profile(); 
+            }
+        } 
+    }
+
+
 
 }

@@ -1,6 +1,7 @@
 <form action="<?php echo base_url();?>index.php/site/advanced_search?page_number=1" method="get" accept-charset="utf-8">
+<div class="col-sm-3">
 
-    <select class="filter_select1" name="filter1">
+    <select class="filter_select1 form-control" name="filter1">
         <option value="topic">Topic</option>
         <option value="title" selected='selected' >Title</option>
         <option value="author" >Author</option>
@@ -9,10 +10,12 @@
         <option value="year" >Year of Publication</option>
         <option value="accession_number">Accession Number</option>
     </select>
-
-    <input type="text" autocomplete="off" maxlength=80 id="search_bar1" name="search_query1" />
-
-    <select id="search_subject1" name="dummy" style="display:none">
+</div>
+<div class="col-sm-6">
+    <input class="form-control"type="text" autocomplete="off" maxlength=80 id="search_bar1" name="search_query1" />
+</div>
+<div class="col-sm-3">
+    <select id="search_subject1" class="form-control" name="dummy" style="display:none">
 
         <option value="cmsc2" selected="selected">CMSC 2</option>
         <option value="cmsc11" >CMSC 11</option>
@@ -43,17 +46,18 @@
         <option value="cmsc199" >CMSC 199</option>
 
     </select>
+</div>
 
-    <select name="boolean1">
+<div class="col-sm-2">
+    <select name="boolean1" class="form-control">
 
         <option value="and">AND</option>
         <option value="or">OR</option>
 
     </select>
-
-    <br/>
-
-     <select class="filter_select2" name="filter2">
+</div>
+<div class="col-sm-3">
+     <select class="filter_select2 form-control" name="filter2">
         <option value="topic">Topic</option>
         <option value="title" >Title</option>
         <option value="author" selected='selected'>Author</option>
@@ -62,10 +66,13 @@
         <option value="year" >Year of Publication</option>
         <option value="accession_number">Accession Number</option>
     </select>
+</div>
+<div class="col-sm-6">
+    <input type="text" class="form-control" autocomplete="off" id="search_bar2" name="search_query2" />
+</div>
 
-    <input type="text" autocomplete="off" id="search_bar2" name="search_query2" />
-
-    <select id="search_subject2" name="dummy" style="display:none">
+<div class="col-sm-3">
+    <select id="search_subject2" class="form-control" name="dummy" style="display:none">
 
         <option value="cmsc2" selected="selected">CMSC 2</option>
         <option value="cmsc11" >CMSC 11</option>
@@ -96,29 +103,35 @@
         <option value="cmsc199" >CMSC 199</option>
 
     </select>
+</div>
 
-    <select name="boolean2">
+<div class="col-sm-2">
+    <select name="boolean2" class="form-control">
 
         <option value="and">AND</option>
         <option value="or">OR</option>
 
     </select>
+</div>
 
-    <br/>
-
-     <select class="filter_select3" name="filter3">
+<div class="col-sm-3">
+     <select class="filter_select3 form-control" name="filter3">
         <option value="topic">Topic</option>
         <option value="title" >Title</option>
         <option value="author" >Author</option>
-        <option value="publisher">Publisher</option>
-        <option value="subject" selected='selected'>Subject</option>
+        <option value="publisher" selected='selected'>Publisher</option>
+        <option value="subject">Subject</option>
         <option value="year" >Year of Publication</option>
         <option value="accession_number">Accession Number</option>
     </select>
+</div>
 
-    <input type="text" autocomplete="off" id="search_bar3" name="dummy" style="display:none" />
+<div class="col-sm-6">
+    <input type="text" class="form-control" autocomplete="off" id="search_bar3" name="search_query3"  />
+</div>
 
-    <select id="search_subject3" name="search_query3" >
+<div class="col-sm-3">
+    <select id="search_subject3"class="form-control" name="dummy3" style="display:none" >
 
         <option value="cmsc2" selected="selected">CMSC 2</option>
         <option value="cmsc11" >CMSC 11</option>
@@ -149,8 +162,8 @@
         <option value="cmsc199" >CMSC 199</option>
 
     </select>
+</div>
 
-    <br/>
 
     <div id="checklist">
         <input type="checkbox" id="check1" value="book" name="format[]" checked/><label class="checkbox inline" for="check1">Book </label>
@@ -159,9 +172,7 @@
         <input type="checkbox" id="check4" value="journal" name="format[]"/><label class="checkbox inline" for="check4">Journal </label>
 
     </div>
+     <br/><input class="btn btn-primary pull-right" type="submit"/><br/>
 
-    <br/>
-
-     <input class="btn btn-primary" type="submit"/><br/>
 
 </form>

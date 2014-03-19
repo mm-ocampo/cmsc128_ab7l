@@ -122,8 +122,8 @@
           document.getElementById("contact_form").action = document.getElementById("contact_form").action + "true";
 
           <?php echo 'str=contact_form.header.value;
-          temp = str.replace(/script/g,"-script-");
-          temp = temp.replace(/php/g,"-php-");
+          temp = str.replace(/<script>/g,"*script*");
+          temp = temp.replace(/?php/g,"*php");
           temp = temp.replace(/\"/g,"*"); '?>
 
           <?php echo "temp = temp.replace(/\'/g,";?>
@@ -133,8 +133,8 @@
           <?php echo '
           contact_form.header.value = temp;
           str=contact_form.query_box.value;
-          temp = str.replace(/script/g,"-script-");
-          temp = temp.replace(/php/g,"-php-");
+          temp = str.replace(/<script>/g,"*script*");
+          temp = temp.replace(/?php/g,"*php");
           temp = temp.replace(/\"/g,"*"); ';?>
 
           <?php echo "temp = temp.replace(/\'/g,";?>

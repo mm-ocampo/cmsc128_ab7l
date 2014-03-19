@@ -236,6 +236,8 @@ li {
         margin-top: 0px;
         width: 100%;
       }
+
+   
       
       .results img{
       
@@ -407,6 +409,13 @@ li {
   width: 150px;
 }
 
+#message_results {
+  margin-top: 30px;
+}
+
+.message_delete {
+  float: right;
+}
 /**************** Jecho Changes End *********************/
 
 /* Frei Changes Start*/
@@ -656,12 +665,3 @@ legend{
 background: #428bce;
 }
 /*ENd*/
-
-
-#message_results {
-  margin-top: 30px;
-}
-
-.message_delete {
-  float: right;
-}

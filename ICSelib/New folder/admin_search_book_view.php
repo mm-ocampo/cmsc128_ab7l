@@ -8,18 +8,13 @@
     <div id="wrap">
       <!-- Begin page content -->
       <div id="width_limit">
-        <?php include "includes/user_sidebar.php"; ?>
-      </div>
+        <?php include "includes/admin_sidebar.php"; ?>
+      </div>        
 
- <div class="content_right main">
-         
-          <?php
-          
-             echo "<a data-toggle=\"modal\" href=\"#top_modal\" ><span class=\"glyphicon glyphicon-star glyphicon-medium\"></span> Most Borrowed Books</a>";
-
-          ?>
-          <h1 class="page-header">Search</h1>
-          
+    <div class="content_right main">
+        <form action="<?php echo base_url();?>index.php/site/search" class="form-horizontal" onsubmit="return check_word()">
+              <a class="btn btn-primary" href="<?php echo base_url();?>index.php/elib/admin_default?page_number=1"><span class="fa fa-arrow-left"></span> Back</a>  
+            <h1 class="page-header">Search</h1>
           <section id="search_module">
             <?php include "form.php";?>
           </section>
@@ -34,23 +29,15 @@
           </section>
           <?php }
 
-          
+          else if(isset($statistics)){
+
+            $search = $statistics;
+
+            include "print_results.php";
+
+          }
 
           ?>
-
-          <div class="modal fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog" id="modal_top_ten">
-        <div class="modal-content" id="modal_top_ten">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h1 class="modal-title">Top Ten Books</h1>
-          </div>
-          <div class="modal-body">
-            <?php include "top_view.php" ?>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
           <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
           <script src="<?php echo base_url();?>/js/jquery-1.9.1.min.js"></script>
@@ -62,7 +49,6 @@
                           var input = $(this).val();
                           var filter = $(".filter_select").val();
                           var sort = $(".sort").val();
-                          search_bar.onblur = check_word;
 
                           format = new Array();
                           $('#checklist input[type=checkbox]:checked').each(function(){
@@ -83,7 +69,7 @@
                                   data: query,
                                   cache: false,
                                   success: function(html){
-                                    if(html.length > 9){
+                                    if(html.length>9){
                                       $("#display_suggestion").css("display","block");
                                       $("#display_suggestion").html(html);
                                     }
@@ -108,11 +94,14 @@
                   }
               </script>
           <!--END-->
+        </form>
+
     </div>
-    
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
     <script src=<?php echo "\"".base_url()."assets/dist/js/bootstrap.min.js"."\""?> ></script>
     <script src=<?php echo "\"".base_url()."assets/docs-assets/js/holder.js"."\""?> ></script>
 </body>

@@ -17,8 +17,23 @@
         <h3 class="page-header">Search</h3>
     </div>
     <!--SAME HERE, AYAW GUMANA :<-->
-    <div id="cut">
+   <section id="search_module">
         <?php include "advanced_form.php";?>
+   </section>
+
+     <?php if(isset($search)){?>
+          <nav class="navigate_module">
+            <?php include "navigator_advanced.php";?>
+          </nav>
+
+          <section id="view_module">
+            <?php include "print_results.php";?>
+          </section>
+          <?php }
+
+          
+
+          ?>
 
         <script src="<?php echo base_url();?>js/jquery-1.9.1.js"></script>
         <script src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>

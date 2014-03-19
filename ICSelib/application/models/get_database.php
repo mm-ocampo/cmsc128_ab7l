@@ -586,18 +586,43 @@
 			return $query->result();
 		}
 
-		public function update_book_model($accession_number,$data){  
-	      $this->db->where('accession_number', $accession_number);
+		public function update_book_model($accession,$data){  
+	      $title;
+		  $query = $this->db->query("SELECT title FROM material WHERE accession_number='$accession'");
+		  foreach($query->result() as $row){
+				$title = $row->title;
+		  }
+		  
+		  $query = $this->db->query("SELECT accession_number FROM material WHERE title='$title'");
+	      foreach($query->result() as $row){
+		  
+			$accession_number = $row->accession_number;
+			$this->db->where('accession_number', $accession_number);
 	      $this->db->update('material',$data);
+		  
+		  }
 	    }
 
-	    public function update_book_author($accession_number,$data2){  
-	      $this->db->where('accession_number', $accession_number);
-	      $this->db->delete('material_author');
-	      foreach ($data2 as $temp) {
+	    public function update_book_author($accession,$data2){  
+	     	$title;
+				$query = $this->db->query("SELECT title FROM material WHERE accession_number='$accession'");
+		  foreach($query->result() as $row){
+				$title = $row->title;
+		  }
+
+			$query = $this->db->query("SELECT accession_number FROM material WHERE title='$title'");
+				  foreach($query->result() as $row){
+				  
+					$accession_number = $row->accession_number;
+					$this->db->where('accession_number', $accession_number);
+			  $this->db->delete('material_author');
+			  
+			  foreach ($data2 as $temp) {
 	      	$statement =" INSERT into material_author values (\"$accession_number\", \"$temp\") ";
 	      	$this->db->query($statement);
 	      }
+				  
+		  }
 	    }
 
 	    public function delete_book_tags($accession_number){
@@ -617,7 +642,7 @@
 
 	    	$start = ($page_number - 1) * 5 ;
 
-	    	$statement ="SELECT material.accession_number,publisher, title,reserves.email remail,borrows.email bemail from material LEFT JOIN reserves ON material.accession_number = reserves.accession_number LEFT JOIN borrows ON material.accession_number = borrows.accession_number where material.accession_number in (SELECT accession_number FROM bookmark where email=\"$email\") LIMIT $start,5";
+	    	$statement ="SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract from material where material.accession_number in (SELECT accession_number FROM bookmark where email=\"$email\")";
 	    	$query = $this->db->query($statement);
 
 	    	return $query->result();
@@ -643,12 +668,12 @@
 			$this->db->where(array('accession_number'=>$accession_number));		//checks if accession_number is equal to inputted accession_number
 			$query = $this->db->get('bookmark');	//get values from bookmark
    			if($query->num_rows>0){			//gets the number of accession_number equal to the input in which num_rows>1 determines duplicate
-   				echo 'Cannot be added! Book already exists.';	//notifies if there is duplicate
+   					//notifies if there is duplicate
    			}
    			else{
 				$statement ="INSERT into bookmark values (\"$email\", \"$accession_number\") ";		//if no duplicate, insert into database
    				$this->db->query($statement);
-   				echo 'Book Added!';
+   				
    			}
 	    }
 //End of my library functions	    
@@ -798,6 +823,41 @@
 
 		}
 
+		public function get_borrowed(){
+
+			$email = $this->session->userdata('email');
+
+			$statement ="SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract from material where material.accession_number in (SELECT accession_number FROM borrows where email=\"$email\" and date_borrowed <> '0000-00-00 00:00:00')";
+
+			$query = $this->db->query($statement);
+
+			return $query->result();
+
+		}
+
+		public function get_overdue(){
+
+			$email = $this->session->userdata('email');
+
+			$statement ="SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract from material left join borrows on material.accession_number=borrows.accession_number where email = '{$this->session->userdata('email')}' and date_borrowed <> '0000-00-00 00:00:00' and (sysdate() - date_borrowed)/86400 >= 3";
+
+			$query = $this->db->query($statement);
+
+			return $query->result();
+
+		}
+
+		public function get_history(){
+
+			$email = $this->session->userdata('email');
+
+			$statement ="SELECT distinct title,publisher,copyright_year,type,subject,bookmark_count,borrow_count,abstract from material left join history on material.accession_number=history.accession_number where email = '{$this->session->userdata('email')}'";
+
+			$query = $this->db->query($statement);
+
+			return $query->result();
+
+		}
 
 	}
 ?>

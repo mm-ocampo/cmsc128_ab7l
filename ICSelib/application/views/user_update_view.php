@@ -11,24 +11,24 @@
                 <!--Name-->
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" name="first_name" id="fname" maxlength="30" class="form-control input-lg" placeholder="First Name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"tabindex="1">
-                    <span name="promptfname"></span> <br/>
+                    <input type="text" name="first_name" id="fname" class="form-control input-lg" placeholder="First Name" value="<?php echo($results['first_name'] != '')?$results['first_name']:'';?>"tabindex="3">
+                    <span name="promptfname" id="promptfname"></span> <br/>
                 </div>
                 <div class="form-group">
                     <label for="mname">Middle Name</label>
-                    <input type="text" name="middle_name" id="mname" maxlength="30" class="form-control input-lg" placeholder="Middle Name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>" tabindex="1">
+                    <input type="text" name="middle_name" id="mname" class="form-control input-lg" placeholder="Middle Name" value="<?php echo($results['middle_name'] != '')?$results['middle_name']:'';?>" tabindex="3">
                     <span name="promptmname"></span> <br/>
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" name="last_name" id="lname" maxlength="30" class="form-control input-lg" placeholder="Last Name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>" tabindex="1">
+                    <input type="text" name="last_name" id="lname" class="form-control input-lg" placeholder="Last Name" value="<?php echo($results['last_name'] != ''?$results['last_name']:'');?>" tabindex="3">
                     <span name="promptlname"></span> <br/>
                 </div>
                 <!--End of Name-->
 
                 <div class="form-group">
                     <label for="birth_date">Date of Birth</label>
-                    <input type="date" name="birth_date" id="birth_date" class="form-control input-lg" placeholder="Birthday" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>" tabindex="4">
+                    <input type="date" name="birth_date" id="birth_date" class="form-control input-lg" placeholder="Birthday" value="<?php echo($results['birth_date'] != ''?$results['birth_date']:'');?>" tabindex="3">
                     <span name="promptbday"></span> <br/>
                 </div>
 
@@ -37,12 +37,12 @@
 
                         <div class="form-group">
                             <label for="student_number">Student No.</label>
-                            <input type="text" name="student_number" id="student_number" maxlength="10" class="form-control input-lg" placeholder="Student Number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>" tabindex="5">
+                            <input type="text" name="student_number" id="student_number" class="form-control input-lg" placeholder="Student Number" value="<?php echo($results['student_number'] != ''?$results['student_number']:'');?>" tabindex="3">
                             <span name="promptstudentnumber"></span> <br/>
                         </div>
                         <br/>
                         <label for="classification">Classification</label>
-                        <select name="classification" class="form-control input-lg" tabindex="6">
+                        <select name="classification" class="form-control input-lg">
                             <option value="FM" <?php echo($results['classification'] == 'FM')?'selected':'';?>>Freshman</option>
                             <option value="SO" <?php echo($results['classification'] == 'SO')?'selected':'';?>>Sophomore</option>
                             <option value="JR" <?php echo($results['classification'] == 'JR')?'selected':'';?>>Junior</option>
@@ -52,7 +52,7 @@
                         <br/>
 
                         <label for="degree_program">Degree Program</label>
-                        <select name="degree_program" class="form-control input-lg" tabindex="7">
+                        <select name="degree_program" class="form-control input-lg">
                             <option value="BSABM" <?php echo($results['degree_program'] == 'BSABM')?'selected':'';?> >BS Agribusiness Management</option>
                                             <option value="BSABT" <?php echo($results['degree_program'] == 'BSABT')?'selected':'';?> >BS Agricultural Biotechnology</option>
                                             <option value="BSAgChem" <?php echo($results['degree_program'] == 'BSAgChem')?'selected':'';?> >BS Agricultural Chemistry</option>
@@ -88,7 +88,7 @@
                     </br>  
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="text" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<?php for($i=0; $i<strlen($results['password'] != ''?$results['password']:''); $i++) echo "*";?>" disabled tabindex="8">
+                            <input type="text" name="password" id="password" class="form-control input-lg" placeholder="Password" value="*****" disabled tabindex="3">
                         </div> 
                     
                     <a data-toggle="modal" href="#change_password_modal">Change Password</a>
@@ -98,21 +98,37 @@
                     <div id="faculty_form" class="<?php echo($results['is_faculty'] == 0)?'invisible':'';?>">
                         <hr>
                         <div class="form-group">
-                            <input type="text" name="employee_number" id="employee_number" maxlength="15" class="form-control input-lg" placeholder="Employee Number" tabindex="9"> <span name="promptemployeenumber"></span>
+                            <input type="text" name="employee_number" id="employee_number" class="form-control input-lg" placeholder="Employee Number" tabindex="3"> <span name="promptemployeenumber"></span>
                         </div>
                         <hr/>
                     </div>
                 <div class="form-actions col-sm-offset-4" id="cut">
-                <button type="submit" id="submit" class="btn btn-primary" tabindex="10">Save changes</button>
-                <a href="<?php echo base_url();?>index.php/site/get_my_library_data"><button type="button" class="btn" tabindex="11">Cancel</button></a>
+                <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
+                <a href="<?php echo base_url();?>index.php/site/get_my_library_data"><button type="button" class="btn">Cancel</button></a>
                 </div>
             </form>
         </div>      
         </div> 
-    </body>
+    </body> 
 
-    <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
-    <script src=<?php echo "\"".base_url()."js/main.js"."\""?> ></script>
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="change_password_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Change Password</h1>
+        </div>
+        <div class="modal-body">
+          <?php include "user_change_password_view.php" ?>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    
     <script type="text/javascript" language="javascript">
         window.onload=function(){
             user_update.first_name.onblur=checkfName;
@@ -127,7 +143,7 @@
         function checksNumber() {
             str=user_update.student_number.value;
             msg="";
-            if(str.trim().length==0) msg += " Please fill this out this field.";
+            if(str.trim().length==0) msg += " Please fill out this field.";
             else if(!str.match(/^[0-9]{4}\-[0-9]{5}$/))
                 msg += "Invalid student number.";
             document.getElementsByName('promptstudentnumber')[0].innerHTML=msg;
@@ -137,7 +153,7 @@
         function checkeNumber() {
             str=user_update.employee_number.value;
             msg="";
-            if(str.trim().length==0) msg += " Please fill this out this field.";
+            if(str.trim().length==0) msg += " Please fill out this field.";
             else if(!str.match(/^[0-9]{9}$/))
                 msg += "Invalid employee number. Must consist of only 9 digits.";
             document.getElementsByName('promptemployeenumber')[0].innerHTML=msg;
@@ -149,7 +165,7 @@
             str=user_update.first_name.value;
             msg="";
             if(str.trim().length==0) msg += " Please fill this out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
+            else if(!str.match(/^[a-zA-Z0-9\ ]+[\-\.]?[a-zA-Z0-9\ \-]*$/))
                 msg += " Only letters hyphens and spaces are allowed.";
 //            console.log(str.match(/^[a-zA-Z\ \-\.]+$/));
             document.getElementsByName('promptfname')[0].innerHTML=msg;
@@ -159,8 +175,7 @@
         function checkmName(){
             str=user_update.middle_name.value;
             msg="";
-            if(str.trim().length==0) msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
+            if(!str.match(/^[a-zA-Z\ ]+[\.\-]?[a-zA-Z]*$/))
                 msg += " Only letters hyphens and spaces are allowed.";
             document.getElementsByName('promptmname')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -170,7 +185,7 @@
             str=user_update.last_name.value;
             msg="";
             if(str.trim().length==0) msg += " Please fill out this field.";
-            else if(!str.match(/^[a-zA-Z\ \-\.]+$/))
+            else if(!str.match(/^[a-zA-Z\ ]+[\.\-]?[a-zA-Z]*$/))
                 msg += " Only letters, hyphens and spaces are allowed.";
             document.getElementsByName('promptlname')[0].innerHTML=msg;
             if(msg=="") return true;
@@ -193,6 +208,32 @@
                 }
                 return false;
         }
+
+    </script>
+    <script src="<?php echo base_url();?>/js/jquery-1.9.1.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $("#fname").keyup(function(){
+                checkfName();
+            });
+            $("#mname").keyup(function(){
+               checkmName();
+            });
+            $("#lname").keyup(function(){
+               checklName();
+            });
+            $("#birth_date").keyup(function(){
+               checkBday();
+            });
+            $("#student_number").keyup(function(){
+               checksNumber();
+            });
+            $("#employee_number").keyup(function(){
+               checkeNumber();
+            });
+
+        });
 
     </script>
     <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>

@@ -36,8 +36,8 @@
                                 <label for="radio_gender" style="text-align: center">Sex</label>
                                 <div name="radio_gender" style="text-align: center">
                                     <input type="text" id="gender" name="gender" hidden>
-                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="male_buttonfunc()" tabindex="5">Male</div>
-                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="female_buttonfunc()" tabindex="6">Female</div>
+                                    <div id="male_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="male_buttonfunc()" tabindex="5">Male</div>
+                                    <div id="female_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="female_buttonfunc()" tabindex="6">Female</div>
                                 </div>
                                 <br/><br/>
 
@@ -66,8 +66,8 @@
                                 <label for="radio_type" style="text-align: center">Type</label>
                                 <div name="radio_type" style="text-align: center">
                                 <input type="text" id="type" name="type" hidden>
-                                <div id="student_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_student()" tabindex="10">Student</div>
-                                <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%" onclick="show_faculty()" tabindex="11">Faculty</div>
+                                <div id="student_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="show_student()" tabindex="10">Student</div>
+                                <div id="faculty_button" class="btn btn-mini btn-default custom" style="width:49%; border: 1px solid #bbbbbb;" onclick="show_faculty()" tabindex="11">Faculty</div>
                                 </div>
                                 <div class="tab-content">
                                 <hr>

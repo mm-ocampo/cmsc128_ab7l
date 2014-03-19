@@ -44,6 +44,7 @@
           <script src="<?php echo base_url();?>/js/main.js"></script>
               <script>
                   $(document).ready(function(){
+                      search_bar.onblur = check_word;
                       $("#search_bar").keyup(function(){
                           var input = $(this).val();
                           var filter = $(".filter_select").val();
@@ -78,6 +79,19 @@
                           return false;
                       });
                   });
+
+                  function check_word(){
+                    var prompt = "";
+                    str = search_bar.value;
+                    if(str == "")
+                      prompt = "This is a required field.";              
+                    else if(!str.match(/^[0-9a-zA-Z\-\ \.\,\+#]+$/))
+                      prompt = "Invalid input.";
+                    $('#search_prompt').text(prompt);
+                    if(prompt == "")
+                      return true;
+                    else return false;
+                  }
               </script>
           <!--END-->
         </form>

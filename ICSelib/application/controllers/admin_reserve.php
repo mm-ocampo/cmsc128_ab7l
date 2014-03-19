@@ -130,6 +130,19 @@ class Admin_reserve extends CI_Controller{
             $email = $row->email;
         }
 
+        $data = array(
+            'email' => $email,
+            'accession_number' => $value
+        );
+
+        $this->db->insert('history',$data);
+
+        $email = $this->admin_model->select("SELECT email FROM borrows WHERE accession_number=\"".$this->input->post('reserve')."\"");
+
+        foreach ($email as $row){
+            $email = $row->email;
+        }
+
         $books_borrowed = $this->admin_model->select("SELECT count(*) as number FROM borrows WHERE date_borrowed!=\"0000-00-00\" and email=\"".$email."\"");
         foreach ($books_borrowed as $row) {
             $books_borrowed = $row->number;

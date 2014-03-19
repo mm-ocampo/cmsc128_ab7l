@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['username'] = 'cmsc128_ab7l';
+$db['default']['password'] = 'pinakamalaki';
 $db['default']['database'] = 'elib_db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

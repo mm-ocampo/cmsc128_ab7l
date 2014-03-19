@@ -25,22 +25,27 @@ class Site extends CI_Controller {
     public function load_home(){
         $this->load->library('session');
         if($this->session->userdata('type')=="admin"){
-            $this->load->view('admin_default_view');
+            $this->load->view('admin_default_view');       
         }
         else if($this->session->userdata('type')=="user"){
             $email= $this->session->userdata('email');
             $data['notification'] = $this->notification_model->get_notifications();
-            $data['statistics'] = $this->statistics_model->get_most_bookmark();
-            $data['search_details'] = $this->get_database->search_details($data['statistics']);
+            $data['results']=$this->get_database->get_bookmarks($email);
+            $data['search_details'] = $this->get_database->search_details($data['results']);
             $data['reserved'] = $this->get_database->get_reserve_search();
             $data['bookmarked'] = $this->get_database->get_bookmarked();
-            $data['results']=$this->get_database->get_bookmarks($email);
-            $data['results2']=$this->get_database->get_author_for_bookmarks($email);
-            $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
+            $data['borrowed'] = $this->get_database->get_borrowed();
+            $data['borrowed_details'] = $this->get_database->search_details($data['borrowed']);
+            $data['overdue'] = $this->get_database->get_overdue();
+            $data['overdue_details'] = $this->get_database->search_details($data['overdue']);
+            $data['history'] = $this->get_database->get_history();
+            $data['history_details'] = $this->get_database->search_details($data['history']);
+            $data['statistics'] = $this->statistics_model->get_statistics();
+            $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
             $this->load->view('user_default_view', $data);
         }
         else{
-            $this->load->view('default_view');
+            $this->load->view('default_view');      
         }
     }
 
@@ -60,18 +65,7 @@ class Site extends CI_Controller {
             $this->log_in_model->login_user();
             if($this->session->userdata('email')){
                 $email = $this->session->userdata('email');
-                $data['notification'] = $this->notification_model->get_notifications();
-                $data['statistics'] = $this->statistics_model->get_most_bookmark();
-                $data['search_details'] = $this->get_database->search_details($data['statistics']);
-                $data['reserved'] = $this->get_database->get_reserve_search();
-                $data['bookmarked'] = $this->get_database->get_bookmarked();
-                $data['results']=$this->get_database->get_bookmarks($email);
-                $data['results2']=$this->get_database->get_author_for_bookmarks($email);
-                $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
-                $data['reserved_materials'] = $this->get_database->get_reserve($email);
-                $data['book_titles'] = $this->get_database->get_title($email);
-
-                $this->load->view('user_default_view',$data);
+                $this->load_home();
             }
             //changes as of March 7, 2014
             else{
@@ -114,6 +108,8 @@ class Site extends CI_Controller {
 
             else if($this->session->userdata('type')=="user"){
                 $data['notification'] = $this->notification_model->get_notifications();
+                $data['statistics'] = $this->statistics_model->get_statistics();
+                $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
                 $data['reserved'] = $this->get_database->get_reserve_search();
                 $data['bookmarked'] = $this->get_database->get_bookmarked();
                 $this->load->view('user_search_book_view',$data);
@@ -140,12 +136,14 @@ class Site extends CI_Controller {
                 $this->load->view('user_search_book_view');
             else if($this->session->userdata('type')=="user"){
                 $data['notification'] = $this->notification_model->get_notifications();
+                $data['statistics'] = $this->statistics_model->get_statistics();
+                $data['statistics_details'] = $this->get_database->search_details($data['statistics']);
                 $data['reserved'] = $this->get_database->get_reserve_search();
                 $data['bookmarked'] = $this->get_database->get_bookmarked();
-                $this->load->view('user_advanced_results_view',$data);
+                $this->load->view('user_advance_search_view',$data);
             }
             else if($this->session->userdata('type')=="admin")
-                $this->load->view('admin_advanced_results_view',$data);
+                $this->load->view('admin_advanced_search_view',$data);
 
         }
 
@@ -173,7 +171,7 @@ class Site extends CI_Controller {
     }
 
     public function update_material_details(){
-        $data2= $this->input->post('inputAuthor');
+       $data2= $this->input->post('inputAuthor');
         $array = array();
         $i = 0;
 
@@ -184,17 +182,16 @@ class Site extends CI_Controller {
             }
         }
 
-        $accession_number = $this->input->post('accession_number');
-        $data = array(
-         'accession_number' => $this->input->post('accession_number'),        
+        $accession = $this->input->post('accession_number');
+        $data = array(        
          'publisher' => $this->input->post('inputPublisher'),  
          'copyright_year' => $this->input->post('inputYear'),
          'title' => $this->input->post('inputTitle'),
          'subject' => $this->input->post('inputSubject'),
          'type' => $this->input->post('type')
         );
-        $this->get_database->update_book_model($accession_number,$data);
-        $this->get_database->update_book_author($accession_number,$array);
+        $this->get_database->update_book_model($accession,$data);
+        $this->get_database->update_book_author($accession,$array);
         $this->load->view('admin_search_book_view');
     }
 
@@ -207,17 +204,8 @@ class Site extends CI_Controller {
 
     public function get_my_library_data(){
         $email= $this->session->userdata('email');
-        $data['notification'] = $this->notification_model->get_notifications();
-        $data['statistics'] = $this->statistics_model->get_most_bookmark();
-        $data['search_details'] = $this->get_database->search_details($data['statistics']);
-        $data['reserved'] = $this->get_database->get_reserve_search();
-        $data['bookmarked'] = $this->get_database->get_bookmarked();
-        $data['results']=$this->get_database->get_bookmarks($email);
-        $data['results2']=$this->get_database->get_author_for_bookmarks($email);
-        $data['bookmark_count'] = $this->get_database->get_count_bookmark($email);
-        $data['reserved_materials'] = $this->get_database->get_reserve($email);
-        $data['book_titles'] = $this->get_database->get_title($email);
-        $this->load->view('user_default_view', $data);
+        
+        $this->load_home();
     }
 
     public function bookmark(){
@@ -233,13 +221,13 @@ class Site extends CI_Controller {
 
         $log_array = array(
             'date_time' => date('Y-m-d H:i:s'),
-            'action' => 'canceled reservation',
+            'action' => 'bookmarked',
             'book' => $accession_number,
             'actor' => $this->session->userdata('email')
         );
         $this->bookmark_logger($log_array);
 
-        $this->load->view('user_default_view', $data);
+        $this->load_home();
 
     }
 
@@ -258,7 +246,7 @@ class Site extends CI_Controller {
             'book' => $accession_number,
             'actor' => $this->session->userdata('email')
         );
-        $this->bookmark_reserve_logger($log_array);
+        $this->cancel_bookmark_reserve_logger($log_array);
 
         $this->login();
     }
@@ -371,4 +359,32 @@ class Site extends CI_Controller {
     public function checkEmail(){
         $this->log_in_model->checkEmail();
     }
+
+     public function update_user_password($email, $password){
+            $statement= "UPDATE user SET password=\"$password\" where email=\"$email\"";
+            $query = $this->db->query($statement);
+            return 1;
+    }
+
+    public function change_password_user(){
+        $email=$this->session->userdata('email');
+        $current_input=sha1($this->input->post('current_password'));
+        $password=sha1($this->input->post('password_new'));
+
+        $statement= "SELECT password from user where email= \"$email\"";
+        $query = $this->db->query($statement);
+        $current_password=$query->result();
+        foreach($current_password as $row){
+            $lol=$row->password;
+            if($lol==$current_input){
+                $update = $this->update_user_password($email,$password);
+                $this->user_update_view();//I CHANGED THIS 
+            }
+            else{
+                $this->user_update_view();//I CHANGED THIS 
+            }
+        } 
+    }
+
+
 }

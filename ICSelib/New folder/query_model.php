@@ -2,7 +2,7 @@
 
 class query_model extends CI_Model {
 
-    function __construct(){
+	function __construct(){
         parent::__construct();
         //constructor code
         $this->load->database();
@@ -18,7 +18,7 @@ class query_model extends CI_Model {
     }
 
     function showAll(){
-        $data = $this->db->query("SELECT * from query")->result();
-        return $data;
+    	$data = $this->db->query("SELECT * from query")->result();
+    	return $data;
     }
 }

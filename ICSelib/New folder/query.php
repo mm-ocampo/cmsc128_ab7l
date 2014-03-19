@@ -13,7 +13,7 @@ class Query extends CI_Controller {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|xss_clean');
-        $this->form_validation->set_rules('header', 'Header', 'trim|required|min_length[1]|max_length[50]|xss_clean');
+		$this->form_validation->set_rules('header', 'Header', 'trim|required|min_length[1]|max_length[50]|xss_clean');
         $this->form_validation->set_rules('query_box', 'Message Query', 'trim|min_length[1]|max_length[500]|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE){

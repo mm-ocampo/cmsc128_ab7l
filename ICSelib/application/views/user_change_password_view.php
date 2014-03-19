@@ -9,7 +9,7 @@
   
     <body> 
         <div id="user_update_password">
-            <form name="user_update_password" method="POST" action="<?php echo base_url();?>index.php/elib/change_password_admin" onsubmit="return checkAllPassword();"> 
+            <form name="user_update_password" method="POST" action="<?php echo base_url();?>index.php/site/change_password_user" onsubmit="return checkAllPassword();"> 
                 <div class="form-group">
                     <input type="password" name="current_password" id="current_password" class="form-control input-lg" placeholder="Current Password" tabindex="5">
                     <span name="prompt_current_password"></span>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" id="submit" class="btn btn-primary" >Save changes</button>
+                <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
                 <a href="<?php echo base_url();?>index.php/elib/admin_profile?page_number=4"><button type="button" class="btn">Cancel</button></a>
             </form> 
               
@@ -88,7 +88,7 @@
         }
 
         function checkAllPassword(){
-            if( checkPassword() && matchPassword() ){
+            if(checkPassword() && matchPassword() ){
                 return true;
             }
             return false;
@@ -104,14 +104,12 @@
             });
             $("#password_confirmation").keyup(function(){
                matchPassword();
-
             });
             $("#submit").click(function(){
                checkAllPassword();
             });
-            
-        });
 
+        });
 
     </script>
     <script src=<?php echo "\"".base_url()."assets/jquery-2.0.3.js"."\""?>></script>
