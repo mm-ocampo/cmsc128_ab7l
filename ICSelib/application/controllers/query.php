@@ -31,7 +31,13 @@ class Query extends CI_Controller {
 
     function insertquery(){
         if($_GET['confirm'] == "true"){
-            $this->query_model->insert();
+
+            $temp = $this->db->query("SELECT max(id) as id FROM query");
+            $result = $temp->result();
+            $current_id = $result[0]->id;
+
+
+            $this->query_model->insert($current_id + 1, $this->input->post('input_email'), $this->input->post('header'), $this->input->post('query_box'));
             $this->load->view('success_query_view');
         }
         else

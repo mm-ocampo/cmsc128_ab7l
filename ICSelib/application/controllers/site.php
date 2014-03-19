@@ -71,7 +71,7 @@ class Site extends CI_Controller {
                 $data['reserved_materials'] = $this->get_database->get_reserve($email);
                 $data['book_titles'] = $this->get_database->get_title($email);
 
-                $this->load->view('user_default_view',$data);
+                $this->load->view('user_search_book_view',$data);
             }
             //changes as of March 7, 2014
             else{
@@ -173,7 +173,7 @@ class Site extends CI_Controller {
     }
 
     public function update_material_details(){
-        $data2= $this->input->post('inputAuthor');
+       $data2= $this->input->post('inputAuthor');
         $array = array();
         $i = 0;
 
@@ -184,17 +184,16 @@ class Site extends CI_Controller {
             }
         }
 
-        $accession_number = $this->input->post('accession_number');
-        $data = array(
-         'accession_number' => $this->input->post('accession_number'),        
+        $accession = $this->input->post('accession_number');
+        $data = array(        
          'publisher' => $this->input->post('inputPublisher'),  
          'copyright_year' => $this->input->post('inputYear'),
          'title' => $this->input->post('inputTitle'),
          'subject' => $this->input->post('inputSubject'),
          'type' => $this->input->post('type')
         );
-        $this->get_database->update_book_model($accession_number,$data);
-        $this->get_database->update_book_author($accession_number,$array);
+        $this->get_database->update_book_model($accession,$data);
+        $this->get_database->update_book_author($accession,$array);
         $this->load->view('admin_search_book_view');
     }
 

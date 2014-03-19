@@ -8,9 +8,9 @@ class query_model extends CI_Model {
         $this->load->database();
     }
 
-    function insert(){
+    function insert($id, $email, $header, $message){
         $this->load->database();
-        $this->db->query("INSERT INTO query(email,header,message) VALUES('".$this->input->post('input_email')."','".$this->input->post('header')."','".$this->input->post('query_box')."');"); 
+        $this->db->query("INSERT INTO query VALUES('{$id}','{$email}','{$header}','{$message}');"); 
     }
 
     function delete($id){

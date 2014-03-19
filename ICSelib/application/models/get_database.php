@@ -586,18 +586,43 @@
 			return $query->result();
 		}
 
-		public function update_book_model($accession_number,$data){  
-	      $this->db->where('accession_number', $accession_number);
+		public function update_book_model($accession,$data){  
+	      $title;
+		  $query = $this->db->query("SELECT title FROM material WHERE accession_number='$accession'");
+		  foreach($query->result() as $row){
+				$title = $row->title;
+		  }
+		  
+		  $query = $this->db->query("SELECT accession_number FROM material WHERE title='$title'");
+	      foreach($query->result() as $row){
+		  
+			$accession_number = $row->accession_number;
+			$this->db->where('accession_number', $accession_number);
 	      $this->db->update('material',$data);
+		  
+		  }
 	    }
 
-	    public function update_book_author($accession_number,$data2){  
-	      $this->db->where('accession_number', $accession_number);
-	      $this->db->delete('material_author');
-	      foreach ($data2 as $temp) {
+	    public function update_book_author($accession,$data2){  
+	     	$title;
+				$query = $this->db->query("SELECT title FROM material WHERE accession_number='$accession'");
+		  foreach($query->result() as $row){
+				$title = $row->title;
+		  }
+
+			$query = $this->db->query("SELECT accession_number FROM material WHERE title='$title'");
+				  foreach($query->result() as $row){
+				  
+					$accession_number = $row->accession_number;
+					$this->db->where('accession_number', $accession_number);
+			  $this->db->delete('material_author');
+			  
+			  foreach ($data2 as $temp) {
 	      	$statement =" INSERT into material_author values (\"$accession_number\", \"$temp\") ";
 	      	$this->db->query($statement);
 	      }
+				  
+		  }
 	    }
 
 	    public function delete_book_tags($accession_number){

@@ -158,8 +158,17 @@ $("body").click(function(){
 
 $('.result_header').click(function(){
 
+	if(!$(this).next().hasClass("dropdowned")){
 
-		$('.result_details').slideUp();
-		$(this).next().slideDown();
+		$('.result_details').slideUp("fast").removeClass("dropdowned");
+		$(this).next().slideToggle("fast").addClass("dropdowned");
+
+	}
+
+	else{
+
+		$(this).next().slideUp("fast").removeClass("dropdowned");
+
+	}
 
 });
