@@ -20,7 +20,7 @@ foreach($result as $row){
 	$i += 1;
 }
 echo "</div>";
-
+ 
 ?>
 <script type='text/javascript' language='javascript'>
 
